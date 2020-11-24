@@ -1,7 +1,95 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# -------------------------- FIRST SEED -------------------------
+
+puts "> Deleting all records..."
+EventUser.destroy_all
+Event.destroy_all
+Friendship.destroy_all
+User.destroy_all
+
+# ------------- HEROES -------------
+
+puts "> Creating users..."
+
+# Hadrien
+hadrien = User.new(first_name: 'Hadrien', last_name: 'Le Bret', email: "hadrien@gmail.com", password: "123456")
+
+# file = URI.open("https://img.lemde.fr/2012/07/07/15/292.30846792291/465.35839543596/310.23363729625/688/0/60/0/ill_1729361_c0b3_201207071.0.988834193face_batman_ori.jpg")
+# batman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+hadrien.save!
+
+puts "#{hadrien.first_name} created!"
+
+# Fanny
+fanny = User.new(first_name: 'Fanny', last_name: 'Ibanez', email: "fanny@gmail.com", password: "123456")
+
+# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
+# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+fanny.save!
+
+puts "#{fanny.first_name} created!"
+
+friendship1 = Friendship.new(user: hadrien, friend: fanny)
+friendship1.save!
+
+puts "#{fanny.first_name} is friend with #{hadrien.first_name}!"
+
+# Raphaël
+raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphaël@gmail.com", password: "123456")
+
+# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
+# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+raphael.save!
+
+puts "#{raphael.first_name} created!"
+
+friendship2 = Friendship.new(user: hadrien, friend: raphael)
+friendship2.save!
+
+puts "#{raphael.first_name} is friend with #{hadrien.first_name}!"
+
+# Magali
+magali = User.new(first_name: 'Magali', last_name: 'Rousseau', email: "magali@gmail.com", password: "123456")
+
+# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
+# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg").save!
+magali.save!
+
+puts "#{magali.first_name} created!"
+
+friendship3 = Friendship.new(user: hadrien, friend: magali)
+friendship3.save!
+
+puts "#{magali.first_name} is friend with #{hadrien.first_name}!"
+
+puts "> Creating events..."
+
+event1 = Event.new(emoji: "🍻", address: "16 Villa Gaudelet, Paris" , date: Time.now , hour: Time.now , description: "Come have a few drinks before lockdown" , open: false )
+event1.save
+
+event_user1 = EventUser.new(event: event1, user: hadrien, status: "confirmed", role: "host")
+event_user1.save!
+
+puts "#{event1.emoji}, hosted by #{event_user1.user.first_name} created!"
+
+event_user2 = EventUser.new(event: event1, user: fanny, status: "confirmed", role: "visitor")
+event_user2.save!
+
+event_user3 = EventUser.new(event: event1, user: raphael, status: "pending", role: "visitor")
+event_user3.save!
+
+event_user4 = EventUser.new(event: event1, user: magali, status: "declined", role: "visitor")
+event_user4.save!
+
+puts "#{event_user2.user.first_name}, #{event_user3.user.first_name} & #{event_user4.user.first_name} have been invited to #{event1.emoji}, hosted by #{event_user1.user.first_name}!"
+
+event2 = Event.new(emoji: "🍿", address: "Gaumont Paris" , date: Time.now , hour: Time.now , description: "Batman return for the 9pm session" , open: true )
+event2.save
+
+event_user5 = EventUser.new(event: event2, user: hadrien, status: "confirmed", role: "host")
+event_user1.save!
+
+puts "#{event2.emoji}, hosted by #{event_user5.user.first_name} created!"
+
+
+
+

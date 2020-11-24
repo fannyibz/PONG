@@ -1,2 +1,7 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<% @invited_events.each do |event| %>
+  <h2>Event : <%= event.emoji %></h2>
+  <p> <%= event.user.first_name %> </p>
+<% end %>

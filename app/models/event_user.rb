@@ -3,7 +3,7 @@ class EventUser < ApplicationRecord
   belongs_to :user
 
   enum status: [:pending, :confirmed, :declined]
-  enum role: [:host, :partner, :visitor]
+  enum role: [:partner, :visitor]
 
   before_create :set_role, :set_status
 

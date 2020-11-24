@@ -63,32 +63,32 @@ puts "#{magali.first_name} is friend with #{hadrien.first_name}!"
 
 puts "> Creating events..."
 
-event1 = Event.new(emoji: "🍻", address: "16 Villa Gaudelet, Paris" , date: Time.now , hour: Time.now , description: "Come have a few drinks before lockdown" , open: false )
-event1.save
+event1 = Event.new(emoji: "🍻",
+                   address: "16 Villa Gaudelet, Paris",
+                   date_time: DateTime.now,
+                   description: "Come have a few drinks before lockdown",
+                   open: false,
+                   user: hadrien )
+event1.save!
 
-event_user1 = EventUser.new(event: event1, user: hadrien, status: "confirmed", role: "host")
-event_user1.save!
+puts "#{event1.emoji}, hosted by #{event1.user.first_name} created!"
 
-puts "#{event1.emoji}, hosted by #{event_user1.user.first_name} created!"
+EventUser.create!(event: event1, user: fanny, status: "confirmed", role: "visitor")
 
-event_user2 = EventUser.new(event: event1, user: fanny, status: "confirmed", role: "visitor")
-event_user2.save!
+EventUser.create!(event: event1, user: raphael, status: "pending", role: "visitor")
 
-event_user3 = EventUser.new(event: event1, user: raphael, status: "pending", role: "visitor")
-event_user3.save!
+EventUser.create!(event: event1, user: magali, status: "declined", role: "visitor")
 
-event_user4 = EventUser.new(event: event1, user: magali, status: "declined", role: "visitor")
-event_user4.save!
+event2 = Event.new(emoji: "🍔",
+                   address: "130 rue saint-denis, Paris",
+                   date_time: DateTime.now + 2.hours,
+                   description: "I'm veryyyy hungry!",
+                   open: true,
+                   user: fanny )
 
-puts "#{event_user2.user.first_name}, #{event_user3.user.first_name} & #{event_user4.user.first_name} have been invited to #{event1.emoji}, hosted by #{event_user1.user.first_name}!"
+EventUser.create!(event: event2, user: hadrien, status: "confirmed", role: "partner")
 
-event2 = Event.new(emoji: "🍿", address: "Gaumont Paris" , date: Time.now , hour: Time.now , description: "Batman return for the 9pm session" , open: true )
-event2.save
-
-event_user5 = EventUser.new(event: event2, user: hadrien, status: "confirmed", role: "host")
-event_user1.save!
-
-puts "#{event2.emoji}, hosted by #{event_user5.user.first_name} created!"
+puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
 
 
 

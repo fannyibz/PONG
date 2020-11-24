@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_165136) do
+ActiveRecord::Schema.define(version: 2020_11_24_152244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_165136) do
   create_table "events", force: :cascade do |t|
     t.string "emoji"
     t.string "address"
-    t.date "date"
-    t.time "hour"
     t.text "description"
     t.boolean "open", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "date_time"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_165136) do
 
   add_foreign_key "event_users", "events"
   add_foreign_key "event_users", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "messages", "events"

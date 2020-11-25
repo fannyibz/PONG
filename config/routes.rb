@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   root to: 'pages#home'
   get :components, to: 'pages#components'
+  get 'dashboard', to: 'pages#dashboard'
 
   resources :events do
     #CREATING ROUTES FOR THE SIMPLE_FORM CREATION OF AN EVENT

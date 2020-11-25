@@ -18,9 +18,25 @@
 // }
 
 .navbar {
-  background: #161616;
+  background-color: #161616;
   width: 100%;
-  height: 60px;
-  display: flex;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-icon-box {
+  flex: 1 1 auto;
+  display: flex;
+  place-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.navbar-icon-box i {
+  color: white;
+  font-size: 25px;
 }

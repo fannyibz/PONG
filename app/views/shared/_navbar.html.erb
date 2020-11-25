@@ -21,7 +21,15 @@
 
 
 <div class="navbar">
-  <div>HELLO</div>
-  <div></div>
-  <div></div>
+  <%= link_to root_path, class: "navbar-icon-box" do %>
+      <i class="fas fa-map-marked-alt"></i>
+  <% end %>
+
+  <%= link_to root_path, class: "navbar-icon-box" do %>
+      <i class="far fa-bell"></i>
+  <% end %>
+
+  <%= link_to destroy_user_session_path, method: :delete, class: "navbar-icon-box" do %>
+      <i class="fas fa-bars"></i>
+  <% end %>
 </div>

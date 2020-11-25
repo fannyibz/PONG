@@ -1,0 +1,6 @@
+<h1>What time it begins?</h1>
+
+<%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
+  <%= f.input :date_time %>
+  <%= f.submit "next" %>
+<% end %>

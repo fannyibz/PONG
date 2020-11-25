@@ -9,3 +9,5 @@
   <h2>Event : <%= event.emoji %></h2>
   <p> <%= event.user.first_name %> </p>
 <% end %>
+
+<%= link_to "propose a plan", events_path, method: :post %>

@@ -8,8 +8,13 @@ class User < ApplicationRecord
   has_many :event_users, dependent: :destroy
   has_many :events_as_guest, through: :event_users, source: :event
   has_many :messages, dependent: :destroy
+  has_many :friendships, dependent: :destroy
   has_one_attached :avatar
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  def friends
+    User.where(id: self.friendships.pluck(:friend_id))
+  end
 end

@@ -1,0 +1,9 @@
+fieldset.event_friends {
+  input[type='checkbox'] {
+    display: none;
+  }
+  input[type='checkbox']:checked + label img {
+    // @extend .avatar-bordered;
+    border: 2px solid red;
+  }
+}

@@ -1,0 +1,6 @@
+<h1>What are you up to?</h1>
+
+<%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
+  <%= f.input :emoji, as: :radio_buttons, collection: Event::EMOJI %>
+  <%= f.submit "next" %>
+<% end %>

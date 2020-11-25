@@ -20,3 +20,4 @@ end
 
 # 'cl_image_tag event.user.avatar.key'
 # participant: event. nb de participants
+# event_user.status = joining

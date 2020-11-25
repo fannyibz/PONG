@@ -1,0 +1,13 @@
+<h1>Time to invite some friends!</h1>
+
+<%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
+
+  <%= f.input :friends, 
+    as: :check_boxes, 
+    label_method: lambda { |user| render "events/user_label", user: user },
+    collection: @friends, 
+    include_blank: false, 
+    include_hidden: false %>
+
+  <%= f.submit "next" %>
+<% end %>

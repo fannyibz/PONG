@@ -1,0 +1,30 @@
+.emoji-box {
+border: 1px solid #E5E5E5;
+height: 100px;
+width: 100px;
+border-radius: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  p {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
+.emoji-text {
+
+}
+
+.bordered {
+  border: 3px solid $strong-orange;
+}
+
+
+.emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+

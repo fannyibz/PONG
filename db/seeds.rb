@@ -1,9 +1,11 @@
 # -------------------------- FIRST SEED -------------------------
 
 puts "> Deleting all records..."
+
 EventUser.destroy_all
 Event.destroy_all
 Friendship.destroy_all
+# User.avatar.attach.destroy_all
 User.destroy_all
 
 # ------------- HEROES -------------
@@ -13,8 +15,8 @@ puts "> Creating users..."
 # Hadrien
 hadrien = User.new(first_name: 'Hadrien', last_name: 'Le Bret', email: "hadrien@gmail.com", password: "123456")
 
-# file = URI.open("https://img.lemde.fr/2012/07/07/15/292.30846792291/465.35839543596/310.23363729625/688/0/60/0/ill_1729361_c0b3_201207071.0.988834193face_batman_ori.jpg")
-# batman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+file = URI.open("https://avatars1.githubusercontent.com/u/70147290?v=4.jpg")
+hadrien.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 hadrien.save!
 
 puts "#{hadrien.first_name} created!"
@@ -22,8 +24,8 @@ puts "#{hadrien.first_name} created!"
 # Fanny
 fanny = User.new(first_name: 'Fanny', last_name: 'Ibanez', email: "fanny@gmail.com", password: "123456")
 
-# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
-# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+file = URI.open("https://avatars0.githubusercontent.com/u/61230838?v=4.jpg")
+fanny.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 fanny.save!
 
 puts "#{fanny.first_name} created!"
@@ -36,8 +38,8 @@ puts "#{fanny.first_name} is friend with #{hadrien.first_name}!"
 # Raphaël
 raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphaël@gmail.com", password: "123456")
 
-# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
-# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+file = URI.open("https://avatars3.githubusercontent.com/u/67843990?v=4.jpg")
+raphael.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 raphael.save!
 
 puts "#{raphael.first_name} created!"
@@ -50,8 +52,8 @@ puts "#{raphael.first_name} is friend with #{hadrien.first_name}!"
 # Magali
 magali = User.new(first_name: 'Magali', last_name: 'Rousseau', email: "magali@gmail.com", password: "123456")
 
-# file = URI.open("https://i.pinimg.com/originals/cb/9f/37/cb9f37eaf4205b8335d60c6cb91b0925.jpg")
-# superman.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg").save!
+file = URI.open("https://avatars3.githubusercontent.com/u/70401848?v=4.jpg")
+magali.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 magali.save!
 
 puts "#{magali.first_name} created!"

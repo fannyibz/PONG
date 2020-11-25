@@ -10,4 +10,8 @@ class PagePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def components?
+    true
+  end
+
 end

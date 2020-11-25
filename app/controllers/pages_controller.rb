@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def components
      authorize(:page, :components?)
+  end
 
   def home
     @hosted_events = policy_scope(current_user.events)
@@ -23,7 +24,6 @@ class PagesController < ApplicationController
     end
   end
 end
-
 # 'cl_image_tag event.user.avatar.key'
 # participant: event. nb de participants
 # event_user.status = joining

@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     @event.save
     redirect_to edit_what_event_path(@event)
   end
-  
+
   def edit_what
   end
 

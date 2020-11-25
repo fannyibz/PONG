@@ -5,4 +5,12 @@ class PagePolicy < ApplicationPolicy
     end
   end
 
+  def home?
+    true
+  end
+
+  def components?
+    true
+  end
+
 end

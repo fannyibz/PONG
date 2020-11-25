@@ -1,19 +1,32 @@
-.button-big-wrap {
-  // padding: 10px 19px;
-  border-radius: 32px;
-  overflow: hidden;
-  margin: 10px;
-  width: 300px;
+// .button-big-wrap {
+//   // padding: 10px 19px;
+//   border-radius: 32px;
+//   overflow: hidden;
+//   margin: 10px;
+//   width: 300px;
+// }
+
+.button-gradient {
+  background: $transparent-black;
+  border: 2px solid $strong-orange;
+  border-radius: 40px;
+  padding: 12px 15px;
+  color: white;
 }
 
-.button-big {
-  background: rgba(0,0,0,0.7);
-  // background: $orange-gradient;
-  // border: solid 3px linear-gradient(90deg, rgba(232,93,4,1) 0%, rgba(251,177,60,1) 100%);
+.button-next {
+  border: 1px solid $grey-stroke;
+  border-radius: 40px;
+  padding: 12px 15px;
   color: white;
-  border: 10px solid rgba(0,0,0,0.7);
-  border-radius: 40%;
-  border-image-source: linear-gradient(to right, rgba(232,93,4,1), rgba(251,177,60,1));
-  border-image-slice: 20;
-  line-height: 1;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
+
+.background-grey {
+  background: $bg-dark;
+  padding: 8px;
+  width: 100%;
+}
+

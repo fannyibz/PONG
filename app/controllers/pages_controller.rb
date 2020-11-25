@@ -11,10 +11,12 @@ class PagesController < ApplicationController
         lat: event.latitude,
         lng: event.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
-        image_url: helpers.asset_url("raph.jpg") # 'cl_image_tag @event.user.avatar.key'
+        image_url: helpers.asset_url(Cloudinary::Utils.cloudinary_url(event.user.avatar.key)),
+        emoji: event.emoji
       }
     end
   end
 end
 
-
+# 'cl_image_tag event.user.avatar.key'
+# participant: event. nb de participants

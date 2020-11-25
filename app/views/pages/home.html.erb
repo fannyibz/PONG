@@ -10,4 +10,9 @@
   <p> <%= event.user.first_name %> </p>
 <% end %>
 
-<%= link_to "propose a plan", events_path, method: :post %>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <%= link_to "propose a plan", events_path, method: :post %>
+</div>

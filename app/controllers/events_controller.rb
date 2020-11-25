@@ -2,6 +2,10 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends]
   skip_before_action :authenticate_user!, only: [:show]
 
+  def index
+    @events = Event.all
+  end
+
   def show
   end
 

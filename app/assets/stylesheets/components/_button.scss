@@ -1,0 +1,32 @@
+// .button-big-wrap {
+//   // padding: 10px 19px;
+//   border-radius: 32px;
+//   overflow: hidden;
+//   margin: 10px;
+//   width: 300px;
+// }
+
+.button-gradient {
+  background: $transparent-black;
+  border: 2px solid $strong-orange;
+  border-radius: 40px;
+  padding: 12px 15px;
+  color: white;
+}
+
+.button-next {
+  border: 1px solid $grey-stroke;
+  border-radius: 40px;
+  padding: 12px 15px;
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.background-grey {
+  background: $bg-dark;
+  padding: 8px;
+  width: 100%;
+}
+

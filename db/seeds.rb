@@ -65,7 +65,7 @@ puts "#{magali.first_name} is friend with #{hadrien.first_name}!"
 
 puts "> Creating events..."
 
-event1 = Event.new(emoji: "🍻",
+event1 = Event.new(emoji: "🍺",
                    address: "16 Villa Gaudelet, Paris",
                    date_time: DateTime.now,
                    description: "Come have a few drinks before lockdown",

@@ -31,8 +31,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Cloudinary
 gem 'cloudinary', '~> 1.16.0'
 
+# Pundit and devise
 gem 'devise'
 gem 'pundit'
+
+# Geocoding
+gem 'geocoder'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

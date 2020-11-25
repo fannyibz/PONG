@@ -9,8 +9,8 @@ class PagesController < ApplicationController
   def home
     @hosted_events = policy_scope(current_user.events)
     @invited_events = policy_scope(current_user.events_as_guest)
-    authorize @hosted_events if @hosted_events.empty?
-    authorize @invited_events if @invited_events.empty?
+    # authorize @hosted_events if @hosted_events.empty?
+    # authorize @invited_events if @invited_events.empty?
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = (@hosted_events.geocoded + @invited_events.geocoded).map do |event|

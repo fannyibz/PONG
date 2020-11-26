@@ -1,5 +1,8 @@
 <div class="content-container">
-  <h1>What are you up to?</h1>
+  <div class="text-center">
+    <h1>What are you up to?</h1>
+    <p>Choose wisely your emotivent !</p>
+  </div>
 
   <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
     <%#= f.input :emoji, as: :radio_buttons,
@@ -9,11 +12,12 @@
     as: :radio_buttons,
     label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
     collection: Event::EMOJI,
-    input_html: {class: 'd-none'},
+    input_html: {class: 'd-none radio-btn'},
     item_wrapper_class: :radio,
-    # include_blank: false,
+    # selected: Event::EMOJI.first,
     include_hidden: false
      %>
+
      <div class="background-grey sticky-bottom">
       <%= f.submit "Next 👉", class: "button-next" %>
      </div>

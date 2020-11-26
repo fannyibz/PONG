@@ -70,7 +70,8 @@ event1 = Event.new(emoji: "🍺",
                    date_time: DateTime.now,
                    description: "Come have a few drinks before lockdown",
                    open: false,
-                   user: hadrien )
+                   user: hadrien,
+                   status: "completed" )
 event1.save!
 
 puts "#{event1.emoji}, hosted by #{event1.user.first_name} created!"
@@ -88,7 +89,8 @@ event2 = Event.new(emoji: "🍔",
                    date_time: DateTime.now + 2.hours,
                    description: "I'm veryyyy hungry!",
                    open: true,
-                   user: fanny )
+                   user: fanny,
+                   status: "completed" )
 
 EventUser.create!(event: event2, user: hadrien, status: "confirmed", role: "partner")
 

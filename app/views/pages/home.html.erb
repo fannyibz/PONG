@@ -1,25 +1,13 @@
-<%
-=begin %>
+<div class="map-container position-relative">
+  <div class="position-absolute button-wrapper">
+    <div class="gradient-box">
+      <%= link_to "Share my plan" , events_path, method: :post, class: "text-button" %>
+    </div>
+  </div>
 
-<h1>PONG</h1>
-
-<% @hosted_events.each do |event| %>
-  <h2>Event : <%= event.emoji %></h2>
-  <p> <%= event.user.first_name %> </p>
-<% end %>
-
-<% @invited_events.each do |event| %>
-  <h2>Event : <%= event.emoji %></h2>
-  <p> <%= event.user.first_name %> </p>
-<% end %>
-
-<%
-=end %>
-
-<div id="map"
-     style="width: 100%; height: 575px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div id="map"
+      style="width: 100%; height: 100%;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-<%= link_to "propose a plan", events_path, method: :post %>
-

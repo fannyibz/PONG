@@ -72,13 +72,13 @@
     <%# end %> -->
 
     <br>
-    <%= link_to "Edit the event", @event_path, method: :get %>
+    <%= link_to "Edit plan", @event_path, method: :get %>
     <br>
-    <%= link_to "Invite extra friends", @event_path, method: :get %>
+    <%= link_to "Invite friends", @event_path, method: :get %>
     <br>
-    <%= link_to "Share the event", @event_path, method: :get %>
+    <%= link_to "Copy link", @event_path, method: :get %>
     <br>
-    <%= link_to "Delete the event", @event_path, method: :get %>
+    <%= link_to "Delete plan", @event_path, method: :get %>
 
   <% else  %>
     <br>
@@ -86,9 +86,6 @@
     <br>
     <%= link_to "Declined", @event_path, method: :get %>
   <% end  %>
-
-
-
 
   <%# if policy(@event).edit? %>
     <%#= link_to "Edit this event", edit_event_path, class: "btn btn-primary" %>
@@ -101,7 +98,6 @@
                 method: :delete,
                 data: { confirm: "Are you sure?" } %>
   <%# end %>
-
 
   <br>
   <br>

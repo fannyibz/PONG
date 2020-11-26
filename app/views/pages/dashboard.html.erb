@@ -1,7 +1,7 @@
 <h1><%= "Hello #{current_user.first_name}!" %></h1>
-
+<br>
 <%= link_to "Back", root_path %>
-
+<br>
 <%= link_to "Access to my events", events_path %>
-
+<br>
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>

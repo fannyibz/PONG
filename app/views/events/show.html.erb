@@ -74,6 +74,7 @@
 
     <br>
     <%= link_to "Edit plan", event_path, method: :get %>
+    <br>
 
     <% if policy(@event).edit_friends? %>
       <%= link_to "Manage invitations", edit_friends_event_path, method: :get, class: "" %>

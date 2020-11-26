@@ -1,55 +1,66 @@
 <div class="container">
-  <h1>Welcome to the show of the event</h1>
-
-  <!-- <h5>Toggle button to go from Event Details to Event Messages</h5> -->
-
-  <h5>Event title</h5>
+  <h1>Event title <%= @event.emoji %></h1>
   <!-- To do later: automatic with the name of the emoji but editable -->
   <br>
+  <!-- <h5>Toggle button to go from Event Details to Event Messages</h5> -->
+  <h5>Proposed by <%= @event.user.first_name %></h5>
+  <%= cl_image_tag @event.user.avatar.key, class: "avatar-profile" %>
+  <br>
   <br>
 
-  <h5>Event emoji</h5>
-  <p><%= @event.emoji %></p>
-  <br>
-  <br>
-
-  <h5>Event address</h5>
+  <h5>Where</h5>
   <p><%= @event.address %></p>
   <br>
-  <br>
 
-  <h5>Event date and time</h5>
+  <h5>When</h5>
   <p><%= @event.date_time %></p>
   <br>
-  <br>
 
-  <h5>Event Conversation</h5>
-  <i class="fas fa-paper-plane"></i>
-  <br>
-  <br>
-
-  <h5>Event host</h5>
-  <p><%= @event.user.first_name %></p>
-  <br>
-  <%= cl_image_tag @event.user.avatar.key, height: 75, width: 100, crop: :fill %>
-  <br>
-  <br>
+  <p><%= "Feel free to join with an extra friend!" if @event.open == true %></p>
 
   <h5>Description</h5>
   <p><%= @event.description %></p>
   <br>
-  <br>
 
-  <h5>Event guests</h5>
+  <%#=  si le mec qui arrive sur la show est host
+  j'affiche event parti %>
+
+  <h5>Invitations confirmed</h5>
+
+  <% @event.event_users.each do |event_user| %>
+    <p><%= event_user.user_id if event_user.status == "confirmed"  %></p>
+  <% end %>
+
+  <% @event.event_users.each do |event_user| %>
+    <p><%= event_user.user_id if event_user.status == "pending"  %></p>
+  <% end %>
+
+  <% @event.event_users.each do |event_user| %>
+    <p><%= event_user.user_id if event_user.status == "declined"  %></p>
+  <% end %>
+
   <% @event.guests.each do |guest|%>
     <p>🙋‍♀️  <%= guest.first_name %></p>
-      <%= cl_image_tag guest.avatar.key, height: 75, width: 100, crop: :fill ,class: "avatar-show" %>
+      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
     <p></p>
   <% end %>
 
   <br>
-  <p>Can I come with an extra friend? <%= event.open %></p>
-  <br>
+  <h5>Pending invitations</h5>
+  <% @event.guests.each do |guest|%>
+    <p>🤷‍♂️  <%= guest.first_name %></p>
+      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
+    <p></p>
+  <% end %>
+
+  <h5>Declined invitations</h5>
+  <% @event.guests.each do |guest|%>
+    <p>🙋‍♀️  <%= guest.first_name %></p>
+      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
+    <p></p>
+  <% end %>
+
+
 
   <%# if policy(@event).edit? %>
     <%#= link_to "Edit this event", edit_event_path, class: "btn btn-primary" %>
@@ -63,6 +74,8 @@
                 data: { confirm: "Are you sure?" } %>
   <%# end %>
 
+  <%= link_to "Event conversation", @event_path, method: :get %>
+  <p><i class="fas fa-paper-plane"></i></p>
   <br>
   <%= link_to "Edit the event", @event_path, method: :get %>
   <br>
@@ -71,6 +84,10 @@
   <%= link_to "Share the event", @event_path, method: :get %>
   <br>
   <%= link_to "Delete the event", @event_path, method: :get %>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <!-- if I am host I want to see the edit button -->
   <!-- in any case I want to see the show of the event -->

@@ -1,31 +1,35 @@
-<div class="container-content">
+<div class="content-container content-when">
 
   <h1>What time it begins?</h1>
 
+  <br>
+
   <div class="tab-centered">
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
+    <ul class="toggle-nav nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item left-tab" role="presentation">
         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Now</a>
       </li>
-      <li class="nav-item" role="presentation">
+      <li class="nav-item right-tab" role="presentation">
         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Later</a>
       </li>
     </ul>
   </div>
 
+  <br>
 
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
-      <input type="time" name="test">
-        <%= f.input :date_time %>
-        <%= f.button :submit, "Next 👉", class: "btn btn-primary" %>
+        <%= f.input :date_time, as: :time, label: false %>
+        <%= f.button :submit, "Next 👉", class: "button-next sticky-bottom" %>
       <% end %>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
         <%= f.input :date_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <%= f.button :submit, "Next 👉", class: "btn btn-primary" %>
+        <div class="sticky-bottom">
+          <%= f.button :submit, "Next 👉", class: "button-next" %>
+        </div>
       <% end %>
     </div>
   </div>

@@ -1,16 +1,20 @@
-<h1>Time to invite some friends!</h1>
+<div class="content-container">
 
-  <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
+  <h1>Time to invite some friends!</h1>
 
+    <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
+      <%= f.input :friends,
+        as: :check_boxes,
+        label_method: lambda { |user| render "events/user_label", user: user },
+        collection: @friends,
+        include_blank: false,
+        include_hidden: false %>
 
-    <%= f.input :friends,
-      as: :check_boxes,
-      label_method: lambda { |user| render "events/user_label", user: user },
-      collection: @friends,
-      include_blank: false,
-      include_hidden: false %>
+      <div class="sticky-bottom">
+        <%= f.button :submit, "Next 👉", class: "button-next" %>
+      </div>
+    <% end %>
 
+</div>
 
-    <%= f.submit "next" %>
-  <% end %>
 

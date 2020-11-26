@@ -8,8 +8,9 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
   p {
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 54px;
+    line-height: 15px;
+    margin-top: 30px;
   }
   &:hover {
   display: flex;
@@ -37,7 +38,11 @@ justify-content: center;
       background: linear-gradient(to bottom, $strong-orange, $light-orange);
     }
 }
+}
 
+.emoji-text {
+  margin-top: 20px;
+  font-size: 13px;
 }
 
 

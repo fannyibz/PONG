@@ -1,7 +1,10 @@
 <div class="container">
   <h1>Event title <%= @event.emoji %></h1>
-  <!-- To do later: automatic with the name of the emoji but editable -->
   <br>
+  <%= link_to "Event conversation", @event_path, method: :get %>
+  <p><i class="fas fa-paper-plane"></i></p>
+  <br>
+  <!-- To do later: automatic with the name of the emoji but editable -->
   <!-- <h5>Toggle button to go from Event Details to Event Messages</h5> -->
   <h5>Proposed by <%= @event.user.first_name %></h5>
   <%= cl_image_tag @event.user.avatar.key, class: "avatar-profile" %>
@@ -17,6 +20,7 @@
   <br>
 
   <p><%= "Feel free to join with an extra friend!" if @event.open == true %></p>
+  <br>
 
   <h5>Description</h5>
   <p><%= @event.description %></p>
@@ -25,40 +29,64 @@
   <%#=  si le mec qui arrive sur la show est host
   j'affiche event parti %>
 
-  <h5>Invitations confirmed</h5>
+  <h5>🙋 Friends participating</h5>
 
   <% @event.event_users.each do |event_user| %>
-    <p><%= event_user.user_id if event_user.status == "confirmed"  %></p>
-  <% end %>
+      <% if event_user.status == "confirmed" %>
+        <p>
+          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          <%= event_user.user.first_name %>
+        </p>
+      <% end %>
+    <% end %>
 
-  <% @event.event_users.each do |event_user| %>
-    <p><%= event_user.user_id if event_user.status == "pending"  %></p>
-  <% end %>
+  <% if @user_is_host %>
 
-  <% @event.event_users.each do |event_user| %>
-    <p><%= event_user.user_id if event_user.status == "declined"  %></p>
-  <% end %>
+    <h5>🤷‍♂️ Propositions pending</h5>
 
-  <% @event.guests.each do |guest|%>
-    <p>🙋‍♀️  <%= guest.first_name %></p>
-      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
-    <p></p>
-  <% end %>
+    <% @event.event_users.each do |event_user| %>
+      <% if event_user.status == "pending" %>
+        <p>
+          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          <%= event_user.user.first_name %>
+        </p>
+      <% end %>
+    <% end %>
 
-  <br>
-  <h5>Pending invitations</h5>
-  <% @event.guests.each do |guest|%>
-    <p>🤷‍♂️  <%= guest.first_name %></p>
-      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
-    <p></p>
-  <% end %>
+    <h5>🙅‍♂️ Friends not available</h5>
 
-  <h5>Declined invitations</h5>
-  <% @event.guests.each do |guest|%>
-    <p>🙋‍♀️  <%= guest.first_name %></p>
-      <%= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
-    <p></p>
-  <% end %>
+    <% @event.event_users.each do |event_user| %>
+      <% if event_user.status == "declined" %>
+        <p>
+          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          <%= event_user.user.first_name %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <!-- <h5>Recap all guests</h5>
+
+    <%# @event.guests.each do |guest|%>
+      <p> 🙍‍♂️ <%#= guest.first_name %></p>
+      <%#= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
+    <%# end %> -->
+
+    <br>
+    <%= link_to "Edit the event", @event_path, method: :get %>
+    <br>
+    <%= link_to "Invite extra friends", @event_path, method: :get %>
+    <br>
+    <%= link_to "Share the event", @event_path, method: :get %>
+    <br>
+    <%= link_to "Delete the event", @event_path, method: :get %>
+
+  <% else  %>
+    <br>
+    <%= link_to "Join", @event_path, method: :get %>
+    <br>
+    <%= link_to "Declined", @event_path, method: :get %>
+  <% end  %>
+
 
 
 
@@ -74,16 +102,7 @@
                 data: { confirm: "Are you sure?" } %>
   <%# end %>
 
-  <%= link_to "Event conversation", @event_path, method: :get %>
-  <p><i class="fas fa-paper-plane"></i></p>
-  <br>
-  <%= link_to "Edit the event", @event_path, method: :get %>
-  <br>
-  <%= link_to "Invite extra friends", @event_path, method: :get %>
-  <br>
-  <%= link_to "Share the event", @event_path, method: :get %>
-  <br>
-  <%= link_to "Delete the event", @event_path, method: :get %>
+
   <br>
   <br>
   <br>

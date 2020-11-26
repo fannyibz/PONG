@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user_is_host = @event.user == current_user
   end
 
   #METHODS USED FOR THE SIMPLE_FORM:

@@ -72,39 +72,39 @@
     <%# end %> -->
 
     <br>
-    <%= link_to "Edit plan", @event_path, method: :get %>
+    <%= link_to "Edit plan", event_path, method: :get %>
     <br>
-    <%= link_to "Invite friends", @event_path, method: :get %>
+    <%= link_to "Invite friends", edit_friends_event_path(@event), method: :get %>
     <br>
-    <%= link_to "Copy link", @event_path, method: :get %>
+    <%= link_to "Copy link", event_path, method: :get %>
     <br>
-    <%= link_to "Delete plan", @event_path, method: :get %>
+    <%= link_to "Delete plan", event_path, method: :get %>
 
   <% else  %>
-    <br>
-    <%= link_to "Join", @event_path, method: :get %>
-    <br>
-    <%= link_to "Declined", @event_path, method: :get %>
+
+    <% if current_user.status == "confirmed" %>
+
+      <%= link_to "Change answer", @event_path, method: :get %>
+
+      <% if current_user.role == "partner" %>
+        <%= link_to "Invite a friend", @event_path, method: :get %>
+      <% else %>
+      <% end %>
+
+    <% elsif current_user.status == "pending" %>
+
+      <%= link_to "Join", @event_path, method: :get %>
+      <%= link_to "Declined", @event_path, method: :get %>
+
+    <% else %>
+      <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
+
+    <% end %>
   <% end  %>
 
-  <%# if policy(@event).edit? %>
-    <%#= link_to "Edit this event", edit_event_path, class: "btn btn-primary" %>
-  <%# end %>
-
-  <%# if policy(@event).destroy? %>
-    <%#= link_to "Delete #{@event.name}",
-                event_path(@event),
-                class: "btn btn-primary",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-  <%# end %>
-
   <br>
   <br>
   <br>
   <br>
-
-  <!-- if I am host I want to see the edit button -->
-  <!-- in any case I want to see the show of the event -->
 
   </div>

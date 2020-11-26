@@ -15,6 +15,8 @@ align-items: center;
 justify-content: center;
 }
 
+
+
 .avatar-friend {
   width: 100px;
   border-radius: 50%;
@@ -25,14 +27,30 @@ justify-content: center;
 }
 
 .avatar-friend-selected{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: $strong-orange 2px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
+  position: relative;
+  padding: 1px 1px;
+  box-sizing: border-box;
+  $border: 3px;
+  color: white;
+  background: $bg-dark;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 50px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -$border; /* !importanté */
+      border-radius: inherit; /* !importanté */
+      background: linear-gradient(to bottom, $strong-orange, $light-orange);
+    }
 }
 
 .avatar-profile {
@@ -41,16 +59,31 @@ justify-content: center;
 }
 
 .avatar-profile-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 52px;
   height: 52px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: $strong-orange 2px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-
+  // margin: auto;
+  position: relative;
+  padding: 1px 1px;
+  box-sizing: border-box;
+  $border: 3px;
+  color: white;
+  background: $bg-dark;
+  background-clip: padding-box; /* !importanté */
+  border: solid $border transparent; /* !importanté */
+  border-radius: 50px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -$border; /* !importanté */
+      border-radius: inherit; /* !importanté */
+      background: linear-gradient(to bottom, $strong-orange, $light-orange);
+    }
+}
 
 .avatar-square {
   width: 40px;

@@ -19,8 +19,9 @@ class PagesController < ApplicationController
         lng: event.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
         image_url: helpers.asset_url(Cloudinary::Utils.cloudinary_url(event.user.avatar.key)),
-        emoji: event.emoji
+        emoji: event.emoji,
       }
+
     end
   end
 

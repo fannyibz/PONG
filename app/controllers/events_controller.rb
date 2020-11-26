@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
-    @events = Event.all
+    @hosted_events = policy_scope(current_user.events)
+    @invited_events = policy_scope(current_user.events_as_guest)
   end
 
   def show

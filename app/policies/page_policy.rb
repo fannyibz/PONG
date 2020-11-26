@@ -14,4 +14,8 @@ class PagePolicy < ApplicationPolicy
     true
   end
 
+  def dashboard?
+    true
+  end
+
 end

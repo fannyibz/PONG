@@ -1,0 +1,14 @@
+<h1>All the events</h1>
+
+<h2>I'm the host of:</h2>
+<% @hosted_events.each do |event| %>
+  <h3><%= event.emoji %></h3>
+  <p><%= "At: #{event.date_time}" %></p>
+<% end %>
+
+<h2>I'm invited to:</h2>
+<% @invited_events.each do |event| %>
+  <h3><%= event.emoji %></h3>
+  <p><%= event.user.first_name %></p>
+  <p><%= "At: #{event.date_time}" %></p>
+<% end %>

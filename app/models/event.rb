@@ -12,6 +12,8 @@ class Event < ApplicationRecord
   validates :date_time, presence: true
   
   before_validation :set_attributes
+  
+  enum status: [:incompleted, :completed, :pasted]
 
   EMOJI = ['🍺', '🍷', '🍿', '🏀', '🍔', '🍣', '🏋️‍♂️', '🧘‍♀️', '🛍', '🍑', '🍌', '🎉', '⚽️', '🏃‍♂️',]
 
@@ -25,5 +27,6 @@ class Event < ApplicationRecord
     self.emoji = "🍺" if self.emoji.blank?
     self.address = "10 rue du Chat-qui-Pêche, Paris" if self.address.blank?
     self.date_time = DateTime.now if self.date_time.blank?
+    self.status = "incompleted" if self.status.blank?
   end
 end

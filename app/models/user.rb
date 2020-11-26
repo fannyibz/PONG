@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
   has_many :event_users, dependent: :destroy
-  has_many :events_as_guest, through: :event_users, source: :event
+  has_many :events_as_guest, through: :event_users, source: :event #all events (host + guests if we want to add host as event_user)
   has_many :messages, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_one_attached :avatar

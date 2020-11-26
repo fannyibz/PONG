@@ -7,9 +7,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+font-size: 50px;
+margin-bottom: 12px;
   p {
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 13px;
+    margin-top: -18px;
+    line-height: 2.5;
   }
   &:hover {
   display: flex;
@@ -36,15 +39,21 @@ justify-content: center;
       border-radius: inherit; /* !importanté */
       background: linear-gradient(to bottom, $strong-orange, $light-orange);
     }
+  }
 }
 
+.emoji-text {
+  margin-top: 20px;
+  font-size: 13px;
 }
 
-
-
-.emoji-list {
+.event_emoji {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+// input.radio_buttons.inline label.radio{
+//   display: inline-block;
+// }
 

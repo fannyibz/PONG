@@ -12,11 +12,11 @@ class Event < ApplicationRecord
   validates :date_time, presence: true
 
   before_validation :set_attributes
-  
+
   enum status: [:incompleted, :completed, :pasted]
-  
-  EMOJI = { 🍺: 'beer', 🍷: 'sipping', 🍿: 'movies', 🏀: 'basket', 🍔: 'fastfood', 🍣: 'sushis', 🏋️‍♂️: 'gym', 🧘‍♀️: 'yoga', 🛍: 'shopping', 🍑: 'Rrrrrr', 🍌: '???', 🎉: 'party', ⚽️: 'football', 🏃‍♂️: 'jogging', 🤓: 'codding', 🎮: 'geeking', 🎿: 'ski', 🎬: 'netflix'}
-  
+
+  EMOJI = { beer: '🍺', sipping: '🍷', movies: '🍿', basket: '🏀', fastfood: '🍔', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shopping: '🛍',Rrrrrr: ' 🍑', banana: '🍌', party: '🎉', football: '⚽️', jogging: '🏃‍♂️', codding: '🤓', geeking: '🎮', ski: '🎿', netflix: '🎬' }
+
   # Geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

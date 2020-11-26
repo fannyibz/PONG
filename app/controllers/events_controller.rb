@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends]
+  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy]
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
@@ -65,6 +65,12 @@ class EventsController < ApplicationController
     @event.status = :completed
     @event.save
     redirect_to event_path(@event)
+  end
+
+  def destroy
+    authorize @event
+    @event.destroy
+    redirect_to root_path
   end
 
   private

@@ -1,6 +1,20 @@
-<h1>What are you up to?</h1>
+<div class="content-container">
+  <h1>What are you up to?</h1>
 
-<%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
-  <%= f.input :emoji, as: :radio_buttons, collection: Event::EMOJI %>
-  <%= f.submit "next" %>
-<% end %>
+  <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
+    <%#= f.input :emoji, as: :radio_buttons,
+    collection: Event::EMOJI %>
+
+    <%= f.input :emoji,
+    as: :radio_buttons,
+    label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
+    collection: Event::EMOJI,
+    input_html: {class: 'd-none'},
+    item_wrapper_class: :radio,
+    # include_blank: false,
+    include_hidden: false
+     %>
+
+    <%= f.submit "next" %>
+  <% end %>
+</div>

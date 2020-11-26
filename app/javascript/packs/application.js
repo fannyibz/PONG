@@ -25,6 +25,14 @@ require("channels")
 // External imports
 import "bootstrap";
 
+//Flatpickr
+import flatpickr from "flatpickr";
+
+flatpickr(".datepicker", {
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+});
+
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
 

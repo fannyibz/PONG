@@ -75,6 +75,8 @@ event1.save!
 
 puts "#{event1.emoji}, hosted by #{event1.user.first_name} created!"
 
+# EventUser.create!(event: event1, user: hadrien, status: "confirmed", role: "host") #Added Hadrien as host even_user
+
 EventUser.create!(event: event1, user: fanny, status: "confirmed", role: "visitor")
 
 EventUser.create!(event: event1, user: raphael, status: "pending", role: "visitor")

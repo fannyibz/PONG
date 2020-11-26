@@ -31,7 +31,7 @@ fanny.save!
 puts "#{fanny.first_name} created!"
 
 # Raphaël
-raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphaël@gmail.com", password: "123456")
+raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphael@gmail.com", password: "123456")
 
 file = URI.open("https://avatars3.githubusercontent.com/u/67843990?v=4.jpg")
 raphael.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")

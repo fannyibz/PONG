@@ -104,7 +104,12 @@
 
     <% elsif @event.event_users.find_by(user: current_user).status == "pending" %>
 
-      <%= link_to "Join", @event_path, method: :get %>
+      <%= link_to "Join", event_path(@event) %>
+        <% current_guest = @event.event_users.find_by(user: current_user)  %>
+        <% current_guest.status = "confirmed" %>
+        <% current_guest.save %>
+
+      <br>
       <%= link_to "Declined", @event_path, method: :get %>
 
     <% else %>

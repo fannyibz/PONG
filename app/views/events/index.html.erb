@@ -1,14 +1,27 @@
-<h1>All the events</h1>
+<div class="content-container">
+  <h1>All events</h1>
 
-<h2>I'm the host of:</h2>
-<% @hosted_events.each do |event| %>
-  <h3><%= event.emoji %></h3>
-  <p><%= "At: #{event.date_time}" %></p>
-<% end %>
+  <div class="content-host">
+    <h2>I'm the host of:</h2>
+      <% @hosted_events.each do |event| %>
+        <h3><%= event.emoji %></h3>
+        <p><%= "At: #{event.date_time}" %></p>
+      <% end %>
+  </div>
 
-<h2>I'm invited to:</h2>
-<% @invited_events.each do |event| %>
-  <h3><%= event.emoji %></h3>
-  <p><%= event.user.first_name %></p>
-  <p><%= "At: #{event.date_time}" %></p>
-<% end %>
+  <div class="content-guest">
+    <h2>I'm invited to:</h2>
+      <% @invited_events.each do |event| %>
+        <h3><%= event.emoji %></h3>
+        <p><%= event.user.first_name %></p>
+        <p><%= "At: #{event.date_time}" %></p>
+      <% end %>
+  </div>
+
+<!--   <div class= "event-today">
+    <#% @events.each do |event| %>
+    <#% end %>
+  </div> -->
+
+</div>
+

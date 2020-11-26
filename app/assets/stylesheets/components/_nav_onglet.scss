@@ -1,0 +1,12 @@
+.toggle-nav {
+  .nav-link {
+    // width: 125%;
+    background-color: #66666645;
+    color: $light-gray;
+    border-radius: 10px;
+    &.active {
+      background-color: $grey-stroke;
+      }
+  }
+}
+

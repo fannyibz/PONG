@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
     @hosted_events = policy_scope(current_user.events)
     @invited_events = policy_scope(current_user.events_as_guest)
+    # @today_events = policy_scope()
   end
 
   def show

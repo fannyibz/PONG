@@ -2,12 +2,15 @@
 
 <h2><%= event.emoji %></h2>
 <p>Address: <%= event.address %></p>
-<br>
-<p>Description <%= event.description %></p>
-<br>
-<p>Can I come with an extra friend? <%= event.open %></p>
-<br>
+
 <p>Date: <%= event.date_time %></p>
 <br>
-<p><%= event.address %></p>
 <%= link_to "more", event_path(event), class: "button-next-small" %>
+<br>
+<br>
+<p>Event guests</p>
+  <% event.guests.each do |guest|%>
+    <p>🙋‍♀️  <%= guest.first_name %></p>
+      <%= cl_image_tag guest.avatar.key, height: 75, width: 100, crop: :fill ,class: "avatar-profile" %>
+    <p></p>
+  <% end %>

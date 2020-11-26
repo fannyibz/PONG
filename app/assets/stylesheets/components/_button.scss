@@ -53,8 +53,10 @@
   padding: 12px 15px;
   color: white;
   display: block;
-  width: 100%;
+  width: 95%;
   text-align: center;
+  margin: 0 auto;
+  background: $bg-dark;
 }
 
 .button-next-small {
@@ -70,3 +72,7 @@
   width: 100%;
 }
 
+.sticky-bottom {
+  position: sticky;
+  bottom: 60px;
+}

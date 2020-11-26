@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     authorize @event
     @event.user = current_user
     @event.save
+    #EventUser.create!(event: @event, user: current_user, status: "confirmed", role: "host") #If we want to add the host as the first event_uset
     redirect_to edit_what_event_path(@event)
   end
 
@@ -61,7 +62,8 @@ class EventsController < ApplicationController
     params[:event][:friends].each do |user_id|
       EventUser.create(event: @event, user_id: user_id)
     end
-    # @event.completed = true
+    @event.status = :completed
+    @event.save
     redirect_to event_path(@event)
   end
 
@@ -73,6 +75,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:emoji, :address, :date_time)
+    params.require(:event).permit(:emoji, :address, :date_time, :status)
   end
 end

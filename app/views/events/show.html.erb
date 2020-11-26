@@ -82,24 +82,24 @@
 
   <% else  %>
 
-    <% if current_user.status == "confirmed" %>
+    <%# if current_user.status == "confirmed" %>
 
-      <%= link_to "Change answer", @event_path, method: :get %>
+      <%#= link_to "Change answer", @event_path, method: :get %>
 
-      <% if current_user.role == "partner" %>
-        <%= link_to "Invite a friend", @event_path, method: :get %>
-      <% else %>
-      <% end %>
+      <%# if current_user.role == "partner" %>
+        <%#= link_to "Invite a friend", @event_path, method: :get %>
+      <%# else %>
+      <%# end %>
 
-    <% elsif current_user.status == "pending" %>
+    <%# elsif current_user.status == "pending" %>
 
-      <%= link_to "Join", @event_path, method: :get %>
-      <%= link_to "Declined", @event_path, method: :get %>
+      <%#= link_to "Join", @event_path, method: :get %>
+      <%#= link_to "Declined", @event_path, method: :get %>
 
-    <% else %>
+    <%# else %>
       <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
 
-    <% end %>
+    <%# end %>
   <% end  %>
 
   <br>

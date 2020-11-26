@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :components
 
   def components
-     authorize(:page, :components?)
+    authorize(:page, :components?)
   end
 
   def home

@@ -13,7 +13,7 @@ class EventPolicy < ApplicationPolicy
   def create?
     true
   end
-  
+
   def edit_what?
     update_what?
   end
@@ -43,6 +43,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update_friends?
+    user_is_host?
+  end
+
+  def destroy?
     user_is_host?
   end
 

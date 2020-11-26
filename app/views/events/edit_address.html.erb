@@ -1,5 +1,7 @@
 <div class="content-container">
-  <h1>Where does it take place?</h1>
+  <div class="titles">
+    <h1>Where does it take place?</h1>
+  </div>
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
     <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>

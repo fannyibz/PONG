@@ -1,6 +1,9 @@
 <div class="content-container">
 
-  <h1>Time to invite some friends!</h1>
+  <div class="titles">
+    <h1>Time to invite some friends!</h1>
+      <p>This will be visible only to the invitees for the duration of the event.</p>
+  </div>
 
     <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
       <%= f.input :friends,

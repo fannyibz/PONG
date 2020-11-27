@@ -4,4 +4,12 @@ class EventUserPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def confirm?
+    record.user = user
+  end
+
+  def decline?
+    record.user = user
+  end
 end

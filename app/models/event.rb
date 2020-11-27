@@ -25,7 +25,8 @@ class Event < ApplicationRecord
 
   def set_attributes
     self.emoji = "🍺" if self.emoji.blank?
-    self.address = "10 rue du Chat-qui-Pêche, Paris" if self.address.blank?
+    self.address = "75017, Paris" if self.address.blank?
+    self.description = "Click here to add more infos to your event" if self.status.blank?
     self.date_time = DateTime.now if self.date_time.blank?
     self.status = "incompleted" if self.status.blank?
   end

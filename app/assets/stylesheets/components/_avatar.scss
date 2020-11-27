@@ -62,20 +62,20 @@ justify-content: center;
 }
 
 .avatar-profile-selected {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   width: 52px;
   height: 52px;
   // margin: auto;
-  position: relative;
-  padding: 1px 1px;
-  box-sizing: border-box;
-  $border: 3px;
-  color: white;
+  // position: relative;
+  // padding: 1px 1px;
+  // box-sizing: border-box;
+  // $border: 3px;
+  // color: white;
   background: $bg-dark;
-  background-clip: padding-box; /* !importanté */
-  border: solid $border transparent; /* !importanté */
+  // background-clip: padding-box; /* !importanté */
+  // border: solid $border transparent; /* !importanté */
   border-radius: 50px;
   object-fit: cover;
   border: 2px solid $light-orange;

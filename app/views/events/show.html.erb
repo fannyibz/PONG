@@ -19,7 +19,7 @@
       <% if @event.open == true %>
         <p>Friends of guests allowed? ✅</p>
       <% else %>
-        <p>Friends of guests allowed? ❌</p>
+        <p>Friends of guests allowed? 🚫</p>
       <% end %>
     </div>
 
@@ -43,37 +43,44 @@
   <%#=  si le mec qui arrive sur la show est host
   j'affiche event parti %>
 
-  <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "confirmed" %>
-        <div class="friends-box">
-          <p>✅</p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-        </div>
+  <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
+  <div class="friends-box">
+    <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "confirmed" %>
+          <div class="emoji-avatar-friend">
+            <p>✅</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+  </div>
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if @user_is_host %>
 
     <%# DISPLAY FRIENDS FOR WHOM I'M WAITING AN ANSWER %>
-    <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "pending" %>
-        <div class="friends-box">
-          <p>🤷‍♂️</p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-        </div>
+    <div class="friends-box">
+      <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "pending" %>
+          <div class="emoji-avatar-friend">
+            <p>🤷‍♂️</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
     <%# DISPLAY FRIENDS FOR WHOM THEY DECLINED THE INVITATION  %>
-    <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "declined" %>
-        <div class="friends-box">
-          <p>❌</p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-        </div>
+    <div class="friends-box">
+      <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "declined" %>
+          <div class="emoji-avatar-friend">
+            <p>❌</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
     <%= link_to "Copy event link", event_path, class: "gradient-box" %>
 

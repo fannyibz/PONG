@@ -29,19 +29,24 @@
 .friends-box {
   display: flex;
   height: 70px;
-  // margin-bottom: 40px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.friends-box img {
-  position: absolute;
+.emoji-avatar-friend {
+  margin-right: 10px;
 }
 
-.friends-box p {
-  position: relative;
-  top: 35px; // WHY IS IT WORK WITH TOP AND NOT BOTTOM?
-  z-index: 5;
-  font-size: 20px;
-}
+// .friends-box img {
+//   position: absolute;
+// }
+
+// .friends-box p {
+//   position: relative;
+//   top: 35px; // WHY IS IT WORK WITH TOP AND NOT BOTTOM?
+//   z-index: 5;
+//   font-size: 20px;
+// }
 
 .manage-event-buttons {
   display: flex;

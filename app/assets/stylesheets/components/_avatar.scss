@@ -78,15 +78,16 @@ justify-content: center;
   border: solid $border transparent; /* !importanté */
   border-radius: 50px;
   object-fit: cover;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      z-index: -1;
-      margin: -$border; /* !importanté */
-      border-radius: inherit; /* !importanté */
-      background: linear-gradient(to bottom, $strong-orange, $light-orange);
-    }
+  border: 2px solid $light-orange;
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0; right: 0; bottom: 0; left: 0;
+    //   z-index: -1;
+    //   margin: -$border; /* !importanté */
+    //   border-radius: inherit; /* !importanté */
+    //   background: linear-gradient(to bottom, $strong-orange, $light-orange);
+    // }
 }
 
 .avatar-square {

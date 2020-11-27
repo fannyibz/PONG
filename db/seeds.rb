@@ -10,6 +10,32 @@ User.destroy_all
 
 # ------------- HEROES -------------
 
+#Groupes
+
+#Plastroc
+puts "> Creating groupes..."
+
+plastroc = User.new(first_name: 'Plastroc', last_name: '...', email: "plastroc@gmail.com", password: "123456")
+
+file = URI.open("https://www.sciencesetavenir.fr/assets/img/2018/03/08/cover-r4x3w1000-5ad994fb7ff63-46cf113dd4e48acb08db5cc942ee44a9a5d502d4-jpg.jpg")
+plastroc.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+plastroc.save!
+
+puts "#{plastroc.first_name} created!"
+
+#Plastroc
+puts "> Creating groupes..."
+
+skeasy = User.new(first_name: 'Skeasy', last_name: '...', email: "skeasy@gmail.com", password: "123456")
+
+file = URI.open("https://pbs.twimg.com/profile_images/1195425467102302208/1dT2p3Cw.jpg")
+skeasy.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+skeasy.save!
+
+puts "#{skeasy.first_name} created!"
+
+#----------------------------------------
+
 puts "> Creating users..."
 
 # Hadrien
@@ -66,7 +92,7 @@ joanna.save!
 
 puts "#{joanna.first_name} created!"
 
-# Joanna
+# Florence
 florence = User.new(first_name: 'Florence', last_name: 'Chauve', email: "florence@gmail.com", password: "123456")
 
 file = URI.open("https://avatars2.githubusercontent.com/u/71376422?v=4.jpg")
@@ -102,15 +128,6 @@ edouard.save!
 
 puts "#{edouard.first_name} created!"
 
-# Philippe
-philippe = User.new(first_name: 'Philippe', last_name: 'Lucas', email: "philippe@gmail.com", password: "123456")
-
-file = URI.open("https://file1.closermag.fr/var/closermag/storage/images/bio-people/biographie-philippe-lucas-112702/825292-1-fre-FR/Philippe-Lucas.jpg?alias=square500x500&size=x100&format=jpeg")
-philippe.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-philippe.save!
-
-puts "#{philippe.first_name} created!"
-
 # Maximin
 maximin = User.new(first_name: 'Maximin', last_name: 'D’audiffret', email: "maximin@gmail.com", password: "123456")
 
@@ -120,14 +137,6 @@ maximin.save!
 
 puts "#{maximin.first_name} created!"
 
-# Maximin
-donald = User.new(first_name: 'Donald', last_name: 'Duck', email: "donald@gmail.com", password: "123456")
-
-file = URI.open("https://i.etsystatic.com/18587196/r/il/a048ca/1643739952/il_570xN.1643739952_qxuw.jpg")
-donald.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-donald.save!
-
-puts "#{donald.first_name} created!"
 
 # Nicolas
 nicolas = User.new(first_name: 'Nicolas', last_name: 'Constantin', email: "nicolas@gmail.com", password: "123456")
@@ -137,24 +146,6 @@ nicolas.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 nicolas.save!
 
 puts "#{nicolas.first_name} created!"
-
-# Beyonce
-beyonce = User.new(first_name: 'Beyonce', last_name: 'Knowles', email: "beyonce@gmail.com", password: "123456")
-
-file = URI.open("https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/people-a-z/beyonce-knowles/6057836-4-fre-FR/Beyonce-Knowles.jpg")
-beyonce.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-beyonce.save!
-
-puts "#{beyonce.first_name} created!"
-
-# Emmanuel
-emmanuel = User.new(first_name: 'Emmanuel', last_name: 'Macron', email: "emmanuel@gmail.com", password: "123456")
-
-file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFCcqxfyEu2z0sIcSQJEUz0wXeZwkDRKd9kw&usqp=CAU.jpg")
-emmanuel.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-emmanuel.save!
-
-puts "#{emmanuel.first_name} created!"
 
 # Gael
 gael = User.new(first_name: 'Gael', last_name: 'Gendre', email: "gael@gmail.com", password: "123456")
@@ -181,9 +172,29 @@ file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
 chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 chiara.save!
 
+# Pierre-Jean
+pierre_jean = User.new(first_name: 'Pierre-Jean', last_name: 'De Montlaur', email: "chiara@gmail.com", password: "123456")
+
+file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
+chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+chiara.save!
+
+# Chiara
+chiara = User.new(first_name: 'Chiara', last_name: 'De Montlaur', email: "chiara@gmail.com", password: "123456")
+
+file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
+chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+chiara.save!
+
 puts "#{chiara.first_name} created!"
 
 puts "> Creating friendships..."
+
+friendship_g1 = Friendship.new(user: hadrien, friend: plastroc)
+friendship_g1.save!
+
+friendship_g2 = Friendship.new(user: hadrien, friend: skeasy)
+friendship_g2.save!
 
 friendship1 = Friendship.new(user: hadrien, friend: fanny)
 friendship1.save!
@@ -212,23 +223,11 @@ friendship38.save!
 friendship39 = Friendship.new(user: hadrien, friend: edouard)
 friendship39.save!
 
-friendship53 = Friendship.new(user: hadrien, friend: philippe)
-friendship53.save!
-
 friendship58 = Friendship.new(user: hadrien, friend: maximin)
 friendship58.save!
 
-friendship63 = Friendship.new(user: hadrien, friend: donald)
-friendship63.save!
-
 friendship67 = Friendship.new(user: hadrien, friend: nicolas)
 friendship67.save!
-
-friendship68 = Friendship.new(user: hadrien, friend: beyonce)
-friendship68.save!
-
-friendship69 = Friendship.new(user: hadrien, friend: emmanuel)
-friendship69.save!
 
 friendship78 = Friendship.new(user: hadrien, friend: chiara)
 friendship78.save!
@@ -240,6 +239,12 @@ friendship80 = Friendship.new(user: hadrien, friend: gael)
 friendship80.save!
 
 puts "#{hadrien.first_name} is friend with #{fanny.first_name} etc!"
+
+friendship_g3 = Friendship.new(user: fanny, friend: plastroc)
+friendship_g3.save!
+
+friendship_g4 = Friendship.new(user: fanny, friend: skeasy)
+friendship_g4.save!
 
 friendship4 = Friendship.new(user: fanny, friend: hadrien)
 friendship4.save!
@@ -271,23 +276,11 @@ friendship42.save!
 friendship43 = Friendship.new(user: fanny, friend: edouard)
 friendship43.save!
 
-friendship54 = Friendship.new(user: fanny, friend: philippe)
-friendship54.save!
-
 friendship59 = Friendship.new(user: fanny, friend: maximin)
 friendship59.save!
 
-friendship64 = Friendship.new(user: fanny, friend: donald)
-friendship64.save!
-
 friendship70 = Friendship.new(user: fanny, friend: nicolas)
 friendship70.save!
-
-friendship71 = Friendship.new(user: fanny, friend: beyonce)
-friendship71.save!
-
-friendship72 = Friendship.new(user: fanny, friend: emmanuel)
-friendship72.save!
 
 friendship81 = Friendship.new(user: fanny, friend: chiara)
 friendship81.save!
@@ -299,6 +292,12 @@ friendship83 = Friendship.new(user: fanny, friend: gael)
 friendship83.save!
 
 puts "#{fanny.first_name} is friend with #{raphael.first_name} etc!"
+
+friendship_g5 = Friendship.new(user: raphael, friend: plastroc)
+friendship_g5.save!
+
+friendship_g6 = Friendship.new(user: raphael, friend: skeasy)
+friendship_g6.save!
 
 friendship7 = Friendship.new(user: raphael, friend: hadrien)
 friendship7.save!
@@ -327,23 +326,11 @@ friendship45.save!
 friendship46 = Friendship.new(user: raphael, friend: edouard)
 friendship46.save!
 
-friendship55 = Friendship.new(user: raphael, friend: philippe)
-friendship55.save!
-
 friendship60 = Friendship.new(user: raphael, friend: maximin)
 friendship60.save!
 
-friendship65 = Friendship.new(user: raphael, friend: donald)
-friendship65.save!
-
 friendship73 = Friendship.new(user: raphael, friend: nicolas)
 friendship73.save!
-
-friendship74 = Friendship.new(user: raphael, friend: beyonce)
-friendship74.save!
-
-friendship75 = Friendship.new(user: raphael, friend: emmanuel)
-friendship75.save!
 
 friendship84 = Friendship.new(user: raphael, friend: chiara)
 friendship84.save!
@@ -355,6 +342,12 @@ friendship86 = Friendship.new(user: raphael, friend: gael)
 friendship86.save!
 
 puts "#{raphael.first_name} is friend with #{magali.first_name} etc!"
+
+friendship_g7 = Friendship.new(user: magali, friend: plastroc)
+friendship_g7.save!
+
+friendship_g8 = Friendship.new(user: magali, friend: skeasy)
+friendship_g8.save!
 
 friendship10 = Friendship.new(user: magali, friend: hadrien)
 friendship10.save!
@@ -383,23 +376,11 @@ friendship48.save!
 friendship49 = Friendship.new(user: magali, friend: edouard)
 friendship49.save!
 
-friendship56 = Friendship.new(user: magali, friend: philippe)
-friendship56.save!
-
 friendship61 = Friendship.new(user: magali, friend: maximin)
 friendship61.save!
 
-friendship66 = Friendship.new(user: magali, friend: donald)
-friendship66.save!
-
 friendship76 = Friendship.new(user: magali, friend: nicolas)
 friendship76.save!
-
-friendship77 = Friendship.new(user: magali, friend: beyonce)
-friendship77.save!
-
-friendship78 = Friendship.new(user: magali, friend: emmanuel)
-friendship78.save!
 
 friendship87 = Friendship.new(user: magali, friend: chiara)
 friendship87.save!
@@ -411,6 +392,12 @@ friendship89 = Friendship.new(user: magali, friend: gael)
 friendship89.save!
 
 puts "#{magali.first_name} is friend with #{hadrien.first_name} etc!"
+
+friendship_g9 = Friendship.new(user: benjamin, friend: plastroc)
+friendship_g9.save!
+
+friendship_g10 = Friendship.new(user: benjamin, friend: skeasy)
+friendship_g10.save!
 
 friendship25 = Friendship.new(user: benjamin, friend: fanny)
 friendship25.save!
@@ -438,9 +425,6 @@ friendship51.save!
 
 friendship52 = Friendship.new(user: benjamin, friend: edouard)
 friendship52.save!
-
-friendship57 = Friendship.new(user: benjamin, friend: philippe)
-friendship57.save!
 
 friendship62 = Friendship.new(user: benjamin, friend: maximin)
 friendship62.save!

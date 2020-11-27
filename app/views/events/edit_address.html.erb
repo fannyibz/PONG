@@ -5,10 +5,20 @@
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
     <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
+    <br>
+    <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
+    <br>
     <div class="sticky-bottom">
       <%= f.button :submit, "Next 👉", class: "button-next" %>
     </div>
   <% end %>
 
 </div>
+
+<div id="map"
+  style="width: 100vw; height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 

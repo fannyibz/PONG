@@ -165,9 +165,6 @@ chiara.save!
 
 puts "> Creating friendships..."
 
-friendship_g1 = Friendship.new(user: hadrien, friend: plastroc)
-friendship_g1.save!
-
 friendship_g2 = Friendship.new(user: hadrien, friend: skeasy)
 friendship_g2.save!
 
@@ -214,9 +211,6 @@ friendship80 = Friendship.new(user: hadrien, friend: gael)
 friendship80.save!
 
 puts "#{hadrien.first_name} is friend with #{fanny.first_name} etc!"
-
-friendship_g3 = Friendship.new(user: fanny, friend: plastroc)
-friendship_g3.save!
 
 friendship_g4 = Friendship.new(user: fanny, friend: skeasy)
 friendship_g4.save!
@@ -268,9 +262,6 @@ friendship83.save!
 
 puts "#{fanny.first_name} is friend with #{raphael.first_name} etc!"
 
-friendship_g5 = Friendship.new(user: raphael, friend: plastroc)
-friendship_g5.save!
-
 friendship_g6 = Friendship.new(user: raphael, friend: skeasy)
 friendship_g6.save!
 
@@ -318,9 +309,6 @@ friendship86.save!
 
 puts "#{raphael.first_name} is friend with #{magali.first_name} etc!"
 
-friendship_g7 = Friendship.new(user: magali, friend: plastroc)
-friendship_g7.save!
-
 friendship_g8 = Friendship.new(user: magali, friend: skeasy)
 friendship_g8.save!
 
@@ -367,9 +355,6 @@ friendship89 = Friendship.new(user: magali, friend: gael)
 friendship89.save!
 
 puts "#{magali.first_name} is friend with #{hadrien.first_name} etc!"
-
-friendship_g9 = Friendship.new(user: benjamin, friend: plastroc)
-friendship_g9.save!
 
 friendship_g10 = Friendship.new(user: benjamin, friend: skeasy)
 friendship_g10.save!

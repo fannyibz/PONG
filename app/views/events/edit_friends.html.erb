@@ -11,6 +11,7 @@
         as: :check_boxes,
         label_method: lambda { |user| render "events/user_label", user: user },
         collection: @friends,
+        checked: @event.guests.pluck(:id),
         input_html: {class: 'd-none radio-btn'},
         item_wrapper_class: :radio,
         # include_blank: false,

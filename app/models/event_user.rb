@@ -2,6 +2,8 @@ class EventUser < ApplicationRecord
   belongs_to :event
   belongs_to :user
 
+  validates :user, uniqueness: {scope: :event}
+
   enum status: [:pending, :confirmed, :declined]
   enum role: [:partner, :visitor] # :host -> host added if role :host added
 

@@ -61,6 +61,7 @@ class EventsController < ApplicationController
   end
 
   def update_friends
+    @event.event_users.destroy_all
     params[:event][:friends].each do |user_id|
       EventUser.create(event: @event, user_id: user_id)
     end

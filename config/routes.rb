@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   get :components, to: 'pages#components'
   get 'dashboard', to: 'pages#dashboard'
 
+  resources :event_users, only: [] do
+    member do
+      get :confirm
+      get :decline
+    end
+  end
+
   resources :events do
     #CREATING ROUTES FOR THE SIMPLE_FORM CREATION OF AN EVENT
     member do

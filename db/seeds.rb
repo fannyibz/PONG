@@ -31,7 +31,7 @@ fanny.save!
 puts "#{fanny.first_name} created!"
 
 # Raphaël
-raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphaël@gmail.com", password: "123456")
+raphael = User.new(first_name: 'Raphaël', last_name: 'Allard', email: "raphael@gmail.com", password: "123456")
 
 file = URI.open("https://avatars3.githubusercontent.com/u/67843990?v=4.jpg")
 raphael.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
@@ -48,6 +48,141 @@ magali.save!
 
 puts "#{magali.first_name} created!"
 
+# Benjamin
+benjamin = User.new(first_name: 'Benjamin', last_name: 'Barbier', email: "benjamin@gmail.com", password: "123456")
+
+file = URI.open("https://avatars1.githubusercontent.com/u/67894778?v=4.jpg")
+benjamin.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+benjamin.save!
+
+puts "#{benjamin.first_name} created!"
+
+# Joanna
+joanna = User.new(first_name: 'Joanna', last_name: 'Chaillou', email: "joanna@gmail.com", password: "123456")
+
+file = URI.open("https://avatars2.githubusercontent.com/u/69638927?v=4.jpg")
+joanna.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+joanna.save!
+
+puts "#{joanna.first_name} created!"
+
+# Joanna
+florence = User.new(first_name: 'Florence', last_name: 'Chauve', email: "florence@gmail.com", password: "123456")
+
+file = URI.open("https://avatars2.githubusercontent.com/u/71376422?v=4.jpg")
+florence.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+florence.save!
+
+puts "#{florence.first_name} created!"
+
+# Sebastien
+sebastien = User.new(first_name: 'Sebastien', last_name: 'Chauve', email: "sebastien@gmail.com", password: "123456")
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1558950804/lxpghuy9ljoa9mcwrrby.jpg")
+sebastien.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+sebastien.save!
+
+puts "#{sebastien.first_name} created!"
+
+# Julien
+julien = User.new(first_name: 'Julien', last_name: 'Da Silva', email: "julien@gmail.com", password: "123456")
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1583184888/ejcrzhnuyoeoljzap3ru.jpg")
+julien.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+julien.save!
+
+puts "#{julien.first_name} created!"
+
+# Edouard
+edouard = User.new(first_name: 'Edouard', last_name: 'Foussier', email: "edouard@gmail.com", password: "123456")
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1535710792/jwfoxmnm29vxuny3vmxi.jpg")
+edouard.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+edouard.save!
+
+puts "#{edouard.first_name} created!"
+
+# Philippe
+philippe = User.new(first_name: 'Philippe', last_name: 'Lucas', email: "philippe@gmail.com", password: "123456")
+
+file = URI.open("https://file1.closermag.fr/var/closermag/storage/images/bio-people/biographie-philippe-lucas-112702/825292-1-fre-FR/Philippe-Lucas.jpg?alias=square500x500&size=x100&format=jpeg")
+philippe.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+philippe.save!
+
+puts "#{philippe.first_name} created!"
+
+# Maximin
+maximin = User.new(first_name: 'Maximin', last_name: 'D’audiffret', email: "maximin@gmail.com", password: "123456")
+
+file = URI.open("https://avatars0.githubusercontent.com/u/25780743?v=4.jpg")
+maximin.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+maximin.save!
+
+puts "#{maximin.first_name} created!"
+
+# Maximin
+donald = User.new(first_name: 'Donald', last_name: 'Duck', email: "donald@gmail.com", password: "123456")
+
+file = URI.open("https://i.etsystatic.com/18587196/r/il/a048ca/1643739952/il_570xN.1643739952_qxuw.jpg")
+donald.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+donald.save!
+
+puts "#{donald.first_name} created!"
+
+# Nicolas
+nicolas = User.new(first_name: 'Nicolas', last_name: 'Constantin', email: "nicolas@gmail.com", password: "123456")
+
+file = URI.open("https://avatars2.githubusercontent.com/u/72381271?v=4.jpg")
+nicolas.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+nicolas.save!
+
+puts "#{nicolas.first_name} created!"
+
+# Beyonce
+beyonce = User.new(first_name: 'Beyonce', last_name: 'Knowles', email: "beyonce@gmail.com", password: "123456")
+
+file = URI.open("https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/people-a-z/beyonce-knowles/6057836-4-fre-FR/Beyonce-Knowles.jpg")
+beyonce.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+beyonce.save!
+
+puts "#{beyonce.first_name} created!"
+
+# Emmanuel
+emmanuel = User.new(first_name: 'Emmanuel', last_name: 'Macron', email: "emmanuel@gmail.com", password: "123456")
+
+file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFCcqxfyEu2z0sIcSQJEUz0wXeZwkDRKd9kw&usqp=CAU.jpg")
+emmanuel.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+emmanuel.save!
+
+puts "#{emmanuel.first_name} created!"
+
+# Gael
+gael = User.new(first_name: 'Gael', last_name: 'Gendre', email: "gael@gmail.com", password: "123456")
+
+file = URI.open("https://avatars3.githubusercontent.com/u/13021748?v=4.jpg")
+gael.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+gael.save!
+
+puts "#{gael.first_name} created!"
+
+# Nicolas2
+nicolas2 = User.new(first_name: 'Nicolas', last_name: 'Le Bechec De Redon', email: "nicolas2@gmail.com", password: "123456")
+
+file = URI.open("https://avatars3.githubusercontent.com/u/71632407?v=4.jpg")
+nicolas2.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+nicolas2.save!
+
+puts "#{nicolas2.first_name} created!"
+
+# Chiara
+chiara = User.new(first_name: 'Chiara', last_name: 'De Montlaur', email: "chiara@gmail.com", password: "123456")
+
+file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
+chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+chiara.save!
+
+puts "#{chiara.first_name} created!"
+
 puts "> Creating friendships..."
 
 friendship1 = Friendship.new(user: hadrien, friend: fanny)
@@ -58,6 +193,51 @@ friendship2.save!
 
 friendship3 = Friendship.new(user: hadrien, friend: magali)
 friendship3.save!
+
+friendship13 = Friendship.new(user: hadrien, friend: benjamin)
+friendship13.save!
+
+friendship14 = Friendship.new(user: hadrien, friend: joanna)
+friendship14.save!
+
+friendship15 = Friendship.new(user: hadrien, friend: florence)
+friendship15.save!
+
+friendship37 = Friendship.new(user: hadrien, friend: sebastien)
+friendship37.save!
+
+friendship38 = Friendship.new(user: hadrien, friend: julien)
+friendship38.save!
+
+friendship39 = Friendship.new(user: hadrien, friend: edouard)
+friendship39.save!
+
+friendship53 = Friendship.new(user: hadrien, friend: philippe)
+friendship53.save!
+
+friendship58 = Friendship.new(user: hadrien, friend: maximin)
+friendship58.save!
+
+friendship63 = Friendship.new(user: hadrien, friend: donald)
+friendship63.save!
+
+friendship67 = Friendship.new(user: hadrien, friend: nicolas)
+friendship67.save!
+
+friendship68 = Friendship.new(user: hadrien, friend: beyonce)
+friendship68.save!
+
+friendship69 = Friendship.new(user: hadrien, friend: emmanuel)
+friendship69.save!
+
+friendship78 = Friendship.new(user: hadrien, friend: chiara)
+friendship78.save!
+
+friendship79 = Friendship.new(user: hadrien, friend: nicolas2)
+friendship79.save!
+
+friendship80 = Friendship.new(user: hadrien, friend: gael)
+friendship80.save!
 
 puts "#{hadrien.first_name} is friend with #{fanny.first_name} etc!"
 
@@ -70,6 +250,54 @@ friendship5.save!
 friendship6 = Friendship.new(user: fanny, friend: magali)
 friendship6.save!
 
+friendship16 = Friendship.new(user: fanny, friend: benjamin)
+friendship16.save!
+
+friendship17 = Friendship.new(user: fanny, friend: joanna)
+friendship17.save!
+
+friendship18 = Friendship.new(user: fanny, friend: florence)
+friendship18.save!
+
+friendship40 = Friendship.new(user: fanny, friend: sebastien)
+friendship40.save!
+
+friendship41 = Friendship.new(user: fanny, friend: julien)
+friendship41.save!
+
+friendship42 = Friendship.new(user: fanny, friend: edouard)
+friendship42.save!
+
+friendship43 = Friendship.new(user: fanny, friend: edouard)
+friendship43.save!
+
+friendship54 = Friendship.new(user: fanny, friend: philippe)
+friendship54.save!
+
+friendship59 = Friendship.new(user: fanny, friend: maximin)
+friendship59.save!
+
+friendship64 = Friendship.new(user: fanny, friend: donald)
+friendship64.save!
+
+friendship70 = Friendship.new(user: fanny, friend: nicolas)
+friendship70.save!
+
+friendship71 = Friendship.new(user: fanny, friend: beyonce)
+friendship71.save!
+
+friendship72 = Friendship.new(user: fanny, friend: emmanuel)
+friendship72.save!
+
+friendship81 = Friendship.new(user: fanny, friend: chiara)
+friendship81.save!
+
+friendship82 = Friendship.new(user: fanny, friend: nicolas2)
+friendship82.save!
+
+friendship83 = Friendship.new(user: fanny, friend: gael)
+friendship83.save!
+
 puts "#{fanny.first_name} is friend with #{raphael.first_name} etc!"
 
 friendship7 = Friendship.new(user: raphael, friend: hadrien)
@@ -80,6 +308,51 @@ friendship8.save!
 
 friendship9 = Friendship.new(user: raphael, friend: magali)
 friendship9.save!
+
+friendship19 = Friendship.new(user: raphael, friend: benjamin)
+friendship19.save!
+
+friendship20 = Friendship.new(user: raphael, friend: joanna)
+friendship20.save!
+
+friendship21 = Friendship.new(user: raphael, friend: florence)
+friendship21.save!
+
+friendship44 = Friendship.new(user: raphael, friend: sebastien)
+friendship44.save!
+
+friendship45 = Friendship.new(user: raphael, friend: julien)
+friendship45.save!
+
+friendship46 = Friendship.new(user: raphael, friend: edouard)
+friendship46.save!
+
+friendship55 = Friendship.new(user: raphael, friend: philippe)
+friendship55.save!
+
+friendship60 = Friendship.new(user: raphael, friend: maximin)
+friendship60.save!
+
+friendship65 = Friendship.new(user: raphael, friend: donald)
+friendship65.save!
+
+friendship73 = Friendship.new(user: raphael, friend: nicolas)
+friendship73.save!
+
+friendship74 = Friendship.new(user: raphael, friend: beyonce)
+friendship74.save!
+
+friendship75 = Friendship.new(user: raphael, friend: emmanuel)
+friendship75.save!
+
+friendship84 = Friendship.new(user: raphael, friend: chiara)
+friendship84.save!
+
+friendship85 = Friendship.new(user: raphael, friend: nicolas2)
+friendship85.save!
+
+friendship86 = Friendship.new(user: raphael, friend: gael)
+friendship86.save!
 
 puts "#{raphael.first_name} is friend with #{magali.first_name} etc!"
 
@@ -92,7 +365,88 @@ friendship11.save!
 friendship12 = Friendship.new(user: magali, friend: raphael)
 friendship12.save!
 
+friendship22 = Friendship.new(user: magali, friend: benjamin)
+friendship22.save!
+
+friendship23 = Friendship.new(user: magali, friend: joanna)
+friendship23.save!
+
+friendship24 = Friendship.new(user: magali, friend: florence)
+friendship24.save!
+
+friendship47 = Friendship.new(user: magali, friend: sebastien)
+friendship47.save!
+
+friendship48 = Friendship.new(user: magali, friend: julien)
+friendship48.save!
+
+friendship49 = Friendship.new(user: magali, friend: edouard)
+friendship49.save!
+
+friendship56 = Friendship.new(user: magali, friend: philippe)
+friendship56.save!
+
+friendship61 = Friendship.new(user: magali, friend: maximin)
+friendship61.save!
+
+friendship66 = Friendship.new(user: magali, friend: donald)
+friendship66.save!
+
+friendship76 = Friendship.new(user: magali, friend: nicolas)
+friendship76.save!
+
+friendship77 = Friendship.new(user: magali, friend: beyonce)
+friendship77.save!
+
+friendship78 = Friendship.new(user: magali, friend: emmanuel)
+friendship78.save!
+
+friendship87 = Friendship.new(user: magali, friend: chiara)
+friendship87.save!
+
+friendship88 = Friendship.new(user: magali, friend: nicolas2)
+friendship88.save!
+
+friendship89 = Friendship.new(user: magali, friend: gael)
+friendship89.save!
+
 puts "#{magali.first_name} is friend with #{hadrien.first_name} etc!"
+
+friendship25 = Friendship.new(user: benjamin, friend: fanny)
+friendship25.save!
+
+friendship26 = Friendship.new(user: benjamin, friend: raphael)
+friendship26.save!
+
+friendship27 = Friendship.new(user: benjamin, friend: magali)
+friendship27.save!
+
+friendship28 = Friendship.new(user: benjamin, friend: hadrien)
+friendship28.save!
+
+friendship29 = Friendship.new(user: benjamin, friend: joanna)
+friendship29.save!
+
+friendship30 = Friendship.new(user: benjamin, friend: florence)
+friendship30.save!
+
+friendship50 = Friendship.new(user: benjamin, friend: sebastien)
+friendship50.save!
+
+friendship51 = Friendship.new(user: benjamin, friend: julien)
+friendship51.save!
+
+friendship52 = Friendship.new(user: benjamin, friend: edouard)
+friendship52.save!
+
+friendship57 = Friendship.new(user: benjamin, friend: philippe)
+friendship57.save!
+
+friendship62 = Friendship.new(user: benjamin, friend: maximin)
+friendship62.save!
+
+puts "#{benjamin.first_name} is friend with #{fanny.first_name} etc!"
+
 
 puts "> Creating events..."
 

@@ -1,20 +1,26 @@
 <div class="content-container">
-
-  <h1>Time to invite some friends!</h1>
+  <div class="text-center">
+  <h1>Invite your friends!</h1>
+  <p>Pick them wisely ...</p>
+  <br>
+  <p class ="border-grey">Search group or fiends 🔎</p>
+  <p>Friends can joins with friends #toggle</p>
 
     <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
       <%= f.input :friends,
         as: :check_boxes,
         label_method: lambda { |user| render "events/user_label", user: user },
         collection: @friends,
-        include_blank: false,
+        input_html: {class: 'd-none radio-btn'},
+        item_wrapper_class: :radio,
+        # include_blank: false,
         include_hidden: false %>
 
-      <div class="sticky-bottom">
-        <%= f.button :submit, "Next 👉", class: "button-next" %>
+      <div class="background-grey sticky-bottom">
+        <%= f.button :submit, "Share my plan 💥", class: "button-next" %>
       </div>
     <% end %>
-
+  </div>
 </div>
 
 

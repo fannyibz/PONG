@@ -81,5 +81,11 @@
 
 .sticky-bottom {
   position: sticky;
-  bottom: 60px;
+  bottom: 50px;
+}
+
+.border-grey {
+  border: 1px solid grey;
+  padding: 5px 15px;
+  border-radius: 30px;
 }

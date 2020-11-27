@@ -1,69 +1,133 @@
-<div class="content-container">
-  <h1>Event title <%= @event.emoji %></h1>
-  <br>
-
-  <%= link_to "Event conversation", @event_path, method: :get %>
-  <p><i class="fas fa-paper-plane"></i></p>
-  <br>
+<% 
+=begin %>
   <!-- To do later: automatic with the name of the emoji but editable -->
   <!-- <h5>Toggle button to go from Event Details to Event Messages</h5> -->
-  <h5>Proposed by <%= @event.user.first_name %></h5>
-  <%= cl_image_tag @event.user.avatar.key, class: "avatar-profile" %>
-  <br>
+<%
+=end %>
+
+<div class="content-container">
+  <h1 id="event-show-title"><%= "Let's #{@event.emoji} together!" %></h1>
+
+  <div class="infos-event-show-box">
+    <%= cl_image_tag @event.user.avatar.key, class: "avatar-profile" %>
+
+    <div>
+      <p><%= @event.address %></p>
+
+      <p><%= @event.date_time %></p>
+
+      <% if @event.open == true %>
+        <p>Friends of guests allowed? ✅</p>
+      <% else %>
+        <p>Friends of guests allowed? 🚫</p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="chat-event-box">
+    <%= link_to event_path(@event) do %>
+      <div , class="chat-event-box-link">
+        <p>Access to the chat event</p>
+        <i class="fab fa-facebook-messenger"></i>
+      </div>
+    <% end %>
+  </div>
+
   <br>
 
-  <h5>Where</h5>
-  <p><%= @event.address %></p>
-  <br>
-
-  <h5>When</h5>
-  <p><%= @event.date_time %></p>
-  <br>
-
-  <p><%= "Feel free to join with an extra friend!" if @event.open == true %></p>
-  <br>
-
-  <h5>Description</h5>
-  <p><%= @event.description %></p>
+  <h5>Details of the event:</h5>
+  <p><%= "\"#{@event.description}\"" %></p>
   <br>
 
   <%#=  si le mec qui arrive sur la show est host
   j'affiche event parti %>
 
-  <h5>🙋 Friends participating</h5>
-
-  <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "confirmed" %>
-        <p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          <%= event_user.user.first_name %>
-        </p>
+  <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
+  <div class="friends-box">
+    <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "confirmed" %>
+          <div class="emoji-avatar-friend">
+            <p>✅</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+  </div>
 
+  <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if @user_is_host %>
 
-    <h5>🤷‍♂️ Propositions pending</h5>
-
-    <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "pending" %>
-        <p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          <%= event_user.user.first_name %>
-        </p>
+    <%# DISPLAY FRIENDS FOR WHOM I'M WAITING AN ANSWER %>
+    <div class="friends-box">
+      <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "pending" %>
+          <div class="emoji-avatar-friend">
+            <p>🤷‍♂️</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
-    <h5>🙅‍♂️ Friends not available</h5>
-
-    <% @event.event_users.each do |event_user| %>
-      <% if event_user.status == "declined" %>
-        <p>
-          <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          <%= event_user.user.first_name %>
-        </p>
+    <%# DISPLAY FRIENDS FOR WHOM THEY DECLINED THE INVITATION  %>
+    <div class="friends-box">
+      <% @event.event_users.each do |event_user| %>
+        <% if event_user.status == "declined" %>
+          <div class="emoji-avatar-friend">
+            <p>❌</p>
+            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
+          </div>
+        <% end %>
       <% end %>
+    </div>
+
+    <%= link_to "Copy event link", event_path, class: "gradient-box" %>
+
+    <div class="manage-event-buttons">
+      <% if policy(@event).destroy? %>
+        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <% end %>
+
+      <%= link_to "Manage invitations", edit_friends_event_path, class: "btn btn-outline-secondary" if policy(@event).edit_friends? %>
+
+      <%= link_to "Edit plan", event_path, class: "btn btn-outline-primary" %>
+    </div>
+  
+  <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
+  <% else  %>
+
+    <% if @event.event_users.find_by(user: current_user).status == "confirmed" %>
+
+      <div class="manage-event-buttons">
+        <%= link_to "Change answer", @event_path, class: "btn btn-outline-primary" %>
+        <%= link_to "Invite a friend", @event_path, class: "btn btn-outline-secondary" if @current_guest.role == "partner" %>
+      </div>
+
+    <%# BUG HERE: WHEN YOU RELOAD THE PAGE, PENDING IS AUTOMATICALLY CONFIRMED%>
+    <% elsif @current_guest.status == "pending" %>
+
+      <div class="manage-event-buttons">
+        <%= link_to event_path(@event) do %>
+          <p class="btn btn-danger"><%= "Decline" %></p>
+          <% @current_guest.status = "confirmed" %>
+          <%# CHANGE TO DECLINE AND NOT CONFIRMED  %>
+          <% @current_guest.save %>
+        <% end %>
+
+        <%= link_to event_path(@event) do %>
+          <p class="btn btn-success"><%= "Join" %></p>
+          <% @current_guest.status = "confirmed" %>
+          <% @current_guest.save %>
+        <% end %>
+      </div>
+
+    <% else %>
+      <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
+
     <% end %>
+  <% end  %>
+  </div>
 
     <!-- <h5>Recap all guests</h5>
 
@@ -71,57 +135,3 @@
       <p> 🙍‍♂️ <%#= guest.first_name %></p>
       <%#= cl_image_tag guest.avatar.key, class: "avatar-profile" %>
     <%# end %> -->
-
-    <br>
-    <%= link_to "Edit plan", event_path, method: :get %>
-    <br>
-
-    <% if policy(@event).edit_friends? %>
-      <%= link_to "Manage invitations", edit_friends_event_path, method: :get, class: "" %>
-    <% end %>
-
-    <br>
-    <%= link_to "Copy link", event_path, method: :get %>
-
-    <br>
-    <% if policy(@event).destroy? %>
-    <%= link_to "Delete plan",
-                event_path(@event),
-                class: "",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-    <% end %>
-
-  <% else  %>
-
-    <% if @event.event_users.find_by(user: current_user).status == "confirmed" %>
-
-      <%= link_to "Change answer", @event_path, method: :get %>
-
-      <% if @event.event_users.find_by(user: current_user).role == "partner" %>
-        <%= link_to "Invite a friend", @event_path, method: :get %>
-      <% else %>
-      <% end %>
-
-    <% elsif @current_guest.status == "pending" %>
-
-      <%= link_to "Join", event_path(@event) %>
-        <%# current_guest = @event.event_users.find_by(user: current_user)  %>
-        <% @current_guest.status = "confirmed" %>
-        <% @current_guest.save %>
-
-      <br>
-      <%= link_to "Declined", @event_path, method: :get %>
-
-    <% else %>
-      <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
-
-    <% end %>
-  <% end  %>
-
-  <br>
-  <br>
-  <br>
-  <br>
-
-  </div>

@@ -12,18 +12,9 @@ User.destroy_all
 
 #Groupes
 
-#Plastroc
 puts "> Creating groupes..."
 
-plastroc = User.new(first_name: 'Plastroc', last_name: '...', email: "plastroc@gmail.com", password: "123456")
-
-file = URI.open("https://www.sciencesetavenir.fr/assets/img/2018/03/08/cover-r4x3w1000-5ad994fb7ff63-46cf113dd4e48acb08db5cc942ee44a9a5d502d4-jpg.jpg")
-plastroc.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-plastroc.save!
-
-puts "#{plastroc.first_name} created!"
-
-#Plastroc
+#skeasy
 puts "> Creating groupes..."
 
 skeasy = User.new(first_name: 'Skeasy', last_name: '...', email: "skeasy@gmail.com", password: "123456")
@@ -171,22 +162,6 @@ chiara = User.new(first_name: 'Chiara', last_name: 'De Montlaur', email: "chiara
 file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
 chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
 chiara.save!
-
-# Pierre-Jean
-pierre_jean = User.new(first_name: 'Pierre-Jean', last_name: 'De Montlaur', email: "chiara@gmail.com", password: "123456")
-
-file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
-chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-chiara.save!
-
-# Chiara
-chiara = User.new(first_name: 'Chiara', last_name: 'De Montlaur', email: "chiara@gmail.com", password: "123456")
-
-file = URI.open("https://avatars0.githubusercontent.com/u/70749428?v=4.jpg")
-chiara.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-chiara.save!
-
-puts "#{chiara.first_name} created!"
 
 puts "> Creating friendships..."
 

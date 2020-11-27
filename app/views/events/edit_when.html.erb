@@ -28,7 +28,7 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
         <%= f.input :date_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <div class="sticky-bottom">
+        <div class="fixed-bottom">
           <%= f.button :submit, "Next 👉", class: "button-next" %>
         </div>
       <% end %>

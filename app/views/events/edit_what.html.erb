@@ -9,14 +9,14 @@
     collection: Event::EMOJI %>
 
     <%= f.input :emoji,
-    as: :check_boxes,
-    label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
-    collection: Event::EMOJI,
-    input_html: { multiple: false },
-    item_wrapper_class: :radio,
-    # selected: Event::EMOJI.first,
-    include_hidden: false
-     %>
+      as: :radio_buttons,
+      wrapper_tag: :fieldset,
+      label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
+      collection: Event::EMOJI.to_a.map(&:reverse),
+      input_html: { multiple: false },
+      item_wrapper_class: :radio,
+      # selected: Event::EMOJI.first,
+      include_hidden: false %>
 
      <div class="background-grey sticky-bottom">
       <%= f.submit "Next 👉", class: "button-next" %>

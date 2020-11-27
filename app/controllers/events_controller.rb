@@ -84,7 +84,9 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:emoji, :address, :date_time, :status)
+    strong_params = params.require(:event).permit(:emoji, :address, :date_time, :status)
+    strong_params[:emoji] = Event::EMOJI[strong_params[:emoji].to_sym] if strong_params[:emoji]
+    strong_params
   end
 
   def current_guest

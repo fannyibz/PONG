@@ -20,11 +20,12 @@ justify-content: center;
 .avatar-friend {
   width: 100px;
   border-radius: 50%;
-  &:hover {
-      width: 80px;
-      height: 80px;
-    }
+  // &:hover {
+  //     width: 80px;
+  //     height: 80px;
+  //   }
 }
+
 
 .avatar-friend-selected{
   display: flex;

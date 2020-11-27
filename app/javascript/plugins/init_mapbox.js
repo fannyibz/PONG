@@ -19,6 +19,10 @@ const initMapbox = () => {
     // 1-Create a HTML element for your custom marker
     const element = document.createElement('div');
     element.className = 'marker';
+    console.log(marker.joined)
+    if (marker.joined) {
+      element.classList.add('avatar-profile-selected')
+    }
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
     element.style.width = '50px';

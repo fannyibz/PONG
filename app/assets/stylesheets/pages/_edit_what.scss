@@ -1,8 +1,8 @@
-div.event_emoji {
-  input[type='checkbox'] {
+fieldset.event_emoji {
+  input[type='radio'] {
     display: none;
   }
-  input[type='checkbox']:checked + label .emoji-box {
+  input[type='radio']:checked + label .emoji-box {
     // @extend .avatar-bordered;
   display: flex;
   align-items: center;

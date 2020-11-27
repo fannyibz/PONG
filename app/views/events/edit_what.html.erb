@@ -9,10 +9,10 @@
     collection: Event::EMOJI %>
 
     <%= f.input :emoji,
-    as: :radio_buttons,
+    as: :check_boxes,
     label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
     collection: Event::EMOJI,
-    input_html: {class: 'd-none radio-btn'},
+    input_html: { multiple: false },
     item_wrapper_class: :radio,
     # selected: Event::EMOJI.first,
     include_hidden: false

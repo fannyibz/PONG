@@ -8,6 +8,9 @@
   justify-content: space-evenly;
   border-bottom: 1px solid white;
   padding: 20px 0px;
+  i {
+    color: #dcdcdc;
+  }
 }
 
 .chat-event-box {
@@ -26,15 +29,23 @@
   color: white;
 }
 
+.event-description-box {
+  margin-top: 15px;
+  i {
+    color: #dcdcdc;
+  }
+}
+
 .friends-box {
   display: flex;
-  height: 70px;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .emoji-avatar-friend {
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 // .friends-box img {

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy]
+  before_action :current_guest, only: [:edit_friends, :show]
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
@@ -83,5 +84,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:emoji, :address, :date_time, :status)
+  end
+
+  def current_guest
+    @current_guest = @event.event_users.find_by(user: current_user)
   end
 end

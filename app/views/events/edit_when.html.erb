@@ -1,9 +1,16 @@
 <div class="content-container content-when">
-  <div class="when-titles">
-    <h1>When?</h1>
+  <div>
+    <div class="form-event-title">
+      <%= link_to edit_address_event_path(@event) do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <div class="text-center mb-3">
+      <h1>When?</h1>
       <p>Your plan happens around...</p>
+    </div>
   </div>
-  <br>
 
   <div class="tab-centered">
     <ul class="toggle-nav nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">

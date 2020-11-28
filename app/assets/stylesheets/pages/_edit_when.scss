@@ -15,5 +15,23 @@
   border-radius: 0px 10px 10px 0px !important;
 }
 
+.time-big {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.text-linear-gradient{
+  font-size: 70px;
+  padding: 1px;
+  color: white;
+  // font-size: 72px;
+  background: linear-gradient(to top, #DF540B, #F9C01D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 
 

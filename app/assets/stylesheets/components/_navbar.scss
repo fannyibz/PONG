@@ -8,24 +8,33 @@
   display: flex;
   justify-content: space-around;
   z-index: 100;
-
 }
 
 .navbar-icon-box {
-  flex: 1 1 auto;
-  display: flex;
-  place-items: center;
   height: 100%;
+  display: flex;
+  flex: 1 1 auto;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  place-items: center;
+  text-align: center;
   i {
     color: white;
-    font-size: 25px;
+    font-size: 23px;
+    padding: 3px 0px;
+  }
+  p {
+    font-size: 10px;
   }
 }
 
-.icon-box-active {
+.icon-box-active:hover {
   background-color: #1f1f1f;
   i {
-    // color: red;
+    color: #f9af3b;
+  }
+  p {
+    color: white;
   }
 }

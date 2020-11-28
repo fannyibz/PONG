@@ -8,8 +8,17 @@ const initMapbox = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa' // <-- use your own to styling your map
+    style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa'
   });
+
+  const locationControl = map.addControl(
+    new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    trackUserLocation: true
+    })
+    );
 
   const markers = JSON.parse(mapElement.dataset.markers); // Mapbox, add markers
   markers.forEach((marker) => {

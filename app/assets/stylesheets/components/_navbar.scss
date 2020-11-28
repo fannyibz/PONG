@@ -20,7 +20,7 @@
   place-items: center;
   text-align: center;
   i {
-    color: white;
+    color: $grey-paragraph;
     font-size: 23px;
     padding: 3px 0px;
   }
@@ -29,12 +29,12 @@
   }
 }
 
-.icon-box-active:hover {
+.navbar-icon-box-active {
   background-color: #1f1f1f;
   i {
-    color: #f9af3b;
+    color: $light-orange;
   }
   p {
-    color: white;
+    color: $light-orange;
   }
 }

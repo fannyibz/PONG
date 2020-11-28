@@ -36,10 +36,12 @@ flatpickr(".datepicker", {
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
+import { getUserTime } from '../components/get_user_time';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
+  getUserTime();
 })
 
 // Internal imports, e.g:

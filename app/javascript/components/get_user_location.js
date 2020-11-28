@@ -11,4 +11,5 @@ const getUserLocation = () => {
     });
   }
 }
+
 export { getUserLocation }

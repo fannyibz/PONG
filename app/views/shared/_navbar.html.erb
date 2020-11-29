@@ -1,13 +1,16 @@
 <div class="navbar">
-  <%= link_to root_path, class: "navbar-icon-box icon-box-active" do %>
-      <i class="fas fa-map-marked-alt"></i>
+  <%= link_to root_path, class: "navbar-icon-box navbar-icon-box-active" do %>
+    <i class="fas fa-map-marked-alt"></i>
+    <p>Home</p>
   <% end %>
 
   <%= link_to events_path, class: "navbar-icon-box" do %>
-      <i class="far fa-calendar-alt"></i>
+    <i class="far fa-calendar-alt"></i>
+    <p>Events</p>
   <% end %>
-  
+
   <%= link_to dashboard_path, class: "navbar-icon-box" do %>
-      <i class="far fa-user"></i>
+    <i class="fas fa-users"></i>
+    <p>Friends</p>
   <% end %>
 </div>

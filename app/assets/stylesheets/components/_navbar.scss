@@ -8,24 +8,38 @@
   display: flex;
   justify-content: space-around;
   z-index: 100;
-
 }
 
 .navbar-icon-box {
-  flex: 1 1 auto;
-  display: flex;
-  place-items: center;
   height: 100%;
+  display: flex;
+  flex: 1 1 auto;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  place-items: center;
+  text-align: center;
   i {
-    color: white;
-    font-size: 25px;
+    color: $grey-paragraph;
+    font-size: 23px;
+    padding: 3px 0px;
+  }
+  p {
+    font-size: 10px;
   }
 }
 
-.icon-box-active {
+.navbar-icon-box-active {
   background-color: #1f1f1f;
   i {
-    // color: red;
+    color: white;
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  p {
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

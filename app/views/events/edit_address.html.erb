@@ -1,6 +1,15 @@
 <div class="content-container">
-  <div class="titles">
-    <h1>Where does it take place?</h1>
+  <div>
+    <div class="form-event-title">
+      <%= link_to edit_what_event_path(@event) do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <div class="text-center mb-3">
+      <h1>Where it takes place?</h1>
+      <p>Choose wisely your emotivent !</p>
+    </div>
   </div>
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
@@ -22,5 +31,3 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-

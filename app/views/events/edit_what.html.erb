@@ -1,7 +1,16 @@
 <div class="content-container">
-  <div class="text-center">
-    <h1>What are you up to?</h1>
-    <p>Choose wisely your emotivent !</p>
+
+  <div>
+    <div class="form-event-title">
+      <%= link_to root_path, data: { confirm: "Are you sure you want to cancel your plan?" } do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+    
+    <div class="text-center">
+      <h1>What are you up to?</h1>
+      <p>Choose wisely your emotivent !</p>
+    </div>
   </div>
 
   <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>

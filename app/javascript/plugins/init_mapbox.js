@@ -55,8 +55,11 @@ const initMapbox = () => {
   });
 
   // Mapbox, searching on your map
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+  map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    placeholder: 'Search for location...'
+  }));
 
   // Mapbox, fit map to markers
   const bounds = new mapboxgl.LngLatBounds();

@@ -2,7 +2,8 @@
 
   <div>
     <div class="form-event-title">
-      <%= link_to root_path, data: { confirm: "Are you sure you want to cancel your plan?" } do %>
+        <%# POURQUOI LE DELETE RENVOIE VERS ROOT? %>
+        <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>
         <i class="fas fa-chevron-left"></i>
       <% end %>
     </div>
@@ -32,4 +33,3 @@
      </div>
   <% end %>
 </div>
-

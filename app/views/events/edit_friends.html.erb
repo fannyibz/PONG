@@ -27,8 +27,11 @@
         # include_blank: false,
         include_hidden: false %>
 
-      <div class="background-grey sticky-bottom">
-        <%= f.button :submit, "💥 Share my plan 💥", class: "button-next" %>
+      <div class="background-grey fixed-bottom">
+        <%= f.button :submit, "💥 Share my plan 💥", class: "button-next mb-3" %>
+      <div class="mb-2">
+        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete-grey" %>
+      </div>
       </div>
     <% end %>
   </div>

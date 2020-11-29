@@ -14,21 +14,42 @@ const getUserTime = () => {
         //     document.addEventListener('DOMContentLoaded', fn);
         //   }
         // }
+    let counterHours = parseInt(hours.innerHTML);
+    let counterMins = parseInt(mins.innerHTML);
 
-  addHours.addEventListener("click", (event) => {
 
-    let counter = parseInt(hours.innerHTML);
-    counter += 1;
-    document.getElementById("time-hour").innerHTML = counter;
-    // localStorage.setItem('textSet', true);
-    // hours.innerHTML.replace(innerHTML, counter)
-    // ready(function(){
-    //       if(localStorage.getItem('textSet')){
-    //           document.getElementById("time-hour").innerHTML = counter;
-    //       }
-    //   })
-
+  addHours.addEventListener("mouseup", (events) => {
+    if (counterHours < 24){
+      counterHours += 1;
+      hours.innerHTML = counterHours;
+    }
   });
+
+  removeHours.addEventListener("mouseup", (event) => {
+    if (counterHours >= 1){
+      counterHours -= 1;
+      hours.innerHTML = counterHours;
+    }
+  });
+
+   addMins.addEventListener("mouseup", (event) => {
+    if (counterMins < 60){
+      counterMins += 1;
+      mins.innerHTML = counterMins;
+    }
+  });
+
+  removeMins.addEventListener("mouseup", (event) => {
+    if (counterMins >= 1){
+      counterMins -= 1;
+      mins.innerHTML = counterMins;
+    }
+  });
+
+  // hours.addEventListener("mousedown", (event) => {
+  //   counter -= 1;
+  //   hours.innerHTML = counter;
+  // });
 
 
 }

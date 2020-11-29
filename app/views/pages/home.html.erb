@@ -1,5 +1,11 @@
 <div class="map-container position-relative">
 
+  <div class="background-shadow position-absolute"></div>
+
+  <div id="pong-title" class="position-absolute">
+    <h1>PONG</h1>
+  </div>
+
   <div class="position-absolute button-wrapper">
     <div class="gradient-box">
       <%= link_to "Share my plan" , events_path, method: :post, class: "text-button" %>
@@ -12,5 +18,3 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<%= link_to "propose a plan", events_path, method: :post %>

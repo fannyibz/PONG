@@ -93,8 +93,24 @@
   bottom: 0px;
 }
 
+// .fixed-bottom-friends {
+//   position: fixed;
+//   bottom: 5px;
+// }
+
+// .flex-friends {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: start;
+// }
+
 .border-grey {
   border: 1px solid grey;
   padding: 5px 15px;
   border-radius: 30px;
+}
+
+.btn-delete-grey {
+  color: #808080;
+  font-size: 17px;
 }

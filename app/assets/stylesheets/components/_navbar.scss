@@ -32,9 +32,14 @@
 .navbar-icon-box-active {
   background-color: #1f1f1f;
   i {
-    color: $light-orange;
+    color: white;
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   p {
-    color: $light-orange;
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

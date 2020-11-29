@@ -275,9 +275,11 @@ Devise.setup do |config|
 
   config.omniauth :facebook, ENV["TEST_FB_ID"], ENV["TEST_FB_SECRET"], token_params: { parse: :json }
     scope: 'email',
-    info_fields: 'email, first_name, last_name, provider, uid, facebook_picture_url,token, token_expiry',
+    info_fields: 'email, first_name, last_name',
     image_size: 'square',  # 50x50, guaranteed ratio
     secure_image_url: true
+
+  # Est-ce qu'il faut rajouter ça dans INFO FIELDS provider, uid, facebook_picture_url,token, token_expiry?
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

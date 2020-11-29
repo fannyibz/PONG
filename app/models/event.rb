@@ -13,7 +13,7 @@ class Event < ApplicationRecord
 
   before_validation :set_attributes
 
-  enum status: [:incompleted, :completed, :pasted]
+  enum status: [:incompleted, :completed, :past]
 
   EMOJI = { beer: '🍺', sipping: '🍷', movies: '🍿', basket: '🏀', fastfood: '🍔', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shopping: '🛍',Rrrrrr: ' 🍑', banana: '🍌', party: '🎉', football: '⚽️', jogging: '🏃‍♂️', codding: '🤓', geeking: '🎮', ski: '🎿', netflix: '🎬' }
 

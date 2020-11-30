@@ -4,10 +4,17 @@ class EventUser < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event}
 
-  enum status: [:pending, :confirmed, :declined]
+  scope :order_by_status, -> { order(status: :desc) }
+  enum status: [:declined, :pending, :confirmed]
   enum role: [:partner, :visitor] # :host -> host added if role :host added
 
   before_create :set_role, :set_status
+
+  EMOJI_STATUS = {
+    "pending": '🤷‍♂️',
+    "confirmed": '✅',
+    "declined": '❌'
+  }
 
   private
 

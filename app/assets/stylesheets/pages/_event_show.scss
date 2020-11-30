@@ -4,69 +4,64 @@
 
 .infos-event-show-box {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-bottom: 1px solid white;
-  padding: 20px 0px;
+  font-size: 16px;
+  padding: 20px 0px 0px 0px;
   i {
-    color: #dcdcdc;
+    color: $grey-paragraph;
   }
 }
 
-.chat-event-box {
-  border-bottom: 1px solid white;
-  padding: 20px 0px;
+.box-infos {
+  position: relative;
+  left: 40px;
+  text-align: left;
 }
 
-.chat-event-box-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.box-address{
+  position: relative;
+  top: 15px;
+  p {
+    font-weight: 400 !important;
+  }
+}
+.box-date {
+  position: relative;
+  top: 30px;
+  font-weight: 300;
 }
 
-.chat-event-box a i {
-  font-size: 40px;
-  color: white;
+.event-show-timer {
+  text-align: center;
+  h6 {
+    color: $light-gray;
+    font-weight: 200;
+  }
+  #timer {
+    // font-family: $timer;
+    font-size: 75px;
+    background: linear-gradient(to bottom, $light-orange 40%, $strong-orange 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 300;
+    height: 100px;
+  }
 }
 
 .event-description-box {
   margin-top: 15px;
-  i {
-    color: #dcdcdc;
-  }
+  font-size: 13;
+  color: $light-gray;
+  text-align: center;
 }
-
-.friends-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.emoji-avatar-friend {
-  margin-right: 3px;
-}
-
-// .friends-box img {
-//   position: absolute;
-// }
-
-// .friends-box p {
-//   position: relative;
-//   top: 35px; // WHY IS IT WORK WITH TOP AND NOT BOTTOM?
-//   z-index: 5;
-//   font-size: 20px;
-// }
 
 .manage-event-buttons {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0px;
   a {
-    font-size: 10px;
+    font-size: 14px;
     p {
-      font-size: 10px;
+      font-size: 14px;
     }
   }
 }

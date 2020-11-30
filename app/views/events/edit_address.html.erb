@@ -1,6 +1,6 @@
 <div class="content-container">
   <div class="titles">
-    <h1>Where does it take place?</h1>
+    <h1>Where?</h1>
   </div>
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
@@ -9,7 +9,7 @@
     <br>
     <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
     <br>
-  
+
     <div class="fixed-bottom">
       <%= f.button :submit, "Next 👉", class: "button-next" %>
     </div>

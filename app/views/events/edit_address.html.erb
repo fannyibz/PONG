@@ -1,6 +1,16 @@
 <div class="content-container">
-  <div class="titles">
-    <h1>Where?</h1>
+
+  <div>
+    <div class="form-event-title">
+      <%= link_to edit_what_event_path(@event) do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <div class="text-center mb-3">
+      <h1>Where?</h1>
+      <p>Pick a place for your event!</p>
+    </div>
   </div>
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
@@ -9,8 +19,8 @@
     <br>
     <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
     <br>
-
-    <div class="fixed-bottom">
+  
+    <div class="fixed-bottom btn-margin-bottom">
       <%= f.button :submit, "Next 👉", class: "button-next" %>
     </div>
   <% end %>
@@ -22,5 +32,3 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-

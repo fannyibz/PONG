@@ -1,7 +1,17 @@
 <div class="content-container">
-  <div class="text-center">
-    <h1>What are you up to?</h1>
-    <p>Choose wisely your emotivent !</p>
+
+  <div>
+    <div class="form-event-title">
+        <%# POURQUOI LE DELETE RENVOIE VERS ROOT? %>
+        <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <div class="text-center">
+      <h1>What are you up to?</h1>
+      <p>Choose wisely your emotivent !</p>
+    </div>
   </div>
 
   <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
@@ -18,9 +28,8 @@
       # selected: Event::EMOJI.first,
       include_hidden: false %>
 
-     <div class="background-grey sticky-bottom">
+     <div class="background-grey fixed-bottom">
       <%= f.submit "Next 👉", class: "button-next" %>
      </div>
   <% end %>
 </div>
-

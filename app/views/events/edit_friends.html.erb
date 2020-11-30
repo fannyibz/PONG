@@ -1,10 +1,20 @@
 <div class="content-container">
   <div class="text-center">
-  <h1>Invite your friends!</h1>
-  <p>Pick them wisely ...</p>
-  <br>
-  <p class ="border-grey">Search group or fiends 🔎</p>
-  <p>Friends can joins with friends #toggle</p>
+    <div>
+      <div class="form-event-title">
+        <%= link_to edit_when_event_path(@event) do %>
+          <i class="fas fa-chevron-left"></i>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <h1>Invite your friends!</h1>
+        <p>Pick them wisely ...</p>
+      </div>
+    </div>
+
+    <p class ="border-grey">Search group or fiends 🔎</p>
+    <p>Friends can joins with friends #toggle</p>
 
     <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
       <%= f.input :friends,
@@ -17,11 +27,12 @@
         # include_blank: false,
         include_hidden: false %>
 
-      <div class="background-grey sticky-bottom">
-        <%= f.button :submit, "Share my plan 💥", class: "button-next" %>
+      <div class="background-grey fixed-bottom">
+        <%= f.button :submit, "💥 Share my plan 💥", class: "button-next mb-3" %>
+      <div class="mb-2">
+        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete-grey" %>
+      </div>
       </div>
     <% end %>
   </div>
 </div>
-
-

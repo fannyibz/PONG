@@ -18,7 +18,7 @@ const getUserTime = () => {
 
     const hValue = parseInt(simpleFormHour.value)
        if (hValue === 24) {
-      simpleFormHour.value = 0;
+      simpleFormHour.value = "0";
     } else if (hValue <= 10) {
       simpleFormHour.value = `0${hValue + 1}`
     } else {

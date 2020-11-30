@@ -40,15 +40,31 @@ flatpickr(".datepicker", {
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
+import { initSweetAlert } from '../plugins/sweet_alert';
+
+ initSweetAlert('#share-my-plan', {
+        title: "Congratulations !",
+        text: "You've shared your plan !",
+        icon: "success",
+        button: "See my plan",
+        }, (value) => {
+          if (value) {
+            const link = document.querySelector('#confirm-link');
+            link.click();
+        }
+      });
 
 getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
+
   toggleButtonNext();
   togglePongTitle();
+
 })
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

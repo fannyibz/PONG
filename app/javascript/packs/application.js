@@ -39,11 +39,13 @@ flatpickr(".datepicker", {
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
+import { initSweetAlert } from '../plugins/sweet_alert';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
   // changeNavbarButton();
+  initSweetAlert();
 })
 
 // Internal imports, e.g:

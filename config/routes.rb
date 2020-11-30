@@ -28,7 +28,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :friendships, only: :create
+  resources :friendships, only: :create # to do: rename in friendship_requests
+  resources :friendship_acceptances, only: :create
+
+  # resources :friendships, only: [] do
+  #   member do
+  #     post :accept
+  #     get :decline
+  #   end
+  # end
 
 end
 

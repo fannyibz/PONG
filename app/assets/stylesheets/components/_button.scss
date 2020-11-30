@@ -66,6 +66,18 @@
   background: $bg-dark;
 }
 
+.button-medium {
+  border: 1px solid $grey-stroke;
+  border-radius: 40px;
+  padding: 12px 15px;
+  color: white;
+  display: block;
+  width: 147px;;
+  text-align: center;
+  margin: 0 auto;
+  background: $bg-dark;
+}
+
 .button-next-small {
   border: 1px solid $grey-stroke;
   border-radius: 30px;
@@ -110,7 +122,12 @@
   border-radius: 30px;
 }
 
+
+.manage-event-buttons a {
+    font-size: 14px;
+
 .btn-delete-grey {
   color: #808080;
   font-size: 17px;
+
 }

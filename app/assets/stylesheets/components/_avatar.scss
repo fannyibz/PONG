@@ -24,6 +24,7 @@ justify-content: center;
   top: 15px;
 }
 
+
 .avatar-friend {
   width: 100px;
   border-radius: 50%;
@@ -62,10 +63,10 @@ justify-content: center;
 }
 
 .avatar-profile {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .avatar-profile-selected {

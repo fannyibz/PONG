@@ -22,12 +22,16 @@ class PagesController < ApplicationController
         emoji: event.emoji,
         joined: event.user == current_user || event.event_users.confirmed.pluck(:user_id).include?(current_user.id)
       }
-
     end
   end
 
   def dashboard
     authorize(:page, :dashboard?)
+  end
+
+  def users_list
+    authorize(:page, :users_list?)
+    @users = User.all.except{ |user| user == current_user }
   end
 end
 

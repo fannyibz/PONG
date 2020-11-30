@@ -1,0 +1,62 @@
+<div class="content-container">
+  <h1 id="event-show-title"><%= "Let's edit #{@event.emoji}!" %></h1>
+
+  <div class="text-center">
+    <h1>WHAT are you up to?</h1>
+    <p>Choose wisely your emotivent !</p>
+  </div>
+
+  <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>
+    <%= f.input :emoji,
+      as: :radio_buttons,
+      wrapper_tag: :fieldset,
+      label_method: lambda { |emoji| render "events/emoji_label", emoji: emoji },
+      collection: Event::EMOJI.to_a.map(&:reverse),
+      input_html: { multiple: false },
+      item_wrapper_class: :radio,
+      # selected: Event::EMOJI.first,
+      include_hidden: false %>
+
+    <div class="background-grey fixed-bottom">
+      <%= f.submit "Next 👉", class: "button-next" %>
+    </div>
+  <% end %>
+
+  <div class="text-center mb-3">
+    <h1>WHERE it takes place?</h1>
+    <p>This is visible only to your guests</p>
+  </div>
+
+  <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
+    <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
+    <br>
+    <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
+    <br>
+    <div class="fixed-bottom btn-margin-bottom">
+      <%= f.button :submit, "Next 👉", class: "button-next" %>
+    </div>
+  <% end %>
+
+  <div class="text-center mb-3">
+      <h1>WHEN?</h1>
+      <p>Your plan happens around...</p>
+  </div>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
+        <%= f.input :date_time, as: :time, label: false %>
+        <%= f.button :submit, "Next 👉", class: "button-next fixed-bottom btn-margin-bottom" %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
+        <%= f.input :date_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <!-- <div class="fixed-bottom"> -->
+          <%= f.button :submit, "Next 👉", class: "button-next fixed-bottom btn-margin-bottom" %>
+        <!-- </div> -->
+      <% end %>
+    </div>
+  </div>
+
+</div>

@@ -14,6 +14,27 @@ class EventsController < ApplicationController
   end
 
   #METHODS USED FOR THE SIMPLE_FORM:
+  def edit
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to edit_address_event_path(@event)
+    else
+      render :edit_what
+    end
+    if @event.update(event_params)
+      redirect_to edit_when_event_path(@event)
+    else
+      render :edit_address
+    end
+    if @event.update(event_params)
+      redirect_to edit_friends_event_path(@event)
+    else
+      render :edit_when
+    end
+  end
+
   def create
     @event = Event.new
     authorize @event

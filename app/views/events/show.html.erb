@@ -112,9 +112,9 @@
 
       <%= link_to "Manage invitations", edit_friends_event_path, class: "btn btn-outline-secondary" if policy(@event).edit_friends? %>
 
-      <%= link_to "Edit plan", event_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Edit plan", edit_event_path, class: "btn btn-outline-primary" %>
     </div>
-  
+
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
   <% else  %>
 

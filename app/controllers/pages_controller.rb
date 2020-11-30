@@ -29,6 +29,11 @@ class PagesController < ApplicationController
   def dashboard
     authorize(:page, :dashboard?)
   end
+
+  def users_list
+    authorize(:page, :users_list?)
+    @users = User.all.except{ |user| user == current_user }
+  end
 end
 
 # 'cl_image_tag event.user.avatar.key'

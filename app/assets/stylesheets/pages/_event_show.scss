@@ -44,6 +44,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 300;
     height: 100px;
+    padding-top: 50px;
   }
 }
 
@@ -65,3 +66,11 @@
     }
   }
 }
+
+// #address-hidden {
+//   width: 211px;
+//   height: 41px;
+//   text-overflow: ellipsis;
+//   overflow: hidden;
+//   white-space: nowrap;
+// }

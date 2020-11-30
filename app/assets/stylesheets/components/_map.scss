@@ -15,6 +15,7 @@
 
 .mapboxgl-popup-content {
   background: transparent;
+  overflow-y: scroll;
 }
 
 .mapboxgl-popup-tip {

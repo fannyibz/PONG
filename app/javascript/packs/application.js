@@ -26,7 +26,8 @@ require("channels")
 import "bootstrap";
 
 // Own JS functions
-// import { changeNavbarButton } from '../components/change_navbar_button';
+import { toggleButtonNext } from '../components/toggleButtonNext';
+import { togglePongTitle } from '../components/togglePongTitle';
 
 //Flatpickr
 import flatpickr from "flatpickr";
@@ -45,7 +46,8 @@ getUserLocation();
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
-  
+  toggleButtonNext();
+  togglePongTitle();
 })
 
 // Internal imports, e.g:

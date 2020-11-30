@@ -40,6 +40,10 @@ class User < ApplicationRecord
     return user
   end
 
+  def user_is_host?(event)
+    event.user == self
+  end
+
   def is_friend?(user)
     self.friends.include?(user)
   end
@@ -47,5 +51,4 @@ class User < ApplicationRecord
   def get_friendship(user)
     self.friendships.find_by(friend: user) || user.friendships.find_by(friend: self)
   end
-
 end

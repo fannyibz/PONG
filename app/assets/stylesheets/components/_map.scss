@@ -29,3 +29,8 @@
 .map-container {
   height: calc(100vh - 50px);
 }
+
+.mapboxgl-ctrl-top-right {
+  z-index: 100!important;
+  // margin-top: 30px;
+}

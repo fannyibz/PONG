@@ -14,6 +14,14 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    user_is_host?
+  end
+
   def edit_what?
     update_what?
   end

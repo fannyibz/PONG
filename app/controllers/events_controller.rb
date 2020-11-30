@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy]
+  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy, :edit, :update]
   before_action :current_guest, only: [:edit_friends, :show]
   skip_before_action :authenticate_user!, only: [:show]
 
@@ -14,6 +14,13 @@ class EventsController < ApplicationController
   end
 
   #METHODS USED FOR THE SIMPLE_FORM:
+  def edit
+  end
+
+  def update
+    redirect_to event_path(@event) if @event.update(event_params)
+  end
+
   def create
     @event = Event.new
     authorize @event

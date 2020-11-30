@@ -9,8 +9,12 @@ const initSweetAlert = () =>{
     swal({
       title: "Congratulations",
       text: "You've shared your plan!You'll be notified when someone answers",
-      icon: "success",
       button: "See plan",
+      icon: "success",
+    }).then(okay => {
+   if (okay) {
+    window.location.href = "URL";
+      }
     });
   });
 }

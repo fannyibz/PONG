@@ -20,7 +20,7 @@ const getUserTime = () => {
        if (hValue === 24) {
       simpleFormHour.value = "0";
     } else if (hValue <= 10) {
-      simpleFormHour.value = `0${hValue + 1}`
+      simpleFormHour.value = `0${hValue + 1}`;
     } else {
       simpleFormHour.value = hValue + 1;
     }
@@ -49,14 +49,14 @@ const getUserTime = () => {
       if (hValue === 55) {
         simpleFormHour.value = "5";
       } else if (hValue <= 10) {
-        simpleFormHour.value = `0${hValue + 5}`:
+        simpleFormHour.value = `0${hValue + 5}`;
       } else {
         simpleFormHour.value = hValue + 5;
       }
       displayTime(simpleFormHour, hours)
   });
 
-  });
+  };
 
   removeMins.addEventListener("mouseup", (event) => {
     const mValue = parseInt(simpleFormMin.value);
@@ -73,7 +73,6 @@ const getUserTime = () => {
 
   });
 
-}
 
 function displayTime(inputElement, displayElement) {
   displayElement.innerHTML = inputElement.value;

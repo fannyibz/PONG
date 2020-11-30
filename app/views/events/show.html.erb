@@ -8,9 +8,9 @@
 
   <div class="event-show-timer">
     <div id="timer">
-      <p>
+
         <%= @event.time_left %>
-      </p>
+
     </div>
     <h6>Before the beginning of the event</h6>
   </div>
@@ -27,15 +27,21 @@
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if @user_is_host %>
+    <div class="manage-event-buttons">
+      <%= link_to "Share link", event_path, class: "button-medium" %>
+      <%= link_to "Invite", edit_friends_event_path, class: "button-medium" if policy(@event).edit_friends? %>
+    </div>
 
     <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
-    <%= link_to "Copy event link", event_path, class: "gradient-box" %>
-    <%#= link_to "Manage invitations", edit_friends_event_path, class: "button-medium" if policy(@event).edit_friends? %>
-    <div class="manage-event-buttons">
+
+    <div class="container-buttons-top-bottom">
+      <%= link_to "Edit plan", event_path, class: "button-next mb-2" %>
       <% if policy(@event).destroy? %>
-        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-medium" %>
+        <%= link_to "Delete my plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-next" %>
       <% end %>
-      <%= link_to "Edit plan", event_path, class: "button-medium" %>
+    </div>
+
+      <%= link_to "Edit plan", edit_event_path, class: "btn btn-outline-primary" %>
     </div>
 
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
@@ -48,10 +54,10 @@
       </div>
 
     <% elsif @current_guest.status == "pending" %>
-      <div class="manage-event-buttons">
-        <%= link_to "Decline", decline_event_user_path(@current_guest), class: "button-medium" %>
-        <%= link_to "Confirm", confirm_event_user_path(@current_guest), class: "button-medium" %>
-      </div>
+      <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
+
+      <%= link_to "Join 👊", confirm_event_user_path(@current_guest), class: "button-next btn-join mb-2" %>
+      <%= link_to "Plouf 💦", decline_event_user_path(@current_guest), class: "button-next btn-plouf" %>
 
     <% else %>
       <%# le statut de l'event doit passer en "declined" et pas en "past"  %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get :components, to: 'pages#components'
   get 'dashboard', to: 'pages#dashboard'
+  get 'users_list', to: 'pages#users_list'
 
   resources :event_users, only: [] do
     member do
@@ -26,5 +27,8 @@ Rails.application.routes.draw do
       patch :update_friends
     end
   end
+
+  resources :friendships, only: :create
+
 end
 

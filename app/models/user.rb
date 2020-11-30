@@ -40,4 +40,8 @@ class User < ApplicationRecord
     return user
   end
 
+  def user_is_host?(event)
+    event.user == self
+  end
+
 end

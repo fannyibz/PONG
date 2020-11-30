@@ -1,4 +1,5 @@
 <div class="content-container">
+
   <div>
     <div class="form-event-title">
       <%= link_to edit_what_event_path(@event) do %>
@@ -7,19 +8,21 @@
     </div>
 
     <div class="text-center mb-3">
-      <h1>Where it takes place?</h1>
-      <p>This is visible only to your guests</p>
+
+      <h1>Where?</h1>
+      <p>Pick a place for your event!</p>
+
     </div>
   </div>
 
   <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
     <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
-
     <br>
     <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
     <br>
 
     <div class="fixed-bottom btn-margin-bottom">
+
       <%= f.button :submit, "Next 👉", class: "button-next" %>
     </div>
   <% end %>

@@ -42,6 +42,7 @@ class EventsController < ApplicationController
   end
 
   def edit_address
+
   end
 
   def update_address

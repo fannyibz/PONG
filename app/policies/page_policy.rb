@@ -10,6 +10,10 @@ class PagePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def users_list?
+    true
+  end
+
   def components?
     true
   end
@@ -17,5 +21,4 @@ class PagePolicy < ApplicationPolicy
   def dashboard?
     true
   end
-
 end

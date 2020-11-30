@@ -407,9 +407,9 @@ puts "#{event1.emoji}, hosted by #{event1.user.first_name} created!"
 
 # EventUser.create!(event: event1, user: hadrien, status: "confirmed", role: "host") #Added Hadrien as host even_user
 
-EventUser.create!(event: event1, user: fanny, status: "confirmed", role: "visitor")
+EventUser.create!(event: event1, user: fanny, status: "pending", role: "visitor")
 
-EventUser.create!(event: event1, user: raphael, status: "pending", role: "visitor")
+EventUser.create!(event: event1, user: raphael, status: "confirmed", role: "visitor")
 
 EventUser.create!(event: event1, user: magali, status: "declined", role: "visitor")
 
@@ -422,6 +422,13 @@ event2 = Event.new(emoji: "🍔",
                    status: "completed" )
 
 EventUser.create!(event: event2, user: hadrien, status: "confirmed", role: "partner")
+EventUser.create!(event: event2, user: chiara, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: magali, status: "confirmed", role: "partner")
+EventUser.create!(event: event2, user: edouard, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: nicolas, status: "declined", role: "partner")
+EventUser.create!(event: event2, user: florence, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: raphael, status: "declined", role: "partner")
+EventUser.create!(event: event2, user: nicolas2, status: "confirmed", role: "partner")
 
 puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
 

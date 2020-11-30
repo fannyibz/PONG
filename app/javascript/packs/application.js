@@ -40,10 +40,12 @@ flatpickr(".datepicker", {
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
 
+getUserLocation();
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
-  // changeNavbarButton();
+  
 })
 
 // Internal imports, e.g:

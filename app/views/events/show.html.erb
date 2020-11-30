@@ -1,124 +1,47 @@
 <div class="content-container">
-  <h1 id="event-show-title"><%= "Let's #{@event.emoji} together!" %></h1>
 
-  <div class="infos-event-show-box">
-    <%= cl_image_tag @event.user.avatar.key, class: "avatar-profile" %>
+  <h1 id="event-show-title">
+    <%= " #{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
+  </h1>
 
-    <div>
+  <%= render "events/info_event_show_box", event: @event %>
+
+  <div class="event-show-timer">
+    <div id="timer">
       <p>
-        <%= @event.address %>
-        <% if @user_is_host %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
+        <%= @event.time_left %>
       </p>
-
-      <p>
-        <%= @event.date_time.strftime("%a %d at %H:%M") %>
-        <% if @user_is_host %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-      </p>
-
-      <% if @event.open == true %>
-        <p>
-          <%= "Friends of guests allowed? ✅" %>
-          <% if @user_is_host %>
-            <i class="fas fa-pencil-alt"></i>
-          <% end %>
-        </p>
-      <% else %>
-        <p>
-          <%= "Friends of guests allowed? 🚫" %>
-          <% if @user_is_host %>
-            <i class="fas fa-pencil-alt"></i>
-          <% end %>
-        </p>
-      <% end %>
     </div>
-
-  </div>
-
-  <div class="chat-event-box">
-    <%= link_to event_path(@event) do %>
-      <div , class="chat-event-box-link">
-        <p>Access to the chat event</p>
-        <i class="fab fa-facebook-messenger"></i>
-      </div>
-    <% end %>
+    <h6>Before the beginning of the event</h6>
   </div>
 
   <div class="event-description-box">
-    <h5>Details of the event:</h5>
-    <p>
-      <%= "\"#{@event.description}\"" %>
-      <% if @user_is_host %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
+    <p class="light-p">
+      <%= "#{@event.description}"%>
     </p>
   </div>
 
-  <%#=  si le mec qui arrive sur la show est host
-  j'affiche event parti %>
+  <%#=  si le mec qui arrive sur la show est host j'affiche event parti %>
 
   <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
-  <div class="friends-box">
-    <% @event.event_users.each do |event_user| %>
-        <% if event_user.status == "confirmed" %>
-          <div class="emoji-avatar-friend">
-            <p>✅</p>
-            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          </div>
-        <% end %>
-      <% end %>
-  </div>
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if @user_is_host %>
 
-    <%# DISPLAY FRIENDS FOR WHOM I'M WAITING AN ANSWER %>
-    <div class="friends-box">
-      <% @event.event_users.each do |event_user| %>
-        <% if event_user.status == "pending" %>
-          <div class="emoji-avatar-friend">
-            <p>🤷‍♂️</p>
-            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <%# DISPLAY FRIENDS FOR WHOM THEY DECLINED THE INVITATION  %>
-    <div class="friends-box">
-
-    <% if @event.event_users.declined.empty? %>
-      <p>NOTHING HERE</p>
-    <% else %>
-      <% @event.event_users.declined.each do |event_user| %>
-          <div class="emoji-avatar-friend">
-            <p>❌</p>
-            <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
-          </div>
-      <% end %>
-    <% end %>
-
-    </div>
-
+    <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
     <%= link_to "Copy event link", event_path, class: "gradient-box" %>
-
+    <%#= link_to "Manage invitations", edit_friends_event_path, class: "button-medium" if policy(@event).edit_friends? %>
     <div class="manage-event-buttons">
       <% if policy(@event).destroy? %>
-        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+        <%= link_to "Delete plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-medium" %>
       <% end %>
-
-      <%= link_to "Manage invitations", edit_friends_event_path, class: "btn btn-outline-secondary" if policy(@event).edit_friends? %>
-
-      <%= link_to "Edit plan", event_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Edit plan", event_path, class: "button-medium" %>
     </div>
-  
+
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
   <% else  %>
 
-    <% if @event.event_users.find_by(user: current_user).status == "confirmed" %>
+    <% if @event.event_users.find_by(user: current_user).confirmed? %>
       <div class="manage-event-buttons">
         <%= link_to "Change answer", @event_path, class: "btn btn-outline-primary" %>
         <%= link_to "Invite a friend", @event_path, class: "btn btn-outline-secondary" if @current_guest.role == "partner" %>
@@ -126,12 +49,12 @@
 
     <% elsif @current_guest.status == "pending" %>
       <div class="manage-event-buttons">
-        <%= link_to "Decline", decline_event_user_path(@current_guest), class: "btn btn-danger" %>
-        <%= link_to "Confirm", confirm_event_user_path(@current_guest), class: "btn btn-success" %>
+        <%= link_to "Decline", decline_event_user_path(@current_guest), class: "button-medium" %>
+        <%= link_to "Confirm", confirm_event_user_path(@current_guest), class: "button-medium" %>
       </div>
 
     <% else %>
       <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
     <% end %>
   <% end  %>
-  </div>
+</div>

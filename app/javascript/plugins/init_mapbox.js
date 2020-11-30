@@ -53,8 +53,8 @@ const initMapbox = () => {
     emoji.className = 'emoji';
     // emoji.style.content = `${marker.emoji}`;
     emoji.style.fontSize = '30px';
-    emoji.style.marginTop = '30px';
-    emoji.style.marginLeft = '-26px';
+    emoji.style.marginTop = '20px';
+    emoji.style.marginLeft = '-20px';
     emoji.insertAdjacentHTML("afterbegin",`<p>${marker.emoji}</p>`)
 
 
@@ -66,8 +66,12 @@ const initMapbox = () => {
   });
 
   // Mapbox, searching on your map
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+
+  // map.addControl(new MapboxGeocoder({
+  //   accessToken: mapboxgl.accessToken,
+  //   mapboxgl: mapboxgl,
+  //   placeholder: 'Search for location...'
+  // }));
 
   // Mapbox, fit map to markers
   const bounds = new mapboxgl.LngLatBounds();

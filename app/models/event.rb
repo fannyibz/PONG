@@ -13,13 +13,26 @@ class Event < ApplicationRecord
 
   before_validation :set_attributes
 
-  enum status: [:incompleted, :completed, :pasted]
+  enum status: [:incompleted, :completed, :past]
 
   EMOJI = { beer: '🍺', sipping: '🍷', movies: '🍿', basket: '🏀', fastfood: '🍔', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shopping: '🛍',Rrrrrr: ' 🍑', banana: '🍌', party: '🎉', football: '⚽️', jogging: '🏃‍♂️', codding: '🤓', geeking: '🎮', ski: '🎿', netflix: '🎬' }
 
   # Geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def time_left
+    seconds_diff = (Time.now - date_time).to_i.abs
+    # Calculate the hours lefts
+    hours = seconds_diff / 3600
+    seconds_diff -= hours * 3600
+
+    # Calculate the minutes lefts
+    minutes = seconds_diff / 60
+
+    # Return a nice string that display time left format: hh:mm
+    "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}"
+  end
 
   private
 

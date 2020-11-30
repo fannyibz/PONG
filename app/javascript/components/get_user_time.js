@@ -7,26 +7,26 @@ const getUserTime = () => {
   const hours = document.getElementById("time-hour");
   const mins = document.getElementById("time-min");
 
-  let counterHours = parseInt(hours.innerHTML);
-  let counterMins = parseInt(mins.innerHTML);
+  // let counterHours = parseInt(hours.innerHTML);
+  // let counterMins = parseInt(mins.innerHTML);
 
   const simpleFormHour = document.getElementById("event_date_time_4i");
   const simpleFormMin = document.getElementById("event_date_time_5i");
+
   hours.innerHTML = simpleFormHour.value;
   mins.innerHTML = simpleFormMin.value;
+
   addHours.addEventListener("mouseup", (events) => {
-
-    const hValue = parseInt(simpleFormHour.value)
-       if (hValue === 24) {
-      simpleFormHour.value = "0";
-    } else if (hValue <= 10) {
-      simpleFormHour.value = `0${hValue + 1}`;
+    let hValue = parseInt(simpleFormHour.value);
+    hValue++
+    if (hValue === 24) hValue = 0;
+    simpleFormHour.value = hValue;
+    if (hValue < 10) {
+      hours.innerHTML = '0' + hValue;
+      simpleFormHour.value = '0' + hValue;
     } else {
-      simpleFormHour.value = hValue + 1;
+      hours.innerHTML = hValue;
     }
-
-    displayTime(simpleFormHour, hours)
-
   });
 
   removeHours.addEventListener("mouseup", (event) => {
@@ -44,42 +44,40 @@ const getUserTime = () => {
 
    addMins.addEventListener("mouseup", (event) => {
     const mValue = parseInt(simpleFormMin.value);
-    const mValueRounded = mValue - (mValue % 5);
+    let mValueRounded = mValue - (mValue % 5);
     console.log(mValueRounded);
-      if (hValue === 55) {
-        simpleFormHour.value = "5";
-      } else if (hValue <= 10) {
-        simpleFormHour.value = `0${hValue + 5}`;
-      } else {
-        simpleFormHour.value = hValue + 5;
-      }
-      displayTime(simpleFormHour, hours)
-  });
-
-  };
-
-  removeMins.addEventListener("mouseup", (event) => {
-    const mValue = parseInt(simpleFormMin.value);
-    const mValueRounded = mValue - (mValue % 5);
-    console.log(mValueRounded);
-    if (mValueRounded === 0) {
-      simpleFormMin.value = "55";
-    } else if (mValueRounded <= 10) {
-      simpleFormMin.value = `0${mValueRounded - 5}`
+      // let hValue = parseInt(simpleFormHour.value);
+    mValueRounded += 5
+    if (mValueRounded === 55) mValueRounded = 0;
+    simpleFormMin.value = mValueRounded;
+    if (mValueRounded < 10) {
+      mins.innerHTML = '0' + mValueRounded;
+      simpleFormMin.value = '0' + mValueRounded;
     } else {
-      simpleFormMin.value = mValueRounded - 5;
+      mins.innerHTML = mValueRounded;
     }
-    displayTime(simpleFormMin, mins);
-
   });
+
+    removeMins.addEventListener("mouseup", (event) => {
+      const mValue = parseInt(simpleFormMin.value);
+      const mValueRounded = mValue - (mValue % 5);
+      console.log(mValueRounded);
+      if (mValueRounded === 0) {
+        simpleFormMin.value = "55";
+      } else if (mValueRounded <= 10) {
+        simpleFormMin.value = `0${mValueRounded - 5}`
+      } else {
+        simpleFormMin.value = mValueRounded - 5;
+      }
+      displayTime(simpleFormMin, mins);
+
+    });
+  };
 
 
 function displayTime(inputElement, displayElement) {
   displayElement.innerHTML = inputElement.value;
 }
 
-function changeHour(simpleFormInput, counterInput) {
-  simpleFormInput.value = counterInput;
-}
 
 export { getUserTime }

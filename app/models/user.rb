@@ -40,4 +40,12 @@ class User < ApplicationRecord
     return user
   end
 
+  def is_friend?(user)
+    self.friends.include?(user)
+  end
+
+  def get_friendship(user)
+    self.friendships.find_by(friend: user) || user.friendships.find_by(friend: self)
+  end
+
 end

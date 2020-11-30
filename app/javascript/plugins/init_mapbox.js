@@ -11,14 +11,16 @@ const initMapbox = () => {
     style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa'
   });
 
-  const locationControl = map.addControl(
-    new mapboxgl.GeolocateControl({
-    positionOptions: {
-    enableHighAccuracy: true
-    },
-    trackUserLocation: true
-    })
+  const locationControl = (map) => {
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      })
     );
+  };
 
   const markers = JSON.parse(mapElement.dataset.markers); // Mapbox, add markers
   markers.forEach((marker) => {
@@ -71,6 +73,7 @@ const initMapbox = () => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  locationControl(map);
 };
 
 export { initMapbox };

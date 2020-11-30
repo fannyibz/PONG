@@ -4,10 +4,15 @@ const getUserLocation = () => {
   if (addressInput) {
     const addressCoordinates = document.getElementById("address_coordinates");
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position);
       const lat = position.coords.latitude;
-      const long = position.coords.longitude;
-      addressCoordinates.innerHTML = `${lat} - ${long}`
+      const lon = position.coords.longitude;
+      const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+      fetch(url)
+        .then(response => response.json())
+        .then((data) => {
+          addressInput.value = data.display_name;
+          console.log(data.display_name);
+        });
     });
   }
 }

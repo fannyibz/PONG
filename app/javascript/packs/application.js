@@ -36,12 +36,11 @@ flatpickr(".datepicker", {
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
-import { displayCurrentLocation } from '../components/get_current_location';
+
+getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  getUserLocation();
-  displayCurrentLocation();
 })
 
 // Internal imports, e.g:

@@ -22,7 +22,6 @@ class PagesController < ApplicationController
         emoji: event.emoji,
         joined: event.user == current_user || event.event_users.confirmed.pluck(:user_id).include?(current_user.id)
       }
-
     end
   end
 

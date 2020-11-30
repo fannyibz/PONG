@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy]
+  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy, :edit, :update]
   before_action :current_guest, only: [:edit_friends, :show]
   skip_before_action :authenticate_user!, only: [:show]
 
@@ -18,21 +18,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(event_params)
-      redirect_to edit_address_event_path(@event)
-    else
-      render :edit_what
-    end
-    if @event.update(event_params)
-      redirect_to edit_when_event_path(@event)
-    else
-      render :edit_address
-    end
-    if @event.update(event_params)
-      redirect_to edit_friends_event_path(@event)
-    else
-      render :edit_when
-    end
+    redirect_to event_path(@event) if @event.update(event_params)
   end
 
   def create

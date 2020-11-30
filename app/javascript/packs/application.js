@@ -49,7 +49,7 @@ import { initSweetAlert } from '../plugins/sweet_alert';
         button: "See my plan",
         }, (value) => {
           if (value) {
-            const link = document.querySelector('#confirm-link');
+            const link = document.querySelector('#edit-friends-submit');
             link.click();
         }
       });

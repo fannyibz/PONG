@@ -73,8 +73,7 @@ class EventsController < ApplicationController
     params[:event][:friends].each do |user_id|
       EventUser.create(event: @event, user_id: user_id)
     end
-    @event.status = :completed
-    @event.save
+    @event.completed!
     redirect_to event_path(@event)
   end
 

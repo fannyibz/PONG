@@ -39,27 +39,23 @@
       <% end %>
     </div>
 
-      <%= link_to "Edit plan", edit_event_path(event), class: "btn btn-outline-primary" %>
-    </div>
-
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
   <% else  %>
 
-    <% if event.event_users.find_by(user: current_user).confirmed? %>
-      <div class="manage-event-buttons">
-        <%= link_to "Change answer", event_path(event), class: "btn btn-outline-primary" %>
-        <%= link_to "Invite a friend", event_path(event), class: "btn btn-outline-secondary" if event.event_users.find_by(user: current_user).role == "partner" %>
-      </div>
+    <% if event.event_users.find_by(user: current_user).status == "confirmed" %>
+      <%= link_to "Share link", event_path(event), class: "button-next" if event.event_users.find_by(user: current_user).role == "partner" %>
+      <%= link_to "Invite a friend", event_path(event), class: "button-next" if event.event_users.find_by(user: current_user).role == "partner" %>
+      <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
+      <%= link_to "Decline event", events_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn-delete-grey mb-2" %>
 
     <% elsif event.event_users.find_by(user: current_user).status == "pending" %>
       <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
-
       <%= link_to "Join 👊", confirm_event_user_path(event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2" %>
       <%= link_to "Plouf 💦", decline_event_user_path(event.event_users.find_by(user: current_user)), class: "button-next btn-plouf" %>
-
-    <% else %>
-      <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
     <% end %>
+
+  <%# else %>
+      <%# le statut de l'event doit passer en "declined" et pas en "past"  %>
   <% end  %>
 </div>
 

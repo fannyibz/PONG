@@ -30,8 +30,17 @@ const getUserTime = () => {
   });
 
   removeHours.addEventListener("mouseup", (event) => {
-
     const hValue = parseInt(simpleFormHour.value)
+    if (hValue === 0) {
+      simpleFormHour.value = "23";
+    } else if (hValue <= 10) {
+      simpleFormHour.value = `0${hValue - 1}`
+    } else {
+      simpleFormHour.value = hValue - 1;
+    }
+
+    displayTime(simpleFormHour, hours)
+  });
 
    addMins.addEventListener("mouseup", (event) => {
     const mValue = parseInt(simpleFormMin.value);

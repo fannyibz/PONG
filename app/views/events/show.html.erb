@@ -5,6 +5,7 @@
   </h1>
 
   <%= render "events/info_event_show_box", event: @event %>
+  <br>
 
   <div class="event-show-timer">
     <div id="timer">
@@ -21,8 +22,6 @@
     </p>
   </div>
 
-  <%#=  si le mec qui arrive sur la show est host j'affiche event parti %>
-
   <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
@@ -35,22 +34,22 @@
     <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
 
     <div class="container-buttons-top-bottom">
-      <%= link_to "Edit plan", event_path, class: "button-next mb-2" %>
+      <%= link_to "Edit plan", edit_event_path, class: "button-next mb-2" %>
       <% if policy(@event).destroy? %>
         <%= link_to "Delete my plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-next" %>
       <% end %>
     </div>
 
-      <%= link_to "Edit plan", edit_event_path, class: "btn btn-outline-primary" %>
-    </div>
 
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
   <% else  %>
 
     <% if @event.event_users.find_by(user: current_user).confirmed? %>
       <div class="manage-event-buttons">
-        <%= link_to "Change answer", @event_path, class: "btn btn-outline-primary" %>
-        <%= link_to "Invite a friend", @event_path, class: "btn btn-outline-secondary" if @current_guest.role == "partner" %>
+        <%# le statut du user doit passer en "declined" %>
+        <%= link_to "Change answer", decline_event_user_path(@current_guest), class: "button-next mr-1" %>
+        <%# le lien de l'event doit être copié dans le presse papier du current user pour qu'il puisse partager" %>
+        <%= link_to "Invite a friend", @event_path, class: "button-next ml-1" if @current_guest.role == "partner" %>
       </div>
 
     <% elsif @current_guest.status == "pending" %>

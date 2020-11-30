@@ -15,7 +15,14 @@ align-items: center;
 justify-content: center;
 }
 
-
+.avatar-home-page {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 5;
+  top: 15px;
+}
 
 .avatar-friend {
   width: 100px;

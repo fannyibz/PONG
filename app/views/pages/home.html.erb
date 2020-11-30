@@ -4,11 +4,15 @@
 
   <div id="pong-title" class="position-absolute">
     <h1>PONG</h1>
+
+    <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
   </div>
 
   <div class="position-absolute button-wrapper">
     <div class="gradient-box">
       <%= link_to "Share my plan" , events_path, method: :post, class: "text-button" %>
+    </div>
     </div>
   </div>
 

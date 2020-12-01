@@ -15,7 +15,6 @@
   <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
 </div>
 
-<div class="content-container">
   <div class="text-center">
     <div>
       <div class="form-event-title">
@@ -58,14 +57,13 @@
       </div>
     </div>
 
-    <%= link_to "Search friends", users_list_path, class: "button-next" %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-delete-grey" %>
+    <%#= link_to "Search friends", users_list_path, class: "button-next" %>
+    <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-delete-grey" %>
   </div>
-</div>
 
-  <%= link_to "Search friends", users_list_path, class: "button-next" %>
-  <br>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button-next btn-delete-grey" %>
+  <%= link_to "Search friends", users_list_path, class: "button-next mb-2" %>
+
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button-next btn-delete-grey mb-2" %>
 
 </div>
 

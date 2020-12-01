@@ -242,9 +242,6 @@ friendship41.save!
 friendship42 = Friendship.new(user: fanny, friend: edouard, status: "approved")
 friendship42.save!
 
-friendship43 = Friendship.new(user: fanny, friend: edouard, status: "approved")
-friendship43.save!
-
 friendship59 = Friendship.new(user: fanny, friend: maximin, status: "approved")
 friendship59.save!
 

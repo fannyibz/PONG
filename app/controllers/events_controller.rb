@@ -66,7 +66,7 @@ class EventsController < ApplicationController
 
   def edit_friends
     # @friends = current_user.friendships.where(status: "approved")
-    @friends = current_user.friendships.where(status:"approved").map{|friendship| User.find(friendship.friend_id)}
+    @friends = current_user.friendships.where(status: "approved").map { |friendship| User.find(friendship.friend_id) }
   end
 
   def update_friends
@@ -74,6 +74,7 @@ class EventsController < ApplicationController
     params[:event][:friends].each do |user_id|
       EventUser.create(event: @event, user_id: user_id)
     end
+    @event.update(open: params.dig(:event, :open) == '1' ? true : false)
     @event.completed!
     redirect_to event_path(@event)
   end

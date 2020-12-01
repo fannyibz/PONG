@@ -165,190 +165,187 @@ chiara.save!
 
 puts "> Creating friendships..."
 
-friendship_g2 = Friendship.new(user: hadrien, friend: skeasy)
+friendship_g2 = Friendship.new(user: hadrien, friend: skeasy, status: "approved")
 friendship_g2.save!
 
-friendship1 = Friendship.new(user: hadrien, friend: fanny)
+friendship1 = Friendship.new(user: hadrien, friend: fanny, status: "approved")
 friendship1.save!
 
-friendship2 = Friendship.new(user: hadrien, friend: raphael)
+friendship2 = Friendship.new(user: hadrien, friend: raphael, status: "approved")
 friendship2.save!
 
-friendship3 = Friendship.new(user: hadrien, friend: magali)
+friendship3 = Friendship.new(user: hadrien, friend: magali, status: "approved")
 friendship3.save!
 
-friendship13 = Friendship.new(user: hadrien, friend: benjamin)
+friendship13 = Friendship.new(user: hadrien, friend: benjamin, status: "approved")
 friendship13.save!
 
-friendship14 = Friendship.new(user: hadrien, friend: joanna)
+friendship14 = Friendship.new(user: hadrien, friend: joanna, status: "approved")
 friendship14.save!
 
-friendship15 = Friendship.new(user: hadrien, friend: florence)
+friendship15 = Friendship.new(user: hadrien, friend: florence, status: "approved")
 friendship15.save!
 
-friendship37 = Friendship.new(user: hadrien, friend: sebastien)
+friendship37 = Friendship.new(user: hadrien, friend: sebastien, status: "approved")
 friendship37.save!
 
-friendship38 = Friendship.new(user: hadrien, friend: julien)
+friendship38 = Friendship.new(user: hadrien, friend: julien, status: "approved")
 friendship38.save!
 
-friendship39 = Friendship.new(user: hadrien, friend: edouard)
+friendship39 = Friendship.new(user: hadrien, friend: edouard, status: "approved")
 friendship39.save!
 
-friendship58 = Friendship.new(user: hadrien, friend: maximin)
+friendship58 = Friendship.new(user: hadrien, friend: maximin, status: "approved")
 friendship58.save!
 
-friendship67 = Friendship.new(user: hadrien, friend: nicolas)
+friendship67 = Friendship.new(user: hadrien, friend: nicolas, status: "approved")
 friendship67.save!
 
-friendship78 = Friendship.new(user: hadrien, friend: chiara)
+friendship78 = Friendship.new(user: hadrien, friend: chiara, status: "approved")
 friendship78.save!
 
-friendship79 = Friendship.new(user: hadrien, friend: nicolas2)
+friendship79 = Friendship.new(user: hadrien, friend: nicolas2, status: "approved")
 friendship79.save!
 
-friendship80 = Friendship.new(user: hadrien, friend: gael)
+friendship80 = Friendship.new(user: hadrien, friend: gael, status: "approved")
 friendship80.save!
 
 puts "#{hadrien.first_name} is friend with #{fanny.first_name} etc!"
 
-friendship_g4 = Friendship.new(user: fanny, friend: skeasy)
+friendship_g4 = Friendship.new(user: fanny, friend: skeasy, status: "approved")
 friendship_g4.save!
 
-friendship4 = Friendship.new(user: fanny, friend: hadrien)
+friendship4 = Friendship.new(user: fanny, friend: hadrien, status: "approved")
 friendship4.save!
 
-friendship5 = Friendship.new(user: fanny, friend: raphael)
+friendship5 = Friendship.new(user: fanny, friend: raphael, status: "approved")
 friendship5.save!
 
-friendship6 = Friendship.new(user: fanny, friend: magali)
+friendship6 = Friendship.new(user: fanny, friend: magali, status: "approved")
 friendship6.save!
 
-friendship16 = Friendship.new(user: fanny, friend: benjamin)
+friendship16 = Friendship.new(user: fanny, friend: benjamin, status: "approved")
 friendship16.save!
 
-friendship17 = Friendship.new(user: fanny, friend: joanna)
+friendship17 = Friendship.new(user: fanny, friend: joanna, status: "approved")
 friendship17.save!
 
-friendship18 = Friendship.new(user: fanny, friend: florence)
+friendship18 = Friendship.new(user: fanny, friend: florence, status: "approved")
 friendship18.save!
 
-friendship40 = Friendship.new(user: fanny, friend: sebastien)
+friendship40 = Friendship.new(user: fanny, friend: sebastien, status: "approved")
 friendship40.save!
 
-friendship41 = Friendship.new(user: fanny, friend: julien)
+friendship41 = Friendship.new(user: fanny, friend: julien, status: "approved")
 friendship41.save!
 
-friendship42 = Friendship.new(user: fanny, friend: edouard)
+friendship42 = Friendship.new(user: fanny, friend: edouard, status: "approved")
 friendship42.save!
 
-friendship43 = Friendship.new(user: fanny, friend: edouard)
-friendship43.save!
-
-friendship59 = Friendship.new(user: fanny, friend: maximin)
+friendship59 = Friendship.new(user: fanny, friend: maximin, status: "approved")
 friendship59.save!
 
-friendship70 = Friendship.new(user: fanny, friend: nicolas)
+friendship70 = Friendship.new(user: fanny, friend: nicolas, status: "approved")
 friendship70.save!
 
-friendship81 = Friendship.new(user: fanny, friend: chiara)
+friendship81 = Friendship.new(user: fanny, friend: chiara, status: "approved")
 friendship81.save!
 
-friendship82 = Friendship.new(user: fanny, friend: nicolas2)
+friendship82 = Friendship.new(user: fanny, friend: nicolas2, status: "approved")
 friendship82.save!
 
-friendship83 = Friendship.new(user: fanny, friend: gael)
+friendship83 = Friendship.new(user: fanny, friend: gael, status: "approved")
 friendship83.save!
 
 puts "#{fanny.first_name} is friend with #{raphael.first_name} etc!"
 
-friendship_g6 = Friendship.new(user: raphael, friend: skeasy)
+friendship_g6 = Friendship.new(user: raphael, friend: skeasy, status: "approved")
 friendship_g6.save!
 
-friendship7 = Friendship.new(user: raphael, friend: hadrien)
+friendship7 = Friendship.new(user: raphael, friend: hadrien, status: "approved")
 friendship7.save!
 
-friendship8 = Friendship.new(user: raphael, friend: fanny)
+friendship8 = Friendship.new(user: raphael, friend: fanny, status: "approved")
 friendship8.save!
 
-friendship9 = Friendship.new(user: raphael, friend: magali)
+friendship9 = Friendship.new(user: raphael, friend: magali, status: "approved")
 friendship9.save!
 
-friendship19 = Friendship.new(user: raphael, friend: benjamin)
+friendship19 = Friendship.new(user: raphael, friend: benjamin, status: "approved")
 friendship19.save!
 
-friendship20 = Friendship.new(user: raphael, friend: joanna)
+friendship20 = Friendship.new(user: raphael, friend: joanna, status: "approved")
 friendship20.save!
 
-friendship21 = Friendship.new(user: raphael, friend: florence)
+friendship21 = Friendship.new(user: raphael, friend: florence, status: "approved")
 friendship21.save!
 
-friendship44 = Friendship.new(user: raphael, friend: sebastien)
+friendship44 = Friendship.new(user: raphael, friend: sebastien, status: "approved")
 friendship44.save!
 
-friendship45 = Friendship.new(user: raphael, friend: julien)
+friendship45 = Friendship.new(user: raphael, friend: julien, status: "approved")
 friendship45.save!
 
-friendship46 = Friendship.new(user: raphael, friend: edouard)
+friendship46 = Friendship.new(user: raphael, friend: edouard, status: "approved")
 friendship46.save!
 
-friendship60 = Friendship.new(user: raphael, friend: maximin)
+friendship60 = Friendship.new(user: raphael, friend: maximin, status: "approved")
 friendship60.save!
 
-friendship73 = Friendship.new(user: raphael, friend: nicolas)
+friendship73 = Friendship.new(user: raphael, friend: nicolas, status: "approved")
 friendship73.save!
 
-friendship84 = Friendship.new(user: raphael, friend: chiara)
+friendship84 = Friendship.new(user: raphael, friend: chiara, status: "approved")
 friendship84.save!
 
-friendship85 = Friendship.new(user: raphael, friend: nicolas2)
+friendship85 = Friendship.new(user: raphael, friend: nicolas2, status: "approved")
 friendship85.save!
 
-friendship86 = Friendship.new(user: raphael, friend: gael)
+friendship86 = Friendship.new(user: raphael, friend: gael, status: "approved")
 friendship86.save!
 
 puts "#{raphael.first_name} is friend with #{magali.first_name} etc!"
 
-friendship_g8 = Friendship.new(user: magali, friend: skeasy)
+friendship_g8 = Friendship.new(user: magali, friend: skeasy, status: "approved")
 friendship_g8.save!
 
-friendship10 = Friendship.new(user: magali, friend: hadrien)
+friendship10 = Friendship.new(user: magali, friend: hadrien, status: "approved")
 friendship10.save!
 
-friendship11 = Friendship.new(user: magali, friend: fanny)
+friendship11 = Friendship.new(user: magali, friend: fanny, status: "approved")
 friendship11.save!
 
-friendship12 = Friendship.new(user: magali, friend: raphael)
+friendship12 = Friendship.new(user: magali, friend: raphael, status: "approved")
 friendship12.save!
 
-friendship22 = Friendship.new(user: magali, friend: benjamin)
+friendship22 = Friendship.new(user: magali, friend: benjamin, status: "approved")
 friendship22.save!
 
-friendship23 = Friendship.new(user: magali, friend: joanna)
+friendship23 = Friendship.new(user: magali, friend: joanna, status: "approved")
 friendship23.save!
 
-friendship24 = Friendship.new(user: magali, friend: florence)
+friendship24 = Friendship.new(user: magali, friend: florence, status: "approved")
 friendship24.save!
 
-friendship47 = Friendship.new(user: magali, friend: sebastien)
+friendship47 = Friendship.new(user: magali, friend: sebastien, status: "approved")
 friendship47.save!
 
-friendship48 = Friendship.new(user: magali, friend: julien)
+friendship48 = Friendship.new(user: magali, friend: julien, status: "approved")
 friendship48.save!
 
-friendship49 = Friendship.new(user: magali, friend: edouard)
+friendship49 = Friendship.new(user: magali, friend: edouard, status: "approved")
 friendship49.save!
 
-friendship61 = Friendship.new(user: magali, friend: maximin)
+friendship61 = Friendship.new(user: magali, friend: maximin, status: "approved")
 friendship61.save!
 
-friendship76 = Friendship.new(user: magali, friend: nicolas)
+friendship76 = Friendship.new(user: magali, friend: nicolas, status: "approved")
 friendship76.save!
 
-friendship87 = Friendship.new(user: magali, friend: chiara)
+friendship87 = Friendship.new(user: magali, friend: chiara, status: "approved")
 friendship87.save!
 
-friendship88 = Friendship.new(user: magali, friend: nicolas2)
+friendship88 = Friendship.new(user: magali, friend: nicolas2, status: "approved")
 friendship88.save!
 
 friendship89 = Friendship.new(user: magali, friend: gael)
@@ -356,37 +353,37 @@ friendship89.save!
 
 puts "#{magali.first_name} is friend with #{hadrien.first_name} etc!"
 
-friendship_g10 = Friendship.new(user: benjamin, friend: skeasy)
+friendship_g10 = Friendship.new(user: benjamin, friend: skeasy, status: "approved")
 friendship_g10.save!
 
-friendship25 = Friendship.new(user: benjamin, friend: fanny)
+friendship25 = Friendship.new(user: benjamin, friend: fanny, status: "approved")
 friendship25.save!
 
-friendship26 = Friendship.new(user: benjamin, friend: raphael)
+friendship26 = Friendship.new(user: benjamin, friend: raphael, status: "approved")
 friendship26.save!
 
-friendship27 = Friendship.new(user: benjamin, friend: magali)
+friendship27 = Friendship.new(user: benjamin, friend: magali, status: "approved")
 friendship27.save!
 
-friendship28 = Friendship.new(user: benjamin, friend: hadrien)
+friendship28 = Friendship.new(user: benjamin, friend: hadrien, status: "approved")
 friendship28.save!
 
-friendship29 = Friendship.new(user: benjamin, friend: joanna)
+friendship29 = Friendship.new(user: benjamin, friend: joanna, status: "approved")
 friendship29.save!
 
-friendship30 = Friendship.new(user: benjamin, friend: florence)
+friendship30 = Friendship.new(user: benjamin, friend: florence, status: "approved")
 friendship30.save!
 
-friendship50 = Friendship.new(user: benjamin, friend: sebastien)
+friendship50 = Friendship.new(user: benjamin, friend: sebastien, status: "approved")
 friendship50.save!
 
-friendship51 = Friendship.new(user: benjamin, friend: julien)
+friendship51 = Friendship.new(user: benjamin, friend: julien, status: "approved")
 friendship51.save!
 
-friendship52 = Friendship.new(user: benjamin, friend: edouard)
+friendship52 = Friendship.new(user: benjamin, friend: edouard, status: "approved")
 friendship52.save!
 
-friendship62 = Friendship.new(user: benjamin, friend: maximin)
+friendship62 = Friendship.new(user: benjamin, friend: maximin, status: "approved")
 friendship62.save!
 
 puts "#{benjamin.first_name} is friend with #{fanny.first_name} etc!"

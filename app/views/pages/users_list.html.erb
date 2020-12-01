@@ -1,4 +1,4 @@
-<h1>Users list</h1>
+<h1>All users on Pong</h1>
 
 <% @users.each do |user| %>
   <p><%= user.first_name %></p><%= user.id %>
@@ -11,18 +11,27 @@
       <%#= link_to 'Accept', '' %>
       <%# A FAIRE: CODER LA METHODE ACCEPT POUR CHANGER LE STATUT EN CONFIRMED %>
       <%#= link_to 'Accept', '', friendship_acceptances_path(current_user.get_friendship(user)) %>
-      <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post %>
+      <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post, class: "button-medium" %>
     <% else %>
-      <p>pending</p>
+      <div class= "btn-delete-grey">
+        <p>pending</p>
+      </div>
     <% end %>
+
+  <% elsif current_user.get_friendship(user)&.status == 'approved' %>
+   <div class= "btn-delete-grey">
+      <p>approved</p>
+    </div>
+
+  <% elsif current_user.get_friendship(user).nil? %>
+    <%= link_to 'Add Friend', friendships_path(params: { friend_id: user.id }), method: :post, class: "button-medium" %>
+  <% end %>
 
   <%# elsif current_user.get_friendship(user)&.status == 'confirmed' %>
   <%# elsif current_user.get_friendship(user)&.status == 'declined' %>
 
-  <% end %>
-
-  <% unless current_user.is_friend?(user) || current_user.get_friendship(user)&.status == 'pending'  %>
-    <%= link_to 'Add Friend', friendships_path(params: { friend_id: user.id }), method: :post %>
-
-  <% end %>
+  <%# unless current_user.is_friend?(user) || current_user.get_friendship(user)&.status == 'pending' || current_user.get_friendship(user)&.status == 'confirmed'  %>
+  <%# if  %>
+    <%#= link_to 'Add Friend', friendships_path(params: { friend_id: user.id }), method: :post, class: "button-medium" %>
+  <%# end %>
 <% end %>

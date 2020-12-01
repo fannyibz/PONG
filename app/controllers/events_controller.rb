@@ -76,7 +76,7 @@ class EventsController < ApplicationController
     end
     @event.update(open: params.dig(:event, :open) == '1' ? true : false)
     @event.completed!
-    redirect_to event_path(@event)
+    redirect_to root_path
   end
 
   def destroy

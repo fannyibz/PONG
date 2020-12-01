@@ -9,6 +9,7 @@
   background: linear-gradient(to top, #DF540B, #F9C01D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 20px;
 }
 
 .gradient-box {
@@ -55,7 +56,7 @@
 // body { margin: auto; }
 
 .button-next {
-  border: 1px solid $grey-stroke;
+  border: 2px solid $grey-stroke;
   border-radius: 40px;
   padding: 12px 15px;
   color: white;
@@ -64,6 +65,7 @@
   text-align: center;
   margin: 0 auto;
   background: $bg-dark;
+  font-size: 18px;
 }
 
 .button-medium {
@@ -113,6 +115,7 @@
   border: 2px solid #00ca08;
 }
 
+
 // .fixed-bottom-friends {
 //   position: fixed;
 //   bottom: 5px;
@@ -136,6 +139,12 @@
 
 .btn-delete-grey {
   color: #808080;
+  font-size: 17px;
+  text-align: center;
+}
+
+.btn-delete-red {
+  color: #f30000;
   font-size: 17px;
   text-align: center;
 }

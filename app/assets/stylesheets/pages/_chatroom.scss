@@ -3,32 +3,67 @@
   text-align: center;
 }
 
+// BUBBLE OF OTHER USERS -----------------------------
+
 .message-container {
   background-color: #323136;
   margin-bottom: 10px;
   padding: 8px;
   border-radius: 5px;
   width: 80%;
-  // &.is-author {
-  //   background: linear-gradient(to top, #DF540B, #F9C01D);
-  //   margin-left: auto;
-  //   color: black;
-  // }
   p {
     color: white;
   }
 }
 
+// .message-container:after {
+// 	content: '';
+// 	position: absolute;
+// 	left: 0;
+// 	top: 50%;
+// 	width: 0;
+// 	height: 0;
+// 	border: 10px solid transparent;
+// 	border-right-color: #333237;
+// 	border-left: 0;
+// 	border-bottom: 0;
+//   margin-top: -5px;
+//   margin-right: -10px;
+// }
+
+
+// BUBBLE OF CURRENT USER ----------------------------
+
 .message-container {
   &.is-author {
     background-color: #cccccc;
     margin-left: auto;
+    position: relative;
     p {
     color: black;
     font-weight: bold;
     }
   }
 }
+
+.message-container:after {
+  &.is-author {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-color: #cccccc;
+    border-right: 0;
+    border-bottom: 0;
+    margin-top: -5px;
+    margin-right: -10px;
+  }
+}
+
+// ------------------------------------------
 
 .message-container:last-child {
   margin-bottom: 70px;

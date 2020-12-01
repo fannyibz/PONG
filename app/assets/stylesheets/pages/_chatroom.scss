@@ -1,0 +1,22 @@
+#chat-title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.message-container {
+  background-color: #323136;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  p {
+    color: white;
+  }
+}
+
+.author {
+  color: $grey-paragraph;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}

@@ -46,9 +46,8 @@ const getUserTime = () => {
     const mValue = parseInt(simpleFormMin.value);
     let mValueRounded = mValue - (mValue % 5);
     console.log(mValueRounded);
-      // let hValue = parseInt(simpleFormHour.value);
     mValueRounded += 5
-    if (mValueRounded === 55) mValueRounded = 0;
+    if (mValueRounded === 60) mValueRounded = 0;
     simpleFormMin.value = mValueRounded;
     if (mValueRounded < 10) {
       mins.innerHTML = '0' + mValueRounded;

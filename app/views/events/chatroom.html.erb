@@ -5,9 +5,9 @@
     <p class="text-center mb-3">ADD TOGGLE HERE</p>
   <% end %>
 
-  <div id="messages" data-event-id="<%= @event.id %>">
+  <div id="messages" data-event-id="<%= @event.id %>" data-user-id="<%= current_user.id %>">
     <% @event.messages.each do |message| %>
-      <%= render message %>
+      <%= render message, is_author: message.user == current_user %>
     <% end %>
   </div>
 

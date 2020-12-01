@@ -8,8 +8,25 @@
   margin-bottom: 10px;
   padding: 8px;
   border-radius: 5px;
+  width: 80%;
+  // &.is-author {
+  //   background: linear-gradient(to top, #DF540B, #F9C01D);
+  //   margin-left: auto;
+  //   color: black;
+  // }
   p {
     color: white;
+  }
+}
+
+.message-container {
+  &.is-author {
+    background-color: #cccccc;
+    margin-left: auto;
+    p {
+    color: black;
+    font-weight: bold;
+    }
   }
 }
 
@@ -28,7 +45,8 @@
 .input-message {
   position: fixed;
   bottom: 45px;
-  width: 90%;
+  left: 3%;
+  right: 3%;
   border-radius: 5px;
   .form-control {
     height: 50px;

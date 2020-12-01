@@ -8,4 +8,9 @@ class FriendshipPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def toggle_favorite?
+    true
+  end
+
 end

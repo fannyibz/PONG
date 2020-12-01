@@ -37,6 +37,7 @@ class PagesController < ApplicationController
 
   def dashboard
     authorize(:page, :dashboard?)
+    @friendships = current_user.friendships.where(status:"approved").order(:created_at)
   end
 
   def users_list

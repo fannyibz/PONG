@@ -1,70 +1,81 @@
 <div class="content-container text-center">
   <h1>My events</h1>
 
-  <div class="content-guest">
-    <h2 class="text-white-title border-bottom">Ongoing</h2>
-      <% @invited_events.each do |event| %>
-        <% if Time.now > event.date_time && Time.now.day == event.date_time.day && Time.now.month == event.date_time.month && Time.now.year == event.date_time.year %>
-        <%= link_to event_path(event) do %>
-        <div class="event-card mb-4">
-          <div class="content-center-vertical">
-            <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>
-          </div>
-          <div class="description-box-b mx-2">
-            <div class="name-emoji-time d-inline-flex">
-              <div class="text-emoji-box d-flex">
-                <p class="text-white mr-2"><%= event.user.first_name %></p>
-                <h3 class="emoji-small"><%= event.emoji %></h3>
+  <% unless @ongoing_events.empty? %>
+    <div class="content-guest">
+      <h2 class="text-white-title border-bottom">Ongoing</h2>
+        <% @ongoing_events.each do |event| %>
+          <%# if Time.now > event.date_time && Time.now.day == event.date_time.day && Time.now.month == event.date_time.month && Time.now.year == event.date_time.year %>
+          <%= link_to event_path(event) do %>
+          <div class="event-card mb-4">
+            <div class="content-center-vertical">
+              <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>
+            </div>
+            <div class="description-box-b mx-2">
+              <div class="name-emoji-time d-inline-flex">
+                <div class="text-emoji-box d-flex">
+                  <p class="text-white mr-2"><%= event.user.first_name %></p>
+                  <h3 class="emoji-small"><%= event.emoji %></h3>
+                </div>
+                <div class= text-timer-small>
+                  <p><%= "started #{event.time_left}min ago" %></p>
+                </div>
               </div>
-              <div class= text-timer-small>
-                <p><%= "started #{event.time_left}min ago" %></p>
+              <div class="description-small">
+                <p><%= event.description %></p>
               </div>
             </div>
-            <div class="description-small">
-              <p><%= event.description %></p>
-            </div>
+            <% if event.user == current_user || event.event_users.find_by(user: current_user).status == "confirmed" %>
+              <div class="ml-2">
+                <i class="far fa-comment-dots conversation-icon"></i>
+              </div>
+            <% else %>
+              <div class="ml-2">
+                <i class="far fa-question-circle conversation-icon"></i>
+              </div>
+            <% end %>
           </div>
-          <div class="ml-2">
-            <i class="far fa-comment-dots conversation-icon"></i>
-          </div>
-        </div>
+        <% end %>
+        <%# end %>
       <% end %>
-      <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
-  <div class="content-guest mt-3">
-    <h2 class="text-white-title border-bottom">Upcoming</h2>
-      <% @invited_events.each do |event| %>
-        <% if Time.now < event.date_time %>
-        <div class="event-card mb-4">
-          <div class="content-center-vertical">
-            <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>
-          </div>
-          <div class="description-box-b mx-2">
-            <div class="name-emoji-time d-inline-flex">
-              <div class="text-emoji-box d-flex">
-                <p class="text-white mr-2"><%= event.user.first_name %></p>
-                <h3 class="emoji-small"><%= event.emoji %></h3>
+  <% unless @upcoming_events.empty? %>
+    <div class="content-guest mt-3">
+      <h2 class="text-white-title border-bottom">Upcoming</h2>
+        <% @events.each do |event| %>
+          <%# if Time.now < event.date_time %>
+          <div class="event-card mb-4">
+            <div class="content-center-vertical">
+              <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>
+            </div>
+            <div class="description-box-b mx-2">
+              <div class="name-emoji-time d-inline-flex">
+                <div class="text-emoji-box d-flex">
+                  <p class="text-white mr-2"><%= event.user.first_name %></p>
+                  <h3 class="emoji-small"><%= event.emoji %></h3>
+                </div>
+                <div class= text-timer-small>
+                  <p><%= "Starts in #{event.time_left} min" %></p>              </div>
               </div>
-              <div class= text-timer-small>
-                <p><%= "Starts in #{event.time_left} min" %></p>              </div>
+              <div class="description-small">
+                <p><%= event.description %></p>
+              </div>
             </div>
-            <div class="description-small">
-              <p><%= event.description %></p>
+            <div class="ml-3">
+              <i class="far fa-comment-dots conversation-icon"></i>
             </div>
           </div>
-          <div class="ml-3">
-            <i class="far fa-comment-dots conversation-icon"></i>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+        <% end %>
+      <%# end %>
+    </div>
+  <% end %>
 
+<% unless @past_events.empty? %>
   <div class="content-guest mt-3">
     <h2 class="text-white-title border-bottom">Past events</h2>
-      <% @invited_events.each do |event| %>
+      <%# @events.each do |event| %>
         <% if Time.now > event.date_time && Time.now.day != event.date_time.day || Time.now.month != event.date_time.month || Time.now.year != event.date_time.year %>
         <div class="event-card mb-4">
           <div class="content-center-vertical">
@@ -89,9 +100,13 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+    <%# end %>
   </div>
+<% end %>
 
+
+<%
+=begin %>
   <div class="content-host mt-3">
     <h2 class="text-white-title border-bottom">I'm the host of</h2>
       <% @hosted_events.each do |event| %>
@@ -124,9 +139,8 @@
       <% end %>
   </div>
 
-
-
-
+  <%
+=end %>
 
 </div>
 

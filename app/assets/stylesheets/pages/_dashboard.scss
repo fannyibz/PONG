@@ -1,0 +1,25 @@
+.container-friendship {
+  display: flex;
+  justify-content: center;
+}
+
+.friendship-name {
+  color: $grey-paragraph;
+}
+
+.col-4.friendship {
+  position: relative;
+}
+
+#favorite-star{
+  position: absolute;
+  position: absolute;
+  bottom: 27px;
+  font-size: 26px;
+  right: 16px;
+  color: $light-orange;
+}
+
+
+
+

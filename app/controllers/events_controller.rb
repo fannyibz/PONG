@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy, :edit, :update]
+  before_action :find_event, only: [:show, :edit_what, :update_what, :edit_address, :update_address, :edit_when, :update_when, :edit_friends, :update_friends, :destroy, :edit, :update, :chatroom]
   before_action :current_guest, only: [:edit_friends, :show]
   skip_before_action :authenticate_user!, only: [:show]
 
@@ -83,6 +83,10 @@ class EventsController < ApplicationController
     authorize @event
     @event.destroy
     redirect_to root_path
+  end
+
+  def chatroom
+    @message = Message.new
   end
 
   private

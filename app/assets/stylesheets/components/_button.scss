@@ -115,6 +115,22 @@
   border: 2px solid #00ca08;
 }
 
+.btn-join-plain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 32px;
+
+  position: absolute;
+  width: 163px;
+  height: 60px;
+  left: 18px;
+  top: 467px;
+
+  background: #34C759;
+  border-radius: 100px;
+}
+
 
 // .fixed-bottom-friends {
 //   position: fixed;
@@ -131,6 +147,7 @@
   border: 1px solid grey;
   padding: 5px 15px;
   border-radius: 30px;
+  text-align: left;
 }
 
 .manage-event-buttons a {
@@ -139,7 +156,7 @@
 
 .btn-delete-grey {
   color: #808080;
-  font-size: 17px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -147,4 +164,25 @@
   color: #f30000;
   font-size: 17px;
   text-align: center;
+}
+
+.btn-backgound {
+  background-color: #DF540B;
+}
+
+.btn-text-grey {
+  font-color: #808080;
+}
+
+.btn-cancel-plan {
+  font-color: #808080;
+  border: 2px solid $grey-stroke;
+  border-radius: 40px;
+  padding: 12px 15px;
+  display: block;
+  width: 95%;
+  text-align: center;
+  margin: 0 auto;
+  background: $bg-dark;
+  font-size: 18px;
 }

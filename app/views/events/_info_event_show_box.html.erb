@@ -1,0 +1,33 @@
+<% is_owner = event.user == current_user %>
+<div class="infos-event-show-box">
+
+  <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
+
+
+  <div class= "box-infos">
+    <div class="box-address">
+      <p id="address-hidden"><%= event.address %></p>
+      <%# if is_owner %>
+        <!-- <i class="fas fa-pencil-alt"></i> -->
+      <%# end %>
+    </div>
+
+    <div class="box-date">
+      <% if event.date_time == DateTime.now %>
+        <p><%= event.date_time.strftime("Today at %H:%M") %></p>
+      <% else %>
+        <p><%= event.date_time.strftime("%a %d at %H:%M") %></p>
+      <% end %>
+        <%# if is_owner %>
+          <!-- <i class="fas fa-pencil-alt"></i> -->
+        <%# end %>
+    </div>
+
+    <!-- <p> -->
+      <%#= "Friends of guests allowed? #{event.open ? '✅' : '🚫' }" %>
+      <%# if is_owner %>
+        <!-- <i class="fas fa-pencil-alt"></i> -->
+      <%# end %>
+   <!--  </p> -->
+  </div>
+</div>

@@ -1,4 +1,23 @@
 <div class="map-container position-relative">
+
+  <div class="background-shadow position-absolute"></div>
+
+  <div id="pong-title" class="position-absolute">
+    <h1>PONG</h1>
+
+    <% if current_user.facebook_picture_url %>
+      <%= image_tag current_user.facebook_picture_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
+    <% elsif current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, class: "avatar-home-page" %>
+    <% else %>
+      <%= image_tag "http://placehold.it/30x30", class: "avatar-home-page", alt: "alttext" %>
+    <% end %>
+
+    <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
+
+  </div>
+
   <div class="position-absolute button-wrapper">
     <div class="gradient-box">
       <%= link_to "Share my plan" , events_path, method: :post, class: "text-button" %>
@@ -11,5 +30,3 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<%= link_to "propose a plan", events_path, method: :post %>

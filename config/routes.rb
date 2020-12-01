@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
   get :components, to: 'pages#components'
   get 'dashboard', to: 'pages#dashboard'
+  get 'users_list', to: 'pages#users_list'
 
   resources :event_users, only: [] do
     member do
@@ -25,4 +27,16 @@ Rails.application.routes.draw do
       patch :update_friends
     end
   end
+
+  resources :friendships, only: :create # to do: rename in friendship_requests
+  resources :friendship_acceptances, only: :create
+
+  # resources :friendships, only: [] do
+  #   member do
+  #     post :accept
+  #     get :decline
+  #   end
+  # end
+
 end
+

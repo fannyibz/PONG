@@ -8,8 +8,19 @@ const initMapbox = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa' // <-- use your own to styling your map
+    style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa'
   });
+
+  const locationControl = (map) => {
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      })
+    );
+  };
 
   const markers = JSON.parse(mapElement.dataset.markers); // Mapbox, add markers
   markers.forEach((marker) => {
@@ -42,8 +53,8 @@ const initMapbox = () => {
     emoji.className = 'emoji';
     // emoji.style.content = `${marker.emoji}`;
     emoji.style.fontSize = '30px';
-    emoji.style.marginTop = '30px';
-    emoji.style.marginLeft = '-26px';
+    emoji.style.marginTop = '20px';
+    emoji.style.marginLeft = '-20px';
     emoji.insertAdjacentHTML("afterbegin",`<p>${marker.emoji}</p>`)
 
 
@@ -55,13 +66,18 @@ const initMapbox = () => {
   });
 
   // Mapbox, searching on your map
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+
+  // map.addControl(new MapboxGeocoder({
+  //   accessToken: mapboxgl.accessToken,
+  //   mapboxgl: mapboxgl,
+  //   placeholder: 'Search for location...'
+  // }));
 
   // Mapbox, fit map to markers
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  locationControl(map);
 };
 
 export { initMapbox };

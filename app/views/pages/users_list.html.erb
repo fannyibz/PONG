@@ -1,0 +1,28 @@
+<h1>Users list</h1>
+
+<% @users.each do |user| %>
+  <p><%= user.first_name %></p><%= user.id %>
+  <% if user.avatar.attached? %>
+    <%= cl_image_tag user.avatar.key, class: 'avatar-profile' %>
+  <% end %>
+
+  <% if current_user.get_friendship(user)&.status == 'pending' %>
+    <% if current_user.get_friendship(user).friend == current_user %>
+      <%#= link_to 'Accept', '' %>
+      <%# A FAIRE: CODER LA METHODE ACCEPT POUR CHANGER LE STATUT EN CONFIRMED %>
+      <%#= link_to 'Accept', '', friendship_acceptances_path(current_user.get_friendship(user)) %>
+      <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post %>
+    <% else %>
+      <p>pending</p>
+    <% end %>
+
+  <%# elsif current_user.get_friendship(user)&.status == 'confirmed' %>
+  <%# elsif current_user.get_friendship(user)&.status == 'declined' %>
+
+  <% end %>
+
+  <% unless current_user.is_friend?(user) || current_user.get_friendship(user)&.status == 'pending'  %>
+    <%= link_to 'Add Friend', friendships_path(params: { friend_id: user.id }), method: :post %>
+
+  <% end %>
+<% end %>

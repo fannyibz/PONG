@@ -25,6 +25,10 @@ require("channels")
 // External imports
 import "bootstrap";
 
+// Own JS functions
+import { toggleButtonNext } from '../components/toggleButtonNext';
+import { togglePongTitle } from '../components/togglePongTitle';
+
 //Flatpickr
 import flatpickr from "flatpickr";
 
@@ -37,12 +41,30 @@ flatpickr(".datepicker", {
 import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
 import { getUserTime } from '../components/get_user_time';
+import { initSweetAlert } from '../plugins/sweet_alert';
+
+ initSweetAlert('#share-my-plan', {
+        title: "Congratulations !",
+        text: "You've shared your plan !",
+        icon: "success",
+        button: "See my plan",
+        }, (value) => {
+          if (value) {
+            const link = document.querySelector('#edit-friends-submit');
+            link.click();
+        }
+      });
+
+getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
   getUserTime();
+  toggleButtonNext();
+  togglePongTitle();
 })
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

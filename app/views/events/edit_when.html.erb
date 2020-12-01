@@ -1,9 +1,16 @@
 <div class="content-container content-when">
-  <div class="when-titles">
-    <h1>When?</h1>
+  <div>
+    <div class="form-event-title">
+      <%= link_to edit_address_event_path(@event) do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+    <div class="text-center mb-3">
+      <h1>When?</h1>
       <p>Your plan happens around...</p>
+    </div>
   </div>
-  <br>
 
   <div class="tab-centered">
     <ul class="toggle-nav nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
@@ -40,16 +47,20 @@
       <br>
 
       <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
+
         <%= f.input :date_time, as: :time, label: false, class: 'input-hidden' %>
-        <%= f.button :submit, "Next 👉", class: "button-next sticky-bottom" %>
+        <%= f.button :submit, "Next 👉", class: "button-next fixed-bottom btn-margin-bottom" %>
+        <%#= f.input :date_time, as: :time, label: false %>
+        <%#= f.button :submit, "Next 👉", class: "button-next fixed-bottom btn-margin-bottom" %>
+                          
       <% end %>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%= simple_form_for @event, url: update_when_event_path(@event) do |f| %>
         <%= f.input :date_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <div class="fixed-bottom">
-          <%= f.button :submit, "Next 👉", class: "button-next" %>
-        </div>
+        <!-- <div class="fixed-bottom"> -->
+          <%= f.button :submit, "Next 👉", class: "button-next fixed-bottom btn-margin-bottom" %>
+        <!-- </div> -->
       <% end %>
     </div>
   </div>

@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+#pong-title {
+  z-index: 5;
+  top: 15px;
+  text-align: center;
+  width: 100%;
+  h1 {
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Comfortaa', cursive;
+    letter-spacing: 0.15rem;
+  }
+}
+
+.background-shadow {
+  height: 115px;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.mapboxgl-ctrl-geocoder {
+  width: 395px !important;
+}

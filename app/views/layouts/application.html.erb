@@ -20,6 +20,9 @@
     <div class="page-container">
       <%= yield %>
     </div>
-    <%= render 'shared/navbar' %>
+    <% unless controller_name == "events" && ( action_name == "edit_what" || action_name == "edit_address" || action_name == "edit_when" || action_name == "edit_friends") %>
+      <%= render 'shared/navbar' %>
+    <% end %>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>

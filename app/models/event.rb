@@ -15,7 +15,7 @@ class Event < ApplicationRecord
 
   enum status: [:incompleted, :completed, :past]
 
-  EMOJI = { beer: '🍺', sipping: '🍷', movies: '🍿', basket: '🏀', fastfood: '🍔', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shopping: '🛍',Rrrrrr: ' 🍑', banana: '🍌', party: '🎉', football: '⚽️', jogging: '🏃‍♂️', codding: '🤓', geeking: '🎮', ski: '🎿', netflix: '🎬' }
+  EMOJI = { anything: '🤷‍♂️', drink: '🍺', movies: '🍿', sip: '🍷', eat: '🍔', coffee: '☕️', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shop: '🛍', Rrrrr: ' 🍑', fruit: '🍌', dance: '💃', party: '🎉', basket: '🏀', surf: '🏄', run: '🏃‍♂️', football: '⚽️', code: '🤓', work: '👩‍💻', geek: '🎮', play: '🎰', bowling: '🎳', camp: '⛺️', fire: '🔥', catchup: '🥤', ski: '🎿' }
 
   # Geocoding
   geocoded_by :address

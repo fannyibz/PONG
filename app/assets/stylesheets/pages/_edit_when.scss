@@ -4,6 +4,7 @@
 .tab-centered {
   .toggle-nav {
     margin: 0 auto;
+    margin-top: 30px;
   }
 }
 
@@ -20,6 +21,7 @@
   justify-content: center;
   align-content: center;
   position: relative;
+  margin-top: 100px;
 }
 
 .text-linear-gradient{
@@ -44,6 +46,7 @@
   position: absolute;
   right: 35px;
   top: -48px;
+  opacity: 0.5;
 }
 
 .time-scroll-box-hours {
@@ -52,6 +55,7 @@
   position: absolute;
   left: 35px;
   top: -48px;
+  opacity: 0.5;
 }
 
 .text-today {
@@ -61,7 +65,21 @@
   font-size: 40px;
 }
 
+#time-min-more {
+  color: #808080;
+}
 
+#time-min-less {
+  color: #808080;
+}
+
+#time-hour-more {
+  color: #808080;
+}
+
+#time-hour-less {
+  color: #808080;
+}
 
 
 

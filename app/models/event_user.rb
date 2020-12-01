@@ -11,7 +11,7 @@ class EventUser < ApplicationRecord
   before_create :set_role, :set_status
 
   EMOJI_STATUS = {
-    "pending": '🤷‍♂️',
+    "pending": '❔',
     "confirmed": '✅',
     "declined": '❌'
   }

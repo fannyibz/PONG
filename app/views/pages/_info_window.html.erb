@@ -26,16 +26,19 @@
   <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if current_user.user_is_host?(event) %>
     <div class="manage-event-buttons">
-      <%= link_to "Share link", root_path, class: "button-medium" %>
-      <%= link_to "Invite", edit_friends_event_path(event), class: "button-medium" if policy(event).edit_friends? %>
+      <%#= link_to "Share event", root_path, class: "button-next" %>
+      <%#= link_to "Manage guests", edit_friends_event_path(event), class: "button-next" if policy(event).edit_friends? %>
     </div>
 
     <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
 
     <div class="container-buttons-top-bottom">
-      <%= link_to "Edit plan", edit_event_path(event), class: "button-next mb-2" %>
+      <%= link_to "✍️ Edit plan", edit_event_path(event), class: "button-next mb-2" %>
+
       <% if policy(event).destroy? %>
-        <%= link_to "Delete my plan", event_path(event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-next" %>
+        <%= link_to "Manage invitations", edit_friends_event_path(event), class: "button-next mb-2" if policy(event).edit_friends? %>
+        <%= link_to "Share event", root_path, class: "button-next btn-delete-grey mb-2" %>
+        <%= link_to "Delete my plan", event_path(event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-next btn-delete-grey mb-2" %>
       <% end %>
     </div>
 

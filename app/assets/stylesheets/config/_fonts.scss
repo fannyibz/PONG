@@ -9,11 +9,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 // Roboto pour les descriptions/textes
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+// Inter pour les titres
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
 
 // Define fonts for body and headers
 $body-font: "Roboto", "sans-serif";
-$headers-font: "Nunito", "sans-serif";
+$headers-font: "Roboto", "sans-serif";
 $timer: "Lato", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines

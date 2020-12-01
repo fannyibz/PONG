@@ -1,4 +1,7 @@
 const getUserTime = () => {
+  if (document.getElementById("time-hour-more")) {
+
+
   const addHours = document.getElementById("time-hour-more");
   const removeHours = document.getElementById("time-hour-less");
   const addMins = document.getElementById("time-min-more");
@@ -72,6 +75,7 @@ const getUserTime = () => {
 
     });
   };
+  }
 
 
 function displayTime(inputElement, displayElement) {

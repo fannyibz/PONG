@@ -1,8 +1,10 @@
 <div class="content-container">
 
-  <h1 id="event-show-title">
-    <%= " #{event.emoji} Let's #{Event::EMOJI.find { |k, v| v == event.emoji }.first } together!" %>
-  </h1>
+  <%= link_to chatroom_event_path(event) do %>
+    <h1 id="event-show-title">
+      <%= "#{event.emoji} Let's #{Event::EMOJI.find { |k, v| v == event.emoji }.first } together!" %>
+    </h1>
+  <% end %>
 
   <%= render "events/info_event_show_box", event: event %>
 

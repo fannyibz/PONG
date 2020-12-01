@@ -2,7 +2,7 @@
   <h1 id="chat-title"><%= "#{@event.emoji} #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } channel" %></h1>
 
   <%= link_to event_path(@event) do %>
-    <p class="text-center mb-3">ADD TOGGLE HERE</p>
+    <p class="text-center mb-3">Back to the event</p>
   <% end %>
 
   <div id="messages" data-event-id="<%= @event.id %>" data-user-id="<%= current_user.id %>">

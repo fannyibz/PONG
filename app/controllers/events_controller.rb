@@ -75,7 +75,7 @@ class EventsController < ApplicationController
       EventUser.create(event: @event, user_id: user_id)
     end
     @event.completed!
-    redirect_to event_path(@event)
+    redirect_to root_path
   end
 
   def destroy

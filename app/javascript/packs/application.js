@@ -29,6 +29,7 @@ import "bootstrap";
 import { toggleButtonNext } from '../components/toggleButtonNext';
 import { togglePongTitle } from '../components/togglePongTitle';
 import { getUserTime } from '../components/get_user_time';
+import { toggleButtonSharePlan } from '../components/toggleButtonSharePlan';
 
 //Flatpickr
 import flatpickr from "flatpickr";
@@ -45,9 +46,9 @@ import { initSweetAlert } from '../plugins/sweet_alert';
 
  initSweetAlert('#share-my-plan', {
         title: "Congratulations !",
-        text: "You've shared your plan !",
+        text: "You've shared your plan!",
         icon: "success",
-        button: "See my plan",
+        button: "See my plan on the map",
         }, (value) => {
           if (value) {
             const link = document.querySelector('#edit-friends-submit');
@@ -63,6 +64,7 @@ document.addEventListener('turbolinks:load', () => {
   getUserTime();
   toggleButtonNext();
   togglePongTitle();
+  toggleButtonSharePlan();
 })
 
 

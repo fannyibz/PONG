@@ -58,6 +58,10 @@ class EventPolicy < ApplicationPolicy
     user_is_host?
   end
 
+  def chatroom?
+    record.guests.include?(user) || record.user == user
+  end
+
   private
 
   def user_is_host?

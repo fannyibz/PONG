@@ -25,6 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 
+// ActionCable
+import { initChatroomCable } from '../channels/chatroom_channel';
+
 // Own JS functions
 import { toggleButtonNext } from '../components/toggleButtonNext';
 import { togglePongTitle } from '../components/togglePongTitle';
@@ -59,7 +62,7 @@ getUserLocation();
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   getUserLocation();
-
+  initChatroomCable();
   toggleButtonNext();
   togglePongTitle();
 

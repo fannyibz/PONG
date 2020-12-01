@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :events do
     #CREATING ROUTES FOR THE SIMPLE_FORM CREATION OF AN EVENT
+    resources :messages, only: :create
     member do
       get :edit_what
       patch :update_what
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       patch :update_when
       get :edit_friends
       patch :update_friends
+      get :chatroom
     end
   end
 

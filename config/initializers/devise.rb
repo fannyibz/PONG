@@ -274,7 +274,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :facebook, ENV["TEST_FB_ID"], ENV["TEST_FB_SECRET"], token_params: { parse: :json },
+  config.omniauth :facebook, ENV["PROD_FB_ID"], ENV["PROD_FB_SECRET"], token_params: { parse: :json },
     scope: 'email',
     info_fields: 'email, first_name, last_name',
     image_size: 'square',  # 50x50, guaranteed ratio

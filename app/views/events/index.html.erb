@@ -44,7 +44,7 @@
   <% unless @upcoming_events.empty? %>
     <div class="content-guest mt-3">
       <h2 class="text-white-title border-bottom">Upcoming</h2>
-        <% @events.each do |event| %>
+        <% @upcoming_events.each do |event| %>
           <%# if Time.now < event.date_time %>
           <div class="event-card mb-4">
             <div class="content-center-vertical">
@@ -75,8 +75,8 @@
 <% unless @past_events.empty? %>
   <div class="content-guest mt-3">
     <h2 class="text-white-title border-bottom">Past events</h2>
-      <%# @events.each do |event| %>
-        <% if Time.now > event.date_time && Time.now.day != event.date_time.day || Time.now.month != event.date_time.month || Time.now.year != event.date_time.year %>
+      <% @past_events.each do |event| %>
+        <#% if Time.now > event.date_time && Time.now.day != event.date_time.day || Time.now.month != event.date_time.month || Time.now.year != event.date_time.year %>
         <div class="event-card mb-4">
           <div class="content-center-vertical">
             <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>

@@ -29,7 +29,9 @@ import "bootstrap";
 import { toggleButtonNext } from '../components/toggleButtonNext';
 import { togglePongTitle } from '../components/togglePongTitle';
 import { getUserTime } from '../components/get_user_time';
+import { getOpenStatus } from '../components/toggle_open';
 import { toggleButtonSharePlan } from '../components/toggleButtonSharePlan';
+
 
 //Flatpickr
 import flatpickr from "flatpickr";
@@ -64,6 +66,7 @@ document.addEventListener('turbolinks:load', () => {
   getUserTime();
   toggleButtonNext();
   togglePongTitle();
+  getOpenStatus();
   toggleButtonSharePlan();
 })
 

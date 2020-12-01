@@ -13,9 +13,17 @@
       </div>
     </div>
 
-    <p class ="border-grey">Search fiends</p>
-    <br>
-    <p>Friends can joins with friends #toggle</p>
+
+    <div class= "toggle-text">
+      <p>Friends can joins with friends</p>
+
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+  
+    <p class ="border-grey">Search group or fiends 🔎</p>
 
     <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
       <%= f.input :friends,
@@ -27,6 +35,7 @@
         item_wrapper_class: :radio,
         # include_blank: false,
         include_hidden: false %>
+      <%= f.input :open, input_html: { value: '1', id:'toggle-value', class: 'd-none' } %>
 
       <div class="box-btn-share-cancel-plan d-none">
         <%= link_to "Cancel plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "mb-2 btn-delete-red" %>

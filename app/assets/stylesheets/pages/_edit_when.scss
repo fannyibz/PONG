@@ -15,5 +15,54 @@
   border-radius: 0px 10px 10px 0px !important;
 }
 
+.time-big {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+.text-linear-gradient{
+  font-size: 90px;
+  padding: 1px;
+  color: white;
+  // font-size: 72px;
+  background: linear-gradient(to top, #DF540B, #F9C01D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke: 1px white;
+
+}
+
+.form-group.event_date_time.form-group-valid {
+  display: none;
+}
+
+.time-scroll-box-mins {
+  justify-content: space-between;
+  height: 190px;
+  position: absolute;
+  right: 35px;
+  top: -48px;
+}
+
+.time-scroll-box-hours {
+  justify-content: space-between;
+  height: 190px;
+  position: absolute;
+  left: 35px;
+  top: -48px;
+}
+
+.text-today {
+  text-align: center;
+  margin-bottom: 90px;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+
+
+
 
 

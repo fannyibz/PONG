@@ -13,10 +13,24 @@
   }
 }
 
+.message-container:last-child {
+  margin-bottom: 70px;
+}
+
 .author {
   color: $grey-paragraph;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+}
+
+.input-message {
+  position: fixed;
+  bottom: 45px;
+  width: 90%;
+  border-radius: 5px;
+  .form-control {
+    height: 50px;
+  }
 }

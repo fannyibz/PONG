@@ -5,7 +5,6 @@
 }
 
 .avatar-box {
-// border: 1px solid #E5E5E5;
 height: 100px;
 width: 100px;
 border-radius: 100%;
@@ -28,10 +27,6 @@ justify-content: center;
 .avatar-friend {
   width: 100px;
   border-radius: 50%;
-  // &:hover {
-  //     width: 80px;
-  //     height: 80px;
-  //   }
 }
 
 
@@ -70,32 +65,12 @@ justify-content: center;
 }
 
 .avatar-profile-selected {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   width: 52px;
   height: 52px;
-  // margin: auto;
-  // position: relative;
-  // padding: 1px 1px;
-  // box-sizing: border-box;
-  // $border: 3px;
-  // color: white;
   background: $bg-dark;
-  // background-clip: padding-box; /* !importanté */
-  // border: solid $border transparent; /* !importanté */
   border-radius: 50px;
   object-fit: cover;
   border: 2px solid $light-orange;
-    // &:before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0; right: 0; bottom: 0; left: 0;
-    //   z-index: -1;
-    //   margin: -$border; /* !importanté */
-    //   border-radius: inherit; /* !importanté */
-    //   background: linear-gradient(to bottom, $strong-orange, $light-orange);
-    // }
 }
 
 .avatar-square {
@@ -112,6 +87,13 @@ justify-content: center;
 
 .form-group.check_boxes.optional.event_friends legend {
   display: none;
+}
+
+.avatar-small {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 

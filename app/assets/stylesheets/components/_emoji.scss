@@ -14,32 +14,6 @@ margin-bottom: 12px;
     margin-top: -18px;
     line-height: 2.5;
   }
-  // &:hover {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // width: 100px;
-  // height: 100px;
-  // margin: auto;
-  // position: relative;
-  // padding: 1px 1px;
-  // box-sizing: border-box;
-  // $border: 3px;
-  // color: white;
-  // background: $bg-dark;
-  // background-clip: padding-box; /* !importanté */
-  // border: solid $border transparent; /* !importanté */
-  // border-radius: 50px;
-  //   &:before {
-  //     content: '';
-  //     position: absolute;
-  //     top: 0; right: 0; bottom: 0; left: 0;
-  //     z-index: -1;
-  //     margin: -$border; /* !importanté */
-  //     border-radius: inherit; /* !importanté */
-  //     background: linear-gradient(to bottom, $strong-orange, $light-orange);
-  //   }
-  // }
 }
 
 .emoji-text {
@@ -58,7 +32,12 @@ margin-bottom: 12px;
   display: none;
 }
 
-// input {
-//   &:checked + label .emoji-box {
+.emoji-small {
+  font-size: 15px;
+}
+
+.text-emoji-box {
+  align-items: center;
+}
 
 

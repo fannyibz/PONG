@@ -1,0 +1,47 @@
+.event-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description-box-b {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  // justify-content: space-between;
+}
+
+.conversation-icon {
+  color: white;
+  font-size: 40px;
+}
+
+.name-emoji-time {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.border-bottom {
+  border-bottom: 1px solid white;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.text-white-title {
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  width: 95%;
+  margin: 20px auto;
+}
+
+.description-small {
+  font-size: 12px;
+}
+
+.content-center-vertical{
+  margin: auto 0;
+}
+
+.text-timer-small {
+  font-size: 13px;
+}

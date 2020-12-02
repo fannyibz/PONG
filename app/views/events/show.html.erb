@@ -1,10 +1,8 @@
 <div class="content-container">
 
-  <%= link_to chatroom_event_path(@event) do %>
-    <h1 id="event-show-title">
-      <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
-    </h1>
-  <% end %>
+  <h1 id="event-show-title">
+    <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
+  </h1>
 
   <%= render "events/info_event_show_box", event: @event %>
 
@@ -130,6 +128,7 @@
     <% end %>
   <% end  %>
 </div>
+
 <%
 =end %>
 

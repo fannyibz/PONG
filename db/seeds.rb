@@ -429,6 +429,22 @@ EventUser.create!(event: event2, user: nicolas2, status: "confirmed", role: "par
 
 puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
 
+event3 = Event.new(emoji: "🎳",
+                   address: "75015, Paris",
+                   date_time: DateTime.now + 1.hours,
+                   description: "Let's strike!",
+                   open: true,
+                   user: gael,
+                   status: "completed" )
+
+EventUser.create!(event: event2, user: sebastien, status: "confirmed", role: "partner")
+EventUser.create!(event: event2, user: hadrien, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: maximin, status: "confirmed", role: "partner")
+EventUser.create!(event: event2, user: joanna, status: "pending", role: "partner")
+
+
+puts "#{event3.emoji}, hosted by #{event3.user.first_name} created!"
+
 
 
 

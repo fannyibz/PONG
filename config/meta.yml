@@ -1,0 +1,5 @@
+meta_product_name: "Pong"
+meta_title: "Pong - Time to improvise with your friends"
+meta_description: "Organize a spontaneous event is painful, is it? Not anymore with Pong, the best app to create memories and catch easily your friends!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@raphael_allard"   # required for Twitter Cards

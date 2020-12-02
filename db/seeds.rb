@@ -410,7 +410,7 @@ EventUser.create!(event: event1, user: joanna, status: "confirmed", role: "visit
 
 EventUser.create!(event: event1, user: magali, status: "declined", role: "visitor")
 
-event2 = Event.new(emoji: "🍺",
+event2 = Event.new(emoji: "🍔",
                    address: "130 rue saint-denis, Paris",
                    date_time: DateTime.now + 2.hours,
                    description: "I'm veryyyy hungry!",
@@ -428,22 +428,6 @@ EventUser.create!(event: event2, user: raphael, status: "declined", role: "partn
 EventUser.create!(event: event2, user: nicolas2, status: "confirmed", role: "partner")
 
 puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
-
-event3 = Event.new(emoji: "🎳",
-                   address: "75015, Paris",
-                   date_time: DateTime.now + 1.hours,
-                   description: "Let's strike!",
-                   open: true,
-                   user: gael,
-                   status: "completed" )
-
-EventUser.create!(event: event2, user: sebastien, status: "confirmed", role: "partner")
-EventUser.create!(event: event2, user: hadrien, status: "pending", role: "partner")
-EventUser.create!(event: event2, user: maximin, status: "confirmed", role: "partner")
-EventUser.create!(event: event2, user: magali, status: "pending", role: "partner")
-
-
-puts "#{event3.emoji}, hosted by #{event3.user.first_name} created!"
 
 
 

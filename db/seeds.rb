@@ -391,12 +391,12 @@ puts "#{benjamin.first_name} is friend with #{fanny.first_name} etc!"
 
 puts "> Creating events..."
 
-event1 = Event.new(emoji: "🤓",
+event1 = Event.new(emoji: "🎟",
                    address: "16 Villa Gaudelet, Paris",
                    date_time: DateTime.now,
                    description: "Let's do some more coding!",
                    open: false,
-                   user: raphael,
+                   user: julien,
                    status: "completed" )
 event1.save!
 
@@ -440,7 +440,7 @@ event3 = Event.new(emoji: "🎳",
 EventUser.create!(event: event2, user: sebastien, status: "confirmed", role: "partner")
 EventUser.create!(event: event2, user: hadrien, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: maximin, status: "confirmed", role: "partner")
-EventUser.create!(event: event2, user: joanna, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: magali, status: "pending", role: "partner")
 
 
 puts "#{event3.emoji}, hosted by #{event3.user.first_name} created!"

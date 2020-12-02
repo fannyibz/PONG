@@ -1,6 +1,10 @@
 .event-card {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 2px #000000;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 .description-box-b {
@@ -36,6 +40,7 @@
 
 .description-small {
   font-size: 12px;
+  text-align: right;
 }
 
 .content-center-vertical{
@@ -44,4 +49,11 @@
 
 .text-timer-small {
   font-size: 13px;
+  font-style: oblique;
 }
+
+.icon-box-empty{
+  width: 38px;
+}
+
+

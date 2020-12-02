@@ -1,19 +1,21 @@
 <div class="content-container">
 
-  <h1><%= "Hello #{current_user.first_name}!" %></h1>
-  <br>
-  <% if current_user.facebook_picture_url %>
-    <%= image_tag current_user.facebook_picture_url, class: "avatar-friend", "data-toggle" => "dropdown" %>
-  <% elsif current_user.avatar.attached? %>
-    <%= cl_image_tag current_user.avatar.key, class: "avatar-friend" %>
-  <% else %>
-    <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
-  <% end %>
-  <br>
+
+  <div class="XXX">
+    <h1><%= "Hello #{current_user.first_name}!" %></h1>
+    <br>
+    <% if current_user.facebook_picture_url %>
+      <%= image_tag current_user.facebook_picture_url, class: "avatar-friend", "data-toggle" => "dropdown" %>
+    <% elsif current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, class: "avatar-friend" %>
+    <% else %>
+      <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
+    <% end %>
+    <br>
+  </div>
 
   <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
   <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
-</div>
 
   <div class="text-center">
     <div>
@@ -66,6 +68,7 @@
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button-next btn-delete-grey mb-2" %>
 
 </div>
+
 
 
 

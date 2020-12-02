@@ -12,15 +12,15 @@ class PagesController < ApplicationController
     # authorize @hosted_events if @hosted_events.empty?
     # authorize @invited_events if @invited_events.empty?
 
-    @hosted_events.each do |event|
-      difference = -(event.date_time - DateTime.now)
-      event.destroy if difference >= 36000 # au bout de 10h, l'event se supprime par défaut (36000 sec)
-    end
+    # @hosted_events.each do |event|
+    #   difference = -(event.date_time - DateTime.now)
+    #   event.destroy if difference >= 36000 # au bout de 10h, l'event se supprime par défaut (36000 sec)
+    # end
 
-    @invited_events.each do |event|
-      difference = -(event.date_time - DateTime.now)
-      event.destroy if difference >= 36000 # au bout de 10h, l'event se supprime par défaut (36000 sec)
-    end
+    # @invited_events.each do |event|
+    #   difference = -(event.date_time - DateTime.now)
+    #   event.destroy if difference >= 36000 # au bout de 10h, l'event se supprime par défaut (36000 sec)
+    # end
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = (@hosted_events.geocoded + @invited_events.geocoded).map do |event|

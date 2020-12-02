@@ -10,7 +10,11 @@
 
   <div class="event-show-timer">
     <div class="timer">
-      <%= @event.time_left %>
+       <% if Time.now < @event.date_time %>
+        <%= @event.time_left %>
+      <% else %>
+        <%= "It's #{@event.emoji} time! " %>
+      <% end %>
     </div>
     <h6>Before the beginning of the event</h6>
   </div>

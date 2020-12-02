@@ -19,16 +19,19 @@ h2, h3, h4 {
   margin-top: 10px;
   color:white;
   font-size: 25px;
+  font-family: "Roboto", "sans-serif";
 }
 
 h1 {
   font-size: 30px;
   color:white;
+  font-family: "Roboto", "sans-serif";
 }
 
 p, h3, h4, h5, h6, label {
   color: $grey-stroke;
   font-weight: 300;
+  font-family: "Roboto", "sans-serif";
 }
 
 .light-p {

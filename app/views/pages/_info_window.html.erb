@@ -6,10 +6,36 @@
     </h1>
   <% end %>
 
-  <%= render "events/info_event_show_box", event: event %>
+    <div class="infos-event-show-box">
+      <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
+
+      <div class= "box-infos">
+
+        <div class="box-address">
+          <% if event.address.length > 40 %>
+            <p id="event-address"><%= "#{event.address.first(30)}...#{event.address.last(15)}" %></p>
+          <% else %>
+            <p id="event-address"><%= event.address %></p>
+          <% end %>
+        </div>
+
+        <div class="box-date">
+          <% if event.date_time == DateTime.now %>
+            <p><%= event.date_time.strftime("Today at %H:%M") %></p>
+          <% else %>
+            <p><%= event.date_time.strftime("%a %d at %H:%M") %></p>
+          <% end %>
+        </div>
+
+        <div id="emoji-chat-info-window">
+          <%= link_to "💬", chatroom_event_path(event)  %>
+        </div>
+
+      </div>
+    </div>
 
   <div class="event-show-timer">
-    <div id="timer">
+    <div class="timer" id="timer-show">
       <%= event.time_left %>
     </div>
     <h6>Before the beginning of the event</h6>
@@ -27,10 +53,6 @@
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
   <% if current_user.user_is_host?(event) %>
-    <div class="manage-event-buttons">
-      <%#= link_to "Share event", root_path, class: "button-next" %>
-      <%#= link_to "Manage guests", edit_friends_event_path(event), class: "button-next" if policy(event).edit_friends? %>
-    </div>
 
     <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
 

@@ -1,15 +1,16 @@
 <% is_owner = event.user == current_user %>
-<div class="infos-event-show-box">
 
+<div class="infos-event-show-box">
   <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
 
-
   <div class= "box-infos">
+
     <div class="box-address">
-      <p id="address-hidden"><%= event.address %></p>
-      <%# if is_owner %>
-        <!-- <i class="fas fa-pencil-alt"></i> -->
-      <%# end %>
+      <% if event.address.length > 40 %>
+        <p id="event-address"><%= "#{event.address.first(30)}...#{event.address.last(15)}" %></p>
+      <% else %>
+        <p id="event-address"><%= event.address %></p>
+      <% end %>
     </div>
 
     <div class="box-date">
@@ -18,16 +19,11 @@
       <% else %>
         <p><%= event.date_time.strftime("%a %d at %H:%M") %></p>
       <% end %>
-        <%# if is_owner %>
-          <!-- <i class="fas fa-pencil-alt"></i> -->
-        <%# end %>
     </div>
 
-    <!-- <p> -->
-      <%#= "Friends of guests allowed? #{event.open ? '✅' : '🚫' }" %>
-      <%# if is_owner %>
-        <!-- <i class="fas fa-pencil-alt"></i> -->
-      <%# end %>
-   <!--  </p> -->
+    <div class="emoji-chat">
+      <%= link_to "💬", chatroom_event_path(event)  %>
+    </div>
+
   </div>
 </div>

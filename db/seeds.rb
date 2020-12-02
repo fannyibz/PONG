@@ -418,8 +418,8 @@ event2 = Event.new(emoji: "🍺",
                    user: fanny,
                    status: "completed" )
 
-EventUser.create!(event: event2, user: hadrien, status: "confirmed", role: "partner")
-EventUser.create!(event: event2, user: chiara, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: chiara, status: "confirmed", role: "partner")
+EventUser.create!(event: event2, user: hadrien, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: magali, status: "confirmed", role: "partner")
 EventUser.create!(event: event2, user: edouard, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: nicolas, status: "declined", role: "partner")

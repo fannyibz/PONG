@@ -1,11 +1,19 @@
 <div class="content-container text-center">
+  <div>
+    <div class="form-event-title">
+      <%= link_to root_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+  </div>
+
   <h1>My events</h1>
 
   <% unless @ongoing_events.empty? %>
     <div class="content-guest">
       <h2 class="text-white-title border-bottom">Ongoing</h2>
       <% @ongoing_events.each do |event| %>
-        <div class="d-flex">
+        <div class="d-flex w-100 ">
           <%= link_to event_path(event) do %>
             <div class="event-card">
               <div class="content-center-vertical">
@@ -47,7 +55,7 @@
     <div class="content-guest mt-3">
       <h2 class="text-white-title border-bottom">Upcoming</h2>
       <% @upcoming_events.each do |event| %>
-        <div class="d-flex">
+        <div class="d-flex w-100">
           <%= link_to event_path(event) do %>
             <div class="event-card">
               <div class="content-center-vertical">
@@ -90,7 +98,7 @@
   <div class="content-guest mt-3">
     <h2 class="text-white-title border-bottom">Past events</h2>
       <% @past_events.each do |event| %>
-        <div class="d-flex">
+        <div class="d-flex w-100">
           <%= link_to event_path(event) do %>
             <div class="event-card">
               <div class="content-center-vertical">

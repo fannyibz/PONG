@@ -103,43 +103,5 @@
     </div>
   <% end %>
 
-
-<%
-=begin %>
-  <div class="content-host mt-3">
-    <h2 class="text-white-title border-bottom">I'm the host of</h2>
-      <% @hosted_events.each do |event| %>
-        <div class="event-card mb-4">
-          <div class="content-center-vertical">
-            <p><%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %></p>
-          </div>
-          <div class="description-box-b mx-2">
-            <div class="name-emoji-time d-inline-flex">
-              <div class="text-emoji-box d-flex">
-                <p class="text-white mr-2"><%= event.user.first_name %></p>
-                <h3 class="emoji-small"><%= event.emoji %></h3>
-              </div>
-              <div class= text-timer-small>
-                <% if Time.now < event.date_time %>
-                  <p><%= "Starts in #{event.time_left} min" %></p>
-                <% else %>
-                  <p><%= "started #{event.time_left}min ago" %></p>
-                <% end %>
-              </div>
-            </div>
-            <div class="description-small">
-              <p><%= event.description %></p>
-            </div>
-          </div>
-          <div class="ml-2">
-            <i class="far fa-comment-dots conversation-icon"></i>
-          </div>
-        </div>
-      <% end %>
-  </div>
-
-  <%
-=end %>
-
 </div>
 

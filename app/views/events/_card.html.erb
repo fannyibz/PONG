@@ -1,0 +1,34 @@
+<div class="d-flex w-100 ">
+  <%= link_to event_path(event), class: 'w-100' do %>
+    <div class="event-card">
+      <div class="content-center-vertical">
+        <%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %>
+      </div>
+      <div class="description-box-b mx-2">
+        <div class="name-emoji-time d-inline-flex">
+          <div class="text-emoji-box d-flex">
+            <p class="text-white mr-2"><%= event.user.first_name %></p>
+            <h3 class="emoji-small"><%= event.emoji %></h3>
+          </div>
+          <div class= text-timer-small>
+            <p><%= "started #{event.time_left}min ago" %></p>
+          </div>
+        </div>
+        <div class="description-small">
+          <p><%= event.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if event.user == current_user || event.event_users.find_by(user: current_user).status == "confirmed" %>
+    <div class="ml-2">
+      <%= link_to chatroom_event_path(event) do %>
+        <p class="conversation-icon">💬</p>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="ml-2">
+      <p class="conversation-icon icon-box-empty"></p>
+    </div>
+  <% end %>
+</div>

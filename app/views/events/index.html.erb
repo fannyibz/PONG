@@ -1,13 +1,22 @@
 <div class="content-container text-center">
-  <div>
-    <div class="form-event-title">
-      <%= link_to root_path do %>
-        <i class="fas fa-chevron-left"></i>
-      <% end %>
-    </div>
-  </div>
 
-  <h1>My events</h1>
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to root_path do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1>My events</h1>
+      </div>
+
+      <div class="empty-box-title"></div>
+    </div>
+
+    <p>Your ongoing events, your upcoming and even those passed.</p>
+  </div>
 
   <% unless @ongoing_events.empty? %>
     <div class="content-guest">

@@ -1,52 +1,57 @@
 <div class="content-container">
-  <div class="text-center">
-    <div>
-      <div class="form-event-title">
+
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
         <%= link_to edit_when_event_path(@event) do %>
-          <i class="fas fa-chevron-left"></i>
+          <i class="fas fa-chevron-left text-white"></i>
         <% end %>
       </div>
 
-      <div class="mb-3">
-        <h1 id="event-pick-friends">Pick your friends!</h1>
-        <p>Only them will know about your plan</p>
+      <div class="box-title">
+        <h1>Pick your friends!</h1>
       </div>
+
+      <div class="empty-box-title"></div>
     </div>
 
+    <p>Only them will know about your plan.</p>
+  </div>
 
-    <div class= "toggle-text">
-      <p>Friends can join with friends</p>
+  <div class= "toggle-text mb-2 mt-4">
+    <p>Friends can join with friends:</p>
 
-      <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider round"></span>
-      </label>
-    </div>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+  </div>
 
-    <p class ="border-grey">Search group or fiends 🔎</p>
+  <p class ="border-grey">Search group or fiends 🔎</p>
 
-    <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
-      <%= f.input :friends,
-        as: :check_boxes,
-        label_method: lambda { |user| render "events/user_label", user: user },
-        collection: @friends,
-        checked: @event.guests.pluck(:id),
-        input_html: {class: 'd-none radio-btn'},
-        item_wrapper_class: :radio,
-        # include_blank: false,
-        include_hidden: false %>
-      <%= f.input :open, input_html: { value: '1', id:'toggle-value', class: 'd-none' } %>
+  <%= simple_form_for @event, url: update_friends_event_path(@event) do |f| %>
+    <%= f.input :friends,
+      as: :check_boxes,
+      label_method: lambda { |user| render "events/user_label", user: user },
+      collection: @friends,
+      checked: @event.guests.pluck(:id),
+      input_html: {class: 'd-none radio-btn'},
+      item_wrapper_class: :radio,
+      # include_blank: false,
+      include_hidden: false %>
+    <%= f.input :open, input_html: { value: '1', id:'toggle-value', class: 'd-none' } %>
 
-      <div class="box-btn-share-cancel-plan d-none">
-        <%= link_to "Cancel plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "mb-2 btn-cancel-plan" %>
-         <br>
-         <br>
-        <div class="background-grey fixed-bottom">
-          <%= f.button :submit, "💥 Share my plan 💥", class: "d-none", id: "edit-friends-submit"%>
-          <%#= link_to "", event_path(@event), id: "confirm-link", class: "hidden" %>
-          <%= link_to "Share my plan 💥", "", id: "share-my-plan", class: 'button-next mb-3' %>
-        </div>
+    <div class="box-btn-share-cancel-plan d-none">
+      <%= link_to "Cancel plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "mb-2 btn-cancel-plan" %>
+        <br>
+        <br>
+      <div class="background-grey fixed-bottom">
+        <%= f.button :submit, "💥 Share my plan 💥", class: "d-none", id: "edit-friends-submit"%>
+        <%#= link_to "", event_path(@event), id: "confirm-link", class: "hidden" %>
+        <%= link_to "Share my plan 💥", "", id: "share-my-plan", class: 'button-next mb-3' %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+  
   </div>
 </div>

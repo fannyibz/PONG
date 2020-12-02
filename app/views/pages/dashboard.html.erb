@@ -1,5 +1,34 @@
 <div class="content-container">
 
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to root_path do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1>Your friends</h1>
+      </div>
+
+      <div class="empty-box-title">
+        <% if current_user.facebook_picture_url %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-friend", "data-toggle" => "dropdown" %>
+        <% elsif current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "avatar-friend" %>
+        <% else %>
+          <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
+        <% end %>
+      </div>
+    </div>
+
+    <p>How beautiful they are.</p>
+  </div>
+
+<%
+=begin %>
+
   <div class="dashboard-title">
     <div class="form-event-title">
       <%= link_to root_path do %>
@@ -15,9 +44,12 @@
         <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
       <% end %>
   </div>
+<%
+=end %>
 
   <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
   <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
+
 
 
 
@@ -38,7 +70,7 @@
     <div class="container-friendship">
       <div class="row mb-3">
         <% @friendships.each do |friendship| %>
-          <div class=" col-4 friendship">
+          <div class=" col-4 friendship text-center mt-2">
             <%= link_to toggle_favorite_friendship_path(friendship) do %>
               <%= cl_image_tag friendship.friend.avatar.key, class: 'avatar-profile' %>
               <p>

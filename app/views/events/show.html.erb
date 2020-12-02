@@ -1,8 +1,24 @@
 <div class="content-container">
 
-  <h1 id="event-show-title">
-    <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
-  </h1>
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to events_path do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1 id="event-show-title">
+          <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first }!" %>
+        </h1>
+      </div>
+
+      <div class="empty-box-title"></div>
+    </div>
+
+    <p>Seems awesome, have fun guys.</p>
+  </div>
 
   <%= render "events/info_event_show_box", event: @event %>
 
@@ -53,7 +69,7 @@
       <%= link_to "Share link", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
       <%= link_to "Invite a friend", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
-      <%= link_to "Decline event", events_path, method: :delete, data: { confirm: "Are you sure?" }, class: "button-next mb-2" %>
+      <%= link_to "Decline event", events_path, method: :delete, data: { confirm: "Are you sure to delete your event?" }, class: "button-next mb-2" %>
 
     <% elsif @event.event_users.find_by(user: current_user).status == "pending" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>

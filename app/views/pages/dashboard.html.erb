@@ -1,32 +1,26 @@
 <div class="content-container">
 
-
-  <div class="XXX">
-    <h1><%= "Hello #{current_user.first_name}!" %></h1>
-    <br>
-    <% if current_user.facebook_picture_url %>
-      <%= image_tag current_user.facebook_picture_url, class: "avatar-friend", "data-toggle" => "dropdown" %>
-    <% elsif current_user.avatar.attached? %>
-      <%= cl_image_tag current_user.avatar.key, class: "avatar-friend" %>
-    <% else %>
-      <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
-    <% end %>
-    <br>
+  <div class="dashboard-title">
+    <div class="form-event-title">
+      <%= link_to root_path do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+    <h1><%= "Friends" %></h1>
+      <% if current_user.facebook_picture_url %>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar-friend", "data-toggle" => "dropdown" %>
+      <% elsif current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, class: "avatar-friend" %>
+      <% else %>
+        <%= image_tag "http://placehold.it/30x30", class: "avatar-friend", alt: "alttext" %>
+      <% end %>
   </div>
 
   <%# avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
   <%#= image_tag avatar_url, class: "avatar-home-page", "data-toggle" => "dropdown" %>
 
-  <div class="text-center">
-    <div>
-      <div class="form-event-title">
-        <%= link_to root_path do %>
-          <i class="fas fa-chevron-left"></i>
-        <% end %>
-      </div>
-    </div>
 
-    <h1><%= "Friends" %></h1>
+
 
 <%
 =begin %>
@@ -51,7 +45,7 @@
                 <%= friendship.friend.first_name %>
               </p>
               <% if friendship.favorite? %>
-                <i class="fas fa-star" id="favorite-star"></i>
+                <i class="fas fa-star text-linear-gradient" id="favorite-star"></i>
               <% end %>
             <% end %>
           </div>

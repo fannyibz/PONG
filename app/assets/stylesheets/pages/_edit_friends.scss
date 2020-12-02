@@ -8,3 +8,11 @@ div.event_friends {
     height: 80px;
   }
 }
+
+label.form-check-label.boolean.optional {
+    display: none;
+}
+
+a.mb-2.btn-cancel-plan {
+    color: $light-gray;
+}

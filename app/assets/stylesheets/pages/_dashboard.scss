@@ -1,3 +1,5 @@
+
+
 .container-friendship {
   display: flex;
   justify-content: space-evenly;
@@ -19,6 +21,18 @@
   right: 16px;
   color: $light-orange;
 }
+
+.dashboard-title {
+  position: relative;
+  height: 75px;
+  .avatar-friend {
+    position: absolute;
+    bottom: 35px;
+    right: 0px;
+    width: 44px;
+  }
+}
+
 
 
 

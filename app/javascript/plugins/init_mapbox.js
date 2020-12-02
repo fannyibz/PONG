@@ -31,7 +31,9 @@ const initMapbox = () => {
       // 1-Create a HTML element for your custom marker
       const element = document.createElement('div');
       element.className = 'marker';
-      console.log(marker.joined)
+      if (marker.grey_marker) {
+        element.className = 'marker grey-marker'
+      }
       if (marker.joined) {
         element.classList.add('avatar-profile-selected')
       }

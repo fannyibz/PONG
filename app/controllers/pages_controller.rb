@@ -16,6 +16,7 @@ class PagesController < ApplicationController
                    ).distinct
                     .where("date_time >= ?", DateTime.now.beginning_of_day)
                     .where("date_time <= ?", DateTime.now.end_of_day)
+
     # authorize @hosted_events if @hosted_events.empty?
     # authorize @invited_events if @invited_events.empty?
 

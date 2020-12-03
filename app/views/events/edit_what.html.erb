@@ -1,17 +1,21 @@
 <div class="content-container">
 
-  <div>
-    <div class="form-event-title">
-        <%# POURQUOI LE DELETE RENVOIE VERS ROOT? %>
-        <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>
-        <i class="fas fa-chevron-left"></i>
-      <% end %>
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure to cancel your plan?" } do %>
+          <i class="fas fa-chevron-left text-white mt-2"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1>What are you up to?</h1>
+      </div>
+
+      <div class="empty-box-title"></div>
     </div>
 
-    <div class="text-center">
-      <h1>What are you up to?</h1>
-      <p>Choose wisely... we refuse any responsibility if the situation gets out of control.</p>
-    </div>
+    <p>Pong declines all responsability if the situation gets out of control.</p>
   </div>
 
   <%= simple_form_for @event, url: update_what_event_path(@event) do |f| %>

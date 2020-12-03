@@ -1,27 +1,32 @@
 <div class="content-container">
 
-  <div>
-    <div class="form-event-title">
-      <%= link_to edit_what_event_path(@event) do %>
-        <i class="fas fa-chevron-left"></i>
-      <% end %>
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to edit_what_event_path(@event) do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1>Where?</h1>
+      </div>
+
+      <div class="empty-box-title"></div>
     </div>
 
-    <div class="text-center mb-3">
-
-      <h1>Where?</h1>
-      <p>Click on the map to get your actual location or type the address of your plan.</p>
-
-    </div>
+    <p>Click on the map to get your actual location or type an address.</p>
   </div>
 
-  <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
-    <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
-    <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
-    <div class="fixed-bottom btn-margin-bottom">
-      <%= f.button :submit, "Next 👉", class: "button-next" %>
-    </div>
-  <% end %>
+  <div class="mt-3">
+    <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
+      <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
+      <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
+      <div class="fixed-bottom btn-margin-bottom">
+        <%= f.button :submit, "Next 👉", class: "button-next" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div id="map"

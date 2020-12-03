@@ -3,7 +3,7 @@
 }
 
 .content-container {
-  padding-top: 15px;
+  padding-top: 30px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -40,6 +40,7 @@ p, h3, h4, h5, h6, label {
 
 a {
   font-family: "Roboto", "sans-serif";
+  text-decoration: none;
 }
 
 
@@ -70,3 +71,42 @@ a:hover {
 .title-center {
     text-align: center;
   }
+
+// PAGES TITLE
+
+.pages-title {
+  text-align: center;
+}
+
+.pages-title .back-button-title {
+  width: 10%;
+  text-align: left;
+  margin-bottom: 2px;
+}
+
+.pages-title .box-title {
+  width: 80%;
+}
+
+.pages-title .empty-box-title {
+  width: 10%;
+}
+
+.empty-box-title .avatar-friend {
+  width: 100%;
+  box-shadow: 2px 2px 5px black;
+}
+
+
+.pages-title {
+  h1 {
+    margin: 0px 0px 5px 0px;
+  }
+  p {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+// --------------------------------

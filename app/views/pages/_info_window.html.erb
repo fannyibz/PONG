@@ -1,3 +1,193 @@
+<div class="window-top"></div>
+
+<div class="content-container">
+
+  <div class="pages-title pages-title-modal">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to events_path do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1 id="event-show-title">
+          <%= "#{event.emoji} Let's #{Event::EMOJI.find { |k, v| v == event.emoji }.first }!" %>
+        </h1>
+      </div>
+
+      <div class="empty-box-title"></div>
+    </div>
+
+    <p>Seems awesome, have fun guys.</p>
+  </div>
+
+  <%= render "events/info_event_show_box", event: event %>
+
+  <div class="event-show-timer event-show-timer-modal">
+    <div>
+      <% if Time.now < event.date_time %>
+        <h3 class="timer">
+          <%= event.time_left %>
+        </h3>
+        <p>⚡️ before the beginning of the event ⚡️</p>
+      <% else %>
+        <h4>
+          <%= "The event is ongoing, enjoy it folks!" %>
+        </h4>
+      <% end %>
+    </div>
+  </div>
+
+  <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
+
+  <%# IF CURRENT_USER IS THE EVENT HOST %>
+  <%# tip: '&' permet de refacto -> current_user && current_user.user_is_host?(event) %>
+  <% if current_user&.user_is_host?(event) %>
+
+    <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
+
+    <div class="show-buttons-container">
+      <div class="show-buttons-edit-invitations">
+        <%= link_to "Edit plan ✍️", edit_event_path(event), class: "button-next mb-2" %>
+
+        <% if policy(event).destroy? %>
+          <%= link_to "Invitations 📨", edit_friends_event_path(event), class: "button-next mb-2" if policy(event).edit_friends? %>
+      </div>
+      <div class="show-buttons-share-delete show-buttons-share-delete-modal">
+          <%= link_to "🔗", root_path, class: "" %>
+          <%= link_to "🗑", event_path(event), method: :delete, data: { confirm: "Are you sure to delete your event?" }, class: "" %>
+      </div>
+        <% end %>
+    </div>
+
+  <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
+  <% else  %>
+
+    <% if current_user && event.event_users.find_by(user: current_user).status == "confirmed" %>
+      <%#= link_to "Share link", event_path(event), class: "button-next" if event.event_users.find_by(user: current_user).role == "partner" %>
+      <%#= link_to "Invite a friend", event_path(event), class: "button-next" if event.event_users.find_by(user: current_user).role == "partner" %>
+      <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
+      <%= link_to "Change my mind 😱", decline_event_user_path(event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next mb-4 mt-5" %>
+
+    <% elsif current_user && event.event_users.find_by(user: current_user).status == "pending" %>
+      <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
+      <%= link_to "Join 👊", confirm_event_user_path(event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2 mt-5" %>
+      <%= link_to "Plouf 💦", decline_event_user_path(event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next btn-plouf mb-4" %>
+
+    <% else %>
+      <%= render "events/event_users_list.html.erb", event_users: event.event_users.order_by_status %>
+      <%= link_to "Change my mind", confirm_event_user_path(event.event_users.find_by(user: current_user)), class: "button-next mb-4 mt-5" %>
+    <% end %>
+  <% end  %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# -------------------------------- %>
+<%
+=begin %>
+
   <div class="window-top">
   </div>
 <div class="content-container">
@@ -95,7 +285,10 @@
   <% end  %>
 </div>
 
+<%
+=end %>
 
+<%# ------------------------------------------- %>
 
 
 

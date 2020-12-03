@@ -11,9 +11,15 @@
   }
 }
 
+.event-show-details-box-modal {
+  p {
+    font-size: 15px;
+  }
+}
+
 .event-show-address-hour-box {
   text-align: center;
-  padding: 0px 5px;
+  padding: 0px 10px;
 }
 
 #event-address {
@@ -41,6 +47,12 @@
     background: linear-gradient(to top, #DF540B, #F9C01D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+}
+
+.event-show-timer-modal {
+  p {
+    font-size: 16px;
   }
 }
 
@@ -73,6 +85,10 @@
     font-size: 45px;
     width: 45%;
   }
+}
+
+.show-buttons-share-delete-modal {
+  margin-top: 35px;
 }
 
 

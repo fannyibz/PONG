@@ -1,6 +1,6 @@
 <% is_owner = event.user == current_user %>
 
-<div class="event-show-details-box">
+<div class="event-show-details-box event-show-details-box-modal">
   <div>
     <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
   </div>
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="mt-2">
     <%= link_to "💬", chatroom_event_path(event), class: "conversation-icon outline-none" %>
   </div>
 </div>

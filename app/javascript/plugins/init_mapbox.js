@@ -3,6 +3,9 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'; // Mapbox, searching on
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+
+  const addressInput = document.getElementById("event_address");
+
   if (!mapElement) return;
 
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -80,6 +83,12 @@ const initMapbox = () => {
         .addTo(map);
 
    });
+  }
+
+  if (addressInput) {
+    if (addressInput.value != "") {
+
+    }
   }
   // Mapbox, searching on your map
 

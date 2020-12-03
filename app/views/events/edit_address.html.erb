@@ -20,7 +20,7 @@
 
   <div class="mt-3">
     <%= simple_form_for @event, url: update_address_event_path(@event) do |f| %>
-      <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
+      <%= f.input :address, placeholder: "16 villa Gaudelet, 75010 Paris" %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
       <%#= f.input :current_latitude, wrapper_html: {class: 'd-none'} %>
       <%#= f.input :current_longitude, wrapper_html: {class: 'd-none'} %>
       <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>

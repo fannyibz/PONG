@@ -19,7 +19,7 @@ const initMapboxEventCreation = () => {
     })
     map.addControl(geolocate);
     map.on("load", function(e) {
-      geolocate.trigger();
+      // geolocate.trigger();
     })
     geolocate.on("geolocate", function(e) {
       map.flyTo({

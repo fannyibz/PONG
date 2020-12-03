@@ -16,7 +16,7 @@ class Event < ApplicationRecord
   enum status: [:incompleted, :completed, :past]
 
   EMOJI = { anything: '🤷‍♂️', drink: '🍺', movies: '🍿', sip: '🍷', eat: '🍔', coffee: '☕️', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shop: '🛍', Rrrrr: ' 🍑', fruit: '🍌', dance: '💃', party: '🎉', basket: '🏀', surf: '🏄', run: '🏃‍♂️', football: '⚽️', code: '🤓', work: '👩‍💻', geek: '🎮', play: '🎰', bowling: '🎳', camp: '⛺️', fire: '🔥', catchup: '🥤', ski: '🎿' }
-
+  attr_accessor :current_latitude, :current_longitude
   # Geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

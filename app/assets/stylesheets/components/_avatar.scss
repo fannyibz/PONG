@@ -27,6 +27,7 @@ justify-content: center;
 .avatar-friend {
   width: 100px;
   border-radius: 50%;
+  box-shadow: 2px 2px 5px black;
 }
 
 
@@ -46,6 +47,7 @@ justify-content: center;
   background-clip: padding-box; /* !importanté */
   border: solid $border transparent; /* !importanté */
   border-radius: 50px;
+  box-shadow: 2px 2px 5px black;
     &:before {
       content: '';
       position: absolute;
@@ -62,6 +64,7 @@ justify-content: center;
   height: 90px;
   object-fit: cover;
   border-radius: 50%;
+  box-shadow: 2px 2px 5px black;
 }
 
 .avatar-profile-selected {

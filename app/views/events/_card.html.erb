@@ -20,15 +20,20 @@
       </div>
     </div>
   <% end %>
+
   <% if event.user == current_user || event.event_users.find_by(user: current_user).status == "confirmed" %>
     <div class="ml-2">
       <%= link_to chatroom_event_path(event) do %>
         <p class="conversation-icon">💬</p>
       <% end %>
     </div>
-  <% else %>
+  <% elsif event.event_users.find_by(user: current_user).status == "declined"%>
     <div class="ml-2">
-      <p class="conversation-icon icon-box-empty"></p>
+      <p class="conversation-icon">❌</p>
     </div>
+  <% else %>
+  <div class="ml-2">
+    <p class="conversation-icon">🤷‍♂️</p>
+  </div>
   <% end %>
 </div>

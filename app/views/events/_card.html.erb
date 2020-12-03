@@ -1,4 +1,4 @@
-<div class="d-flex w-100 ">
+<div class="d-flex w-100">
   <%= link_to event_path(event), class: 'w-100' do %>
     <div class="event-card">
       <div class="content-center-vertical">
@@ -11,7 +11,15 @@
             <h3 class="emoji-small"><%= event.emoji %></h3>
           </div>
           <div class= text-timer-small>
-            <p><%= "started #{event.time_left}min ago" %></p>
+            <p>
+              <% if event.date_time >= DateTime.now.beginning_of_day && event.date_time < DateTime.now %>
+                <%= "started #{event.time_left}min ago" %>
+              <% elsif event.date_time >= DateTime.now.beginning_of_day && event.date_time >= DateTime.now %>
+                <%= "Starts in #{event.time_left}" %>
+              <% else %>
+                <%= "#{((Time.now - event.date_time)/86400).to_i}days ago" %>
+              <% end %>
+            </p>
           </div>
         </div>
         <div class="description-small">

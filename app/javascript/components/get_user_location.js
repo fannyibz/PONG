@@ -11,6 +11,7 @@ const getUserLocation = () => {
         .then(response => response.json())
         .then((data) => {
           addressInput.value = data.display_name;
+          console.log(data);
           console.log(data.display_name);
         });
     });

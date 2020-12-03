@@ -17,10 +17,11 @@ const getUserLocation = () => {
             address.house_number,
             address.road,
             address.postcode,
-            address.town,
+            address.town || address.city,
             address.country
           ];
           console.log(addressElements.join(' '));
+          console.log(data)
           addressInput.value = addressElements.join(' ');
         });
     });

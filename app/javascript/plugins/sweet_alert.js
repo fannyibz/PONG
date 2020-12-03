@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 // import swal from '@sweetalert/with-react';
 
 const initSweetAlert = (selector, options = {}, callback = () => {}) =>{
-  const swalButton = document.querySelector(selector);
+  const swalButton = document.querySelector('#share-my-plan');
   // event.preventDefault();
   if (swalButton) {
     swalButton.addEventListener("click", (e) => {

@@ -12,15 +12,24 @@ const initMapbox = () => {
   });
 
   const locationControl = (map) => {
-    map.addControl(
-      new mapboxgl.GeolocateControl({
+    const geolocate =  new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true
         },
         trackUserLocation: true
       })
-    );
-  };
+      map.addControl(geolocate);
+      map.on("load", function(e) {
+        geolocate.trigger();
+      })
+      // geolocate.on("geolocate", function(e) {
+      //   map.flyTo({
+      //     zoom: 12
+      //     center: [e.coords.longitude, e.coords.latitude]
+      //   });
+      // })
+    };
+
 
   const markers = JSON.parse(mapElement.dataset.markers); // Mapbox, add markers
   if (markers !== null) {

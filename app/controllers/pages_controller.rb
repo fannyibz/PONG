@@ -37,7 +37,7 @@ class PagesController < ApplicationController
         lat: event.latitude,
         lng: event.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
-        image_url: helpers.asset_url(Cloudinary::Utils.cloudinary_url(event.user.avatar.key)),
+        image_url: helpers.asset_url(Cloudinary::Utils.cloudinary_url(event.user.avatar.key, secure: true)),
         emoji: event.emoji,
         joined: event.user == current_user || event.event_users.confirmed.pluck(:user_id).include?(current_user.id),
         grey_marker: event.date_time >= DateTime.now + 2.hours

@@ -48,6 +48,7 @@
   <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
+  <%# tip: '&' permet de refacto -> current_user && current_user.user_is_host?(@event) %>
   <% if current_user&.user_is_host?(@event) %>
 
     <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>

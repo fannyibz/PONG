@@ -8,7 +8,7 @@ class EventUsersController < ApplicationController
 
   def decline
     @event_user.declined!
-    redirect_to event_path(@event_user.event)
+    redirect_to root_path
   end
 
   private

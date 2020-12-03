@@ -1,22 +1,24 @@
 <div class="content-container">
 
-  <%= link_to chatroom_event_path(@event) do %>
-    <h1 id="event-show-title">
-      <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
-    </h1>
-  <% end %>
+  <h1 id="event-show-title">
+    <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first } together!" %>
+  </h1>
 
   <%= render "events/info_event_show_box", event: @event %>
 
   <div class="event-show-timer">
-    <div class="timer">
-       <% if Time.now < @event.date_time %>
-        <%= @event.time_left %>
+    <div>
+      <% if Time.now < @event.date_time %>
+        <div class="timer">
+          <%= @event.time_left %>
+        </div>
+        <h6>Before the beginning of the event</h6>
       <% else %>
-        <%= "It's #{@event.emoji} time! " %>
+        <h1>
+          <%= "It's #{@event.emoji} time! " %>
+        </h1>
       <% end %>
     </div>
-    <h6>Before the beginning of the event</h6>
   </div>
 
   <div class="event-description-box">
@@ -134,6 +136,7 @@
     <% end %>
   <% end  %>
 </div>
+
 <%
 =end %>
 

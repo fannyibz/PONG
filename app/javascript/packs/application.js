@@ -63,10 +63,10 @@ document.addEventListener('turbolinks:load', () => {
   getOpenStatus();
   toggleButtonSharePlan();
   initSweetAlert('#share-my-plan', {
-    title: "Congratulations !",
-    text: "You've shared your plan!",
+    title: "Congratulations!",
+    text: "Your friends are gonna love it 🙌",
     icon: "success",
-    button: "See my plan on the map",
+    button: "See my event on the map 👀",
     }, (value) => {
       if (value) {
         const link = document.querySelector('#edit-friends-submit');

@@ -32,11 +32,90 @@
       <h2 class="text-white-title border-bottom">Upcoming</h2>
       <% @upcoming_events.each do |event| %>
         <%= render 'events/card', event: event %>
-        </div>
       <% end %>
     </div>
   <% end %>
 
+
+<% unless @past_events.empty? %>
+  <div class="content-guest mt-3">
+    <h2 class="text-white-title border-bottom">Past events</h2>
+      <% @past_events.each do |event| %>
+        <div class="d-flex w-100">
+          <%= link_to event_path(event), class: 'w-100' do %>
+            <div class="event-card">
+              <div class="content-center-vertical">
+                <%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %>
+              </div>
+              <div class="description-box-b mx-2">
+                <div class="name-emoji-time d-inline-flex">
+                  <div class="text-emoji-box d-flex">
+                    <p class="text-white mr-2"><%= event.user.first_name %></p>
+                    <h3 class="emoji-small"><%= event.emoji %></h3>
+                  </div>
+                  <div class= text-timer-small>
+                    <p><%= "#{((Time.now - event.date_time)/86400).to_i} days ago" %></p>
+                  </div>
+                </div>
+                <div class="description-small">
+                  <p><%= event.description %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% if event.user == current_user || event.event_users.find_by(user: current_user).status %>
+            <div class="ml-2">
+              <p class="conversation-icon">👋</p>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<%
+=begin %>
+
+UPCOMING CODE BEFORE REFACTO:
+
+        <div class="d-flex w-100">
+          <%= link_to event_path(event), class: 'w-100' do %>
+            <div class="event-card">
+              <div class="content-center-vertical">
+                <%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %>
+              </div>
+              <div class="description-box-b mx-2">
+                <div class="name-emoji-time d-inline-flex">
+                  <div class="text-emoji-box d-flex">
+                    <p class="text-white mr-2"><%= event.user.first_name %></p>
+                    <h3 class="emoji-small"><%= event.emoji %></h3>
+                  </div>
+                  <div class= text-timer-small>
+                    <p><%= "Starts in #{event.time_left}" %></p>
+                  </div>
+                </div>
+                <div class="description-small">
+                  <p><%= event.description %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% if event.user == current_user || event.event_users.find_by(user: current_user).status == "confirmed" %>
+            <div class="ml-2">
+              <%= link_to chatroom_event_path(event) do %>
+                <p class="conversation-icon">💬</p>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="ml-2">
+              <p class="conversation-icon icon-box-empty"></p>
+            </div>
+          <% end %>
+        </div>
 
 <% unless @past_events.empty? %>
   <div class="content-guest mt-3">
@@ -49,3 +128,6 @@
 
 </div>
 
+
+<%
+=end %>

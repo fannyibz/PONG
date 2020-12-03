@@ -1,15 +1,21 @@
-<div class="content-container content-when">
-  <div>
-    <div class="form-event-title">
-      <%= link_to edit_address_event_path(@event) do %>
-        <i class="fas fa-chevron-left"></i>
-      <% end %>
+<div class="content-container">
+
+  <div class="pages-title">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="back-button-title">
+        <%= link_to edit_address_event_path(@event) do %>
+          <i class="fas fa-chevron-left text-white"></i>
+        <% end %>
+      </div>
+
+      <div class="box-title">
+        <h1>When?</h1>
+      </div>
+
+      <div class="empty-box-title"></div>
     </div>
 
-    <div class="text-center mb-3">
-      <h1>When?</h1>
-      <p>Adjust day and time(ish) of the begining of your plan</p>
-    </div>
+    <p>Adjust day and time(ish) of the begining of your plan.</p>
   </div>
 
   <div class="tab-centered">

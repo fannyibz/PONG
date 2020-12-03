@@ -10,8 +10,9 @@ const getUserLocation = () => {
       fetch(url)
         .then(response => response.json())
         .then((data) => {
-          addressInput.value = data.display_name;
-          console.log(data.display_name);
+          console.log(data)
+          addressInput.value = `${data.address.road}, ${data.address.postcode}, ${data.address.city}, ${data.address.country}`;
+          console.log(addressInput.value);
         });
     });
   }

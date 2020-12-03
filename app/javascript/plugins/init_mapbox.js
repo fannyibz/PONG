@@ -3,6 +3,9 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'; // Mapbox, searching on
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+
+  const addressInput = document.getElementById("event_address");
+
   if (!mapElement) return;
 
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -20,7 +23,7 @@ const initMapbox = () => {
       })
       map.addControl(geolocate);
       map.on("load", function(e) {
-        geolocate.trigger();
+        // geolocate.trigger();
       })
       geolocate.on("geolocate", function(e) {
         map.flyTo({
@@ -76,6 +79,12 @@ const initMapbox = () => {
         .addTo(map);
 
    });
+  }
+
+  if (addressInput) {
+    if (addressInput.value != "") {
+
+    }
   }
   // Mapbox, searching on your map
 

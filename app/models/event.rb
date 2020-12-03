@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   # has_many_attached :photos à décommenter à la configu de Cloudinary
 
   validates :emoji, presence: true
-  validates :address, presence: true
+  # validates :address, presence: true
   validates :date_time, presence: true
 
   before_validation :set_attributes
@@ -38,7 +38,7 @@ class Event < ApplicationRecord
 
   def set_attributes
     self.emoji = "🍺" if self.emoji.blank?
-    self.address = "75017, Paris" if self.address.blank?
+    # self.address = "75017, Paris" if self.address.blank?
     self.description = "Click here to add more infos to your event" if self.status.blank?
     self.date_time = DateTime.now if self.date_time.blank?
     self.status = "incompleted" if self.status.blank?

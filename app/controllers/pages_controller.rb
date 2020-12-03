@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @hosted_events = policy_scope(current_user.events)
     @invited_events = policy_scope(current_user.events_as_guest)
     @events = Event.joins(:event_users)
+                   .where.not(address: nil)
                    .where(events: {user_id: current_user.id})
                    .or(Event.joins(:event_users)
                             .where(event_users: {user_id: current_user.id})

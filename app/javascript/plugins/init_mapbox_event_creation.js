@@ -19,17 +19,17 @@ const initMapboxEventCreation = () => {
     })
     map.addControl(geolocate);
     map.on("load", function(e) {
-      geolocate.trigger();
+      // geolocate.trigger();
     })
     geolocate.on("geolocate", function(e) {
       map.flyTo({
         zoom: 12,
         center: [e.coords.longitude, e.coords.latitude]
       });
-    const currentLatitudeInput = document.getElementById('event_current_latitude')
-    const currentLongitudeInput = document.getElementById('event_current_longitude')
-    currentLatitudeInput.value = e.coords.latitude;
-    currentLongitudeInput.value = e.coords.longitude;
+    // const currentLatitudeInput = document.getElementById('event_current_latitude')
+    // const currentLongitudeInput = document.getElementById('event_current_longitude')
+    // currentLatitudeInput.value = e.coords.latitude;
+    // currentLongitudeInput.value = e.coords.longitude;
     })
   };
 

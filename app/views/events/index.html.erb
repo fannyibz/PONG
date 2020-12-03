@@ -68,11 +68,13 @@
               <p class="conversation-icon">👋</p>
             </div>
           <% end %>
+
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
+
 
 
 <%
@@ -114,6 +116,18 @@ UPCOMING CODE BEFORE REFACTO:
             </div>
           <% end %>
         </div>
+
+<% unless @past_events.empty? %>
+  <div class="content-guest mt-3">
+    <h2 class="text-white-title border-bottom">Past events</h2>
+      <% @past_events.each do |event| %>
+        <%= render 'events/card', event: event %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
 
 <%
 =end %>

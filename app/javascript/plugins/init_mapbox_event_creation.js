@@ -26,10 +26,10 @@ const initMapboxEventCreation = () => {
         zoom: 12,
         center: [e.coords.longitude, e.coords.latitude]
       });
-    const currentLatitudeInput = document.getElementById('event_current_latitude')
-    const currentLongitudeInput = document.getElementById('event_current_longitude')
-    currentLatitudeInput.value = e.coords.latitude;
-    currentLongitudeInput.value = e.coords.longitude;
+    // const currentLatitudeInput = document.getElementById('event_current_latitude')
+    // const currentLongitudeInput = document.getElementById('event_current_longitude')
+    // currentLatitudeInput.value = e.coords.latitude;
+    // currentLongitudeInput.value = e.coords.longitude;
     })
   };
 

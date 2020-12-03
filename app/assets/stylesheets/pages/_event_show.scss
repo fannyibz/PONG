@@ -6,6 +6,7 @@
   display: flex;
   font-size: 16px;
   padding: 20px 0px 0px 0px;
+  margin-bottom: 25px;
   i {
     color: $grey-paragraph;
   }
@@ -53,7 +54,7 @@ padding-top: 45px;
 }
 
 p#event-address {
-  width: 220px;
+  width: 205px;
 }
 
 .emoji-chat {
@@ -118,11 +119,3 @@ p#event-address {
     width: 10%;
     border-bottom: 3px solid white;
 }
-
-// #address-hidden {
-//   width: 211px;
-//   height: 41px;
-//   text-overflow: ellipsis;
-//   overflow: hidden;
-//   white-space: nowrap;
-// }

@@ -35,10 +35,18 @@
   </div>
 
   <div class="event-show-timer">
-    <div class="timer" id="timer-show">
-      <%= event.time_left %>
+    <div>
+      <% if Time.now < event.date_time %>
+        <div class="timer" id="timer-show">
+          <%= event.time_left %>
+        </div>
+        <h6>Before the beginning of the event</h6>
+      <% else %>
+        <h1>
+          <%= "It's #{event.emoji} time! " %>
+        </h1>
+      <% end %>
     </div>
-    <h6>Before the beginning of the event</h6>
   </div>
 
   <div class="event-description-box">

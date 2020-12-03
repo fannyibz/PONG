@@ -15,29 +15,30 @@
       <div class="empty-box-title"></div>
     </div>
 
-    <p>You forgot to add something? It's ok, no worries: that happens.</p>
+    <p>You forgot to add something? It's ok, no worries: that happens!</p>
   </div>
 
   <%= simple_form_for @event do |f| %>
-    <div class="text-center mb-3 mt-5">
+
+    <!-- <div class="text-center mb-3 mt-5">
       <h2>Change my title event</h2>
-      <p><%= "#{Event::EMOJI.find { |k, v| v == @event.emoji }.first }" %></p>
+      <p><%#= "#{Event::EMOJI.find { |k, v| v == @event.emoji }.first }" %></p>
       <%#= f.input :title %>
       <h2>Change the description</h2>
-      <%= f.label :description %>
-    </div>
+      <%#= f.label :description %>
+    </div> -->
 
-    <div class="text-center mb-3">
+    <div class="text-center mb-3 mt-4">
       <h2>Change the location</h2>
-      <p>This is visible only to your guests</p>
+      <!-- <p>This is visible only to your guests</p> -->
     </div>
 
     <%= f.input :address %> <%# dont forget to get the current location + add geocoder and lat & lgt %>
     <div id="address_coordinates" class="text-white d-flex justify-content-center"></div>
 
-    <div class="text-center mb-3">
+    <div class="text-center mt-4">
       <h2>When?</h2>
-      <p>Your plan happens around...</p>
+      <!-- <p>Your plan happens around...</p> -->
     </div>
     <!-- <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"> -->
@@ -68,9 +69,9 @@
       </div>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mt-4">
       <h2>What?</h2>
-      <p>Choose wisely your emotivent!</p>
+      <!-- <p>Choose wisely your emotivent!</p> -->
     </div>
 
     <%= f.input :emoji,
@@ -83,7 +84,7 @@
       # selected: Event::EMOJI.first,
       include_hidden: false %>
 
-    <%= f.submit "Update event", class: "button-next" %>
+    <%= f.submit "Update event", class: "button-next sticky-bottom background-grey" %>
 
   <% end %>
 <br>

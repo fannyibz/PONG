@@ -21,9 +21,11 @@ const initMapbox = () => {
         showAccuracyCircle: false
       })
       map.addControl(geolocate);
+
       // map.on("load", function(e) {
       //   geolocate.trigger();
       // })
+    
       geolocate.on("geolocate", function(e) {
         map.flyTo({
           zoom: 11,

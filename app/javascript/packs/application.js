@@ -46,6 +46,7 @@ flatpickr(".datepicker", {
 
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxEventCreation } from '../plugins/init_mapbox_event_creation';
 import { getUserLocation } from '../components/get_user_location';
 import { initSweetAlert } from '../plugins/sweet_alert';
 
@@ -65,6 +66,7 @@ getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initMapboxEventCreation();
   getUserLocation();
   initChatroomCable();
   getUserTime();

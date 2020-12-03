@@ -49,19 +49,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { getUserLocation } from '../components/get_user_location';
 import { initSweetAlert } from '../plugins/sweet_alert';
 
- initSweetAlert('#share-my-plan', {
-        title: "Congratulations !",
-        text: "You've shared your plan!",
-        icon: "success",
-        button: "See my plan on the map",
-        }, (value) => {
-          if (value) {
-            const link = document.querySelector('#edit-friends-submit');
-            link.click();
-        }
-      });
-
-getUserLocation();
+// getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -72,6 +60,17 @@ document.addEventListener('turbolinks:load', () => {
   togglePongTitle();
   getOpenStatus();
   toggleButtonSharePlan();
+  initSweetAlert('#share-my-plan', {
+    title: "Congratulations !",
+    text: "You've shared your plan!",
+    icon: "success",
+    button: "See my plan on the map",
+    }, (value) => {
+      if (value) {
+        const link = document.querySelector('#edit-friends-submit');
+        link.click();
+    }
+  });
 })
 
 

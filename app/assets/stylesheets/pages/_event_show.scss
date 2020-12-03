@@ -48,8 +48,32 @@
   outline: none;
 }
 
+.show-buttons-container{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 
+.show-buttons-edit-invitations {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    width: 45%;
+    box-shadow: 2px 2px 5px black;
+  }
+}
 
+.show-buttons-share-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  a {
+    text-align: center;
+    font-size: 45px;
+    width: 45%;
+  }
+}
 
 
 

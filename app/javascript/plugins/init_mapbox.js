@@ -19,12 +19,16 @@ const initMapbox = () => {
         positionOptions: {
           enableHighAccuracy: true
         },
-        trackUserLocation: true
+        trackUserLocation: true,
+        fitBoundsOptions: {maxZoom: 20},
+        showAccuracyCircle: false
       })
       map.addControl(geolocate);
-      map.on("load", function(e) {
-        // geolocate.trigger();
-      })
+
+      // map.on("load", function(e) {
+      //   geolocate.trigger();
+      // })
+
       geolocate.on("geolocate", function(e) {
         map.flyTo({
           zoom: 11,
@@ -98,7 +102,7 @@ const initMapbox = () => {
   const bounds = new mapboxgl.LngLatBounds();
   if (markers !== null) {
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 });
   }
   locationControl(map);
 };

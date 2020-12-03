@@ -1,5 +1,41 @@
 <% is_owner = event.user == current_user %>
 
+<div class="event-show-details-box">
+  <div>
+    <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
+  </div>
+
+  <div>
+    <div>
+      <div>
+        <% if event.date_time == DateTime.now %>
+          <p><%= event.date_time.strftime("Today at %H:%M") %></p>
+        <% else %>
+          <p><%= event.date_time.strftime("%a %d at %H:%M") %></p>
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to "💬", chatroom_event_path(event), class: "outline-none" %>
+      </div>
+    </div>
+
+    <div>
+      <% if event.address.length > 40 %>
+        <p id="event-address"><%= "#{event.address.first(30)}...#{event.address.last(15)}" %></p>
+      <% else %>
+        <p id="event-address"><%= event.address %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%
+=begin %>
+
+<% is_owner = event.user == current_user %>
+
 <div class="infos-event-show-box">
   <%= cl_image_tag event.user.avatar.key, class: "avatar-profile" %>
 
@@ -27,3 +63,6 @@
 
   </div>
 </div>
+
+<%
+=end %>

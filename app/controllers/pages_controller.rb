@@ -13,6 +13,7 @@ class PagesController < ApplicationController
                    .where(events: {user_id: current_user.id})
                    .or(Event.joins(:event_users)
                             .where(event_users: {user_id: current_user.id})
+                            .where(event_users: {status: ["pending", "confirmed"]})
                    ).distinct
                     .where("date_time >= ?", DateTime.now.beginning_of_day)
                     .where("date_time <= ?", DateTime.now.end_of_day)

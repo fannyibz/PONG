@@ -1,14 +1,12 @@
-<div class="container">
-  <div class="row mb-3">
-
+<div class="show-friends-container">
+  <div class="show-friends-box">
     <% event_users.each do |event_user| %>
       <div class="col-4">
-        <div class="emoji-avatar-friend">
+        <div class="show-emoji-friend-box">
           <div id="icone-relative"><%= EventUser::EMOJI_STATUS[event_user.status.to_sym] %></div>
           <%= cl_image_tag event_user.user.avatar.key, class: "avatar-profile" %>
         </div>
       </div>
     <% end %>
-
   </div>
 </div>

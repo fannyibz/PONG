@@ -17,7 +17,7 @@
       <div class="empty-box-title"></div>
     </div>
 
-    <p>Seems awesome, have fun guys.</p>
+    <p>Seems awesome, let's have fun guys.</p>
   </div>
 
   <%= render "events/info_event_show_box", event: @event %>
@@ -25,25 +25,17 @@
   <div class="event-show-timer">
     <div>
       <% if Time.now < @event.date_time %>
-        <div class="timer">
+        <h3 class="timer">
           <%= @event.time_left %>
-        </div>
-        <h6>Before the beginning of the event</h6>
+        </h3>
+        <p>⚡️ before the beginning of the event ⚡️</p>
       <% else %>
-        <h1>
-          <%= "It's #{@event.emoji} time! " %>
-        </h1>
+        <h4>
+          <%= "The event is ongoing, enjoy it folks!" %>
+        </h4>
       <% end %>
     </div>
   </div>
-
-  <div class="event-description-box">
-    <p class="light-p">
-      <%= "#{@event.description}"%>
-    </p>
-  </div>
-
-  <%#=  si le mec qui arrive sur la show est host j'affiche event parti %>
 
   <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
 
@@ -53,33 +45,37 @@
 
     <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
 
-    <div class="container-buttons-top-bottom">
-      <%= link_to "✍️ Edit plan", edit_event_path(@event), class: "button-next mb-2" %>
+    <div class="show-buttons-container">
+      <div class="show-buttons-edit-invitations">
+        <%= link_to "Edit plan ✍️", edit_event_path(@event), class: "button-next mb-2" %>
 
-      <% if policy(@event).destroy? %>
-        <%= link_to "Manage invitations", edit_friends_event_path(@event), class: "button-next mb-2" if policy(@event).edit_friends? %>
-        <%= link_to "Share event", root_path, class: "button-next btn-delete-grey mb-2" %>
-        <%= link_to "Delete my plan", event_path(@event), method: :delete, data: { confirm: "Are you sure?" }, class: "button-next btn-delete-grey mb-2" %>
-      <% end %>
+        <% if policy(@event).destroy? %>
+          <%= link_to "Invitations 📨", edit_friends_event_path(@event), class: "button-next mb-2" if policy(@event).edit_friends? %>
+      </div>
+      <div class="show-buttons-share-delete">
+          <%= link_to "🔗", root_path, class: "" %>
+          <%= link_to "🗑", event_path(@event), method: :delete, data: { confirm: "Are you sure to delete your event?" }, class: "" %>
+      </div>
+        <% end %>
     </div>
 
   <%# IF CURRENT_USER IS A PARTNER OR A VISITOR %>
   <% else  %>
 
     <% if current_user && @event.event_users.find_by(user: current_user).status == "confirmed" %>
-      <%= link_to "Share link", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
-      <%= link_to "Invite a friend", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
+      <%#= link_to "Share link", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
+      <%#= link_to "Invite a friend", event_path(@event), class: "button-next" if @event.event_users.find_by(user: current_user).role == "partner" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
-      <%= link_to "Change my mind 😱", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next mb-2" %>
+      <%= link_to "Change my mind 😱", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next mb-4 mt-5" %>
 
     <% elsif current_user && @event.event_users.find_by(user: current_user).status == "pending" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
-      <%= link_to "Join 👊", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2" %>
-      <%= link_to "Plouf 💦", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next btn-plouf" %>
+      <%= link_to "Join 👊", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2 mt-5" %>
+      <%= link_to "Plouf 💦", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next btn-plouf mb-4" %>
 
     <% else %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
-      <%= link_to "Change my mind", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next mb-2" %>
+      <%= link_to "Change my mind", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next mb-4 mt-5" %>
     <% end %>
   <% end  %>
 </div>

@@ -1,44 +1,29 @@
-.friends-box {
+.show-friends-container {
+  margin-top: 10px;
+}
+
+.show-friends-box {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 
-.emoji-avatar-friend {
-  margin-right: 3px;
-}
-
-
-.emoji-avatar-friend {
-  .avatar-profile {
-    position: relative;
-    margin: 5px 0px 5px 0px;
-  }
+.show-emoji-friend-box .avatar-profile {
+  position: relative;
+  margin-top: 20px;
 }
 
 #icone-relative  {
   position: absolute;
-  right: 3px;
-  top: 74px;
+  right: 9px;
+  top: 82px;
   z-index: 1;
-  // background-color: #353434;
-  // box-shadow: 1px 1px 1px #353434;
-  padding: 2px 2px 2px 6px;
-  border-radius: 19px;
-  height: 20px;
-  width: 20px;
+  font-size: 23px;
 }
 
-
-// .friends-box img {
-//   position: absolute;
-// }
-
-// .friends-box p {
-//   position: relative;
-//   top: 35px; // WHY IS IT WORK WITH TOP AND NOT BOTTOM?
-//   z-index: 5;
-//   font-size: 20px;
-// }
+// position: absolute;
+// right: 1px;
+// top: 88px;
+// z-index: 1;
+// font-size: 23px;

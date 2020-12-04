@@ -30,6 +30,9 @@
   font-size: 29px;
   border: none;
   margin-top: 5px;
+  &:focus, &:active {
+    outline: none;
+  }
 }
 
 // BUBBLE OF OTHER USERS -----------------------------
@@ -68,6 +71,7 @@
     background-color: #cccccc;
     margin-left: auto;
     position: relative;
+    margin-right: 10px;
     p {
     color: black;
     font-weight: bold;

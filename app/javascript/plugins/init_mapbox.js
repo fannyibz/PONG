@@ -102,7 +102,7 @@ const initMapbox = () => {
   const bounds = new mapboxgl.LngLatBounds();
   if (markers !== null) {
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 });
+    map.fitBounds(bounds, { padding: 70, maxZoom: 11, duration: 0 });
   }
   locationControl(map);
 };

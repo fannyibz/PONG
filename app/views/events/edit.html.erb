@@ -83,9 +83,9 @@
       item_wrapper_class: :radio,
       # selected: Event::EMOJI.first,
       include_hidden: false %>
-
-    <%= f.submit "Update event", class: "button-next sticky-bottom background-grey" %>
+    <div class="background-grey fixed-bottom">
+      <%= f.submit "Update event", class: "button-next" %>
+    </div>
 
   <% end %>
-<br>
 </div>

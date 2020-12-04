@@ -92,14 +92,14 @@ florence.save!
 
 puts "#{florence.first_name} created!"
 
-# Sebastien
-sebastien = User.new(first_name: 'Sebastien', last_name: 'Chauve', email: "sebastien@gmail.com", password: "123456")
+# dimitri
+dimitri = User.new(first_name: 'Dimitri', last_name: 'Bosch', email: "dimitri@gmail.com", password: "123456")
 
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1558950804/lxpghuy9ljoa9mcwrrby.jpg")
-sebastien.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-sebastien.save!
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1523284008/vewklncjschzufwaixd6.jpg")
+dimitri.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+dimitri.save!
 
-puts "#{sebastien.first_name} created!"
+puts "#{dimitri.first_name} created!"
 
 # Julien
 julien = User.new(first_name: 'Julien', last_name: 'Da Silva', email: "julien@gmail.com", password: "123456")
@@ -110,14 +110,14 @@ julien.save!
 
 puts "#{julien.first_name} created!"
 
-# Edouard
-edouard = User.new(first_name: 'Edouard', last_name: 'Foussier', email: "edouard@gmail.com", password: "123456")
+# thomas
+thomas = User.new(first_name: 'Thomas', last_name: 'Desmoulins', email: "thomas@gmail.com", password: "123456")
 
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1535710792/jwfoxmnm29vxuny3vmxi.jpg")
-edouard.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-edouard.save!
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1585588520/j0m6tlufeayghsj1uqdv.jpg")
+thomas.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
+thomas.save!
 
-puts "#{edouard.first_name} created!"
+puts "#{thomas.first_name} created!"
 
 # Maximin
 maximin = User.new(first_name: 'Maximin', last_name: 'D’audiffret', email: "maximin@gmail.com", password: "123456")
@@ -186,13 +186,13 @@ friendship14.save!
 friendship15 = Friendship.new(user: hadrien, friend: florence, status: "approved")
 friendship15.save!
 
-friendship37 = Friendship.new(user: hadrien, friend: sebastien, status: "approved")
+friendship37 = Friendship.new(user: hadrien, friend: dimitri, status: "approved")
 friendship37.save!
 
 friendship38 = Friendship.new(user: hadrien, friend: julien, status: "approved")
 friendship38.save!
 
-friendship39 = Friendship.new(user: hadrien, friend: edouard, status: "approved")
+friendship39 = Friendship.new(user: hadrien, friend: thomas, status: "approved")
 friendship39.save!
 
 friendship58 = Friendship.new(user: hadrien, friend: maximin, status: "approved")
@@ -233,13 +233,13 @@ friendship17.save!
 friendship18 = Friendship.new(user: fanny, friend: florence, status: "approved")
 friendship18.save!
 
-friendship40 = Friendship.new(user: fanny, friend: sebastien, status: "approved")
+friendship40 = Friendship.new(user: fanny, friend: dimitri, status: "approved")
 friendship40.save!
 
 friendship41 = Friendship.new(user: fanny, friend: julien, status: "approved")
 friendship41.save!
 
-friendship42 = Friendship.new(user: fanny, friend: edouard, status: "approved")
+friendship42 = Friendship.new(user: fanny, friend: thomas, status: "approved")
 friendship42.save!
 
 friendship59 = Friendship.new(user: fanny, friend: maximin, status: "approved")
@@ -280,13 +280,13 @@ friendship20.save!
 friendship21 = Friendship.new(user: raphael, friend: florence, status: "approved")
 friendship21.save!
 
-friendship44 = Friendship.new(user: raphael, friend: sebastien, status: "approved")
+friendship44 = Friendship.new(user: raphael, friend: dimitri, status: "approved")
 friendship44.save!
 
 friendship45 = Friendship.new(user: raphael, friend: julien, status: "approved")
 friendship45.save!
 
-friendship46 = Friendship.new(user: raphael, friend: edouard, status: "approved")
+friendship46 = Friendship.new(user: raphael, friend: thomas, status: "approved")
 friendship46.save!
 
 friendship60 = Friendship.new(user: raphael, friend: maximin, status: "approved")
@@ -327,13 +327,13 @@ friendship23.save!
 friendship24 = Friendship.new(user: magali, friend: florence, status: "approved")
 friendship24.save!
 
-friendship47 = Friendship.new(user: magali, friend: sebastien, status: "approved")
+friendship47 = Friendship.new(user: magali, friend: dimitri, status: "approved")
 friendship47.save!
 
 friendship48 = Friendship.new(user: magali, friend: julien, status: "approved")
 friendship48.save!
 
-friendship49 = Friendship.new(user: magali, friend: edouard, status: "approved")
+friendship49 = Friendship.new(user: magali, friend: thomas, status: "approved")
 friendship49.save!
 
 friendship61 = Friendship.new(user: magali, friend: maximin, status: "approved")
@@ -374,13 +374,13 @@ friendship29.save!
 friendship30 = Friendship.new(user: benjamin, friend: florence, status: "approved")
 friendship30.save!
 
-friendship50 = Friendship.new(user: benjamin, friend: sebastien, status: "approved")
+friendship50 = Friendship.new(user: benjamin, friend: dimitri, status: "approved")
 friendship50.save!
 
 friendship51 = Friendship.new(user: benjamin, friend: julien, status: "approved")
 friendship51.save!
 
-friendship52 = Friendship.new(user: benjamin, friend: edouard, status: "approved")
+friendship52 = Friendship.new(user: benjamin, friend: thomas, status: "approved")
 friendship52.save!
 
 friendship62 = Friendship.new(user: benjamin, friend: maximin, status: "approved")
@@ -393,10 +393,10 @@ puts "> Creating events..."
 
 event1 = Event.new(emoji: "🤓",
                    address: "16 Villa Gaudelet, Paris",
-                   date_time: DateTime.now,
+                   date_time: DateTime.now + 1.hours,
                    description: "Let's do some more coding!",
                    open: false,
-                   user: julien,
+                   user: thomas,
                    status: "completed" )
 event1.save!
 
@@ -410,10 +410,10 @@ EventUser.create!(event: event1, user: joanna, status: "confirmed", role: "visit
 
 EventUser.create!(event: event1, user: magali, status: "declined", role: "visitor")
 
-event2 = Event.new(emoji: "🍔",
+event2 = Event.new(emoji: "🧘‍♀️",
                    address: "130 rue saint-denis, Paris",
                    date_time: DateTime.now + 2.hours,
-                   description: "I'm veryyyy hungry!",
+                   description: "Namaste!!!!!!?",
                    open: true,
                    user: fanny,
                    status: "completed" )
@@ -421,7 +421,7 @@ event2 = Event.new(emoji: "🍔",
 EventUser.create!(event: event2, user: chiara, status: "confirmed", role: "partner")
 EventUser.create!(event: event2, user: hadrien, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: magali, status: "confirmed", role: "partner")
-EventUser.create!(event: event2, user: edouard, status: "pending", role: "partner")
+EventUser.create!(event: event2, user: thomas, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: nicolas, status: "declined", role: "partner")
 EventUser.create!(event: event2, user: florence, status: "pending", role: "partner")
 EventUser.create!(event: event2, user: raphael, status: "declined", role: "partner")
@@ -429,6 +429,31 @@ EventUser.create!(event: event2, user: nicolas2, status: "confirmed", role: "par
 
 puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
 
+event3 = Event.new(emoji: "🍑",
+                   address: "1 rue de Harlay, Paris",
+                   date_time: DateTime.now + 5.hours,
+                   description: "...?",
+                   open: true,
+                   user: julien,
+                   status: "completed" )
 
+EventUser.create!(event: event3, user: hadrien, status: "pending", role: "visitor")
 
+event3.save!
+
+puts "#{event3.emoji}, hosted by #{event3.user.first_name} created!"
+
+event4 = Event.new(emoji: "🍌",
+                   address: "16 villa Gaudelet, Paris",
+                   date_time: DateTime.now + 30.hours,
+                   description: "banana party...!",
+                   open: true,
+                   user: dimitri,
+                   status: "completed" )
+
+EventUser.create!(event: event4, user: hadrien, status: "pending", role: "visitor")
+
+event4.save!
+
+puts "#{event4.emoji}, hosted by #{event4.user.first_name} created!"
 

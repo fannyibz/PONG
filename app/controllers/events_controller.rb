@@ -76,7 +76,10 @@ class EventsController < ApplicationController
 
   def edit_friends
     # @friends = current_user.friendships.where(status: "approved")
-    @friends = current_user.friendships.where(status: "approved").map { |friendship| User.find(friendship.friend_id) }
+    @friends = current_user.friendships
+                           .where(status: "approved")
+                           .order(favorite: :desc)
+                           .map { |friendship| User.find(friendship.friend_id) }
   end
 
   def update_friends

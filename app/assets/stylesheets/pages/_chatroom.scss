@@ -7,6 +7,31 @@
   text-align: center;
 }
 
+.background-grey-chat {
+  display: flex;
+  background: $bg-dark;
+  margin: 0px 0px 15px 0px;
+  width: 100%;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.message_content {
+  flex-grow: 1;
+  margin: 0;
+  input {
+    border-radius: 25px;
+  }
+}
+
+.paper-plane {
+  background: none;
+  color: white;
+  font-size: 29px;
+  border: none;
+  margin-top: 5px;
+}
+
 // BUBBLE OF OTHER USERS -----------------------------
 
 .message-container {

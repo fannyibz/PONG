@@ -1,5 +1,9 @@
 <!-- <div class="avatar-list"> -->
   <div class=" avatar-box avatar-friend-selected m-1">
+
     <%= cl_image_tag user.avatar.key, class: 'avatar-friend' %>
+    <% if current_user.friendships.where(favorite: true, friend: user).exists? %>
+      <i class="fas fa-star text-linear-gradient" id="favorite-star"></i>
+    <% end %>
   </div>
 <!-- </div> -->

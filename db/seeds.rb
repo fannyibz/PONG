@@ -429,7 +429,7 @@ EventUser.create!(event: event2, user: nicolas2, status: "confirmed", role: "par
 
 puts "#{event2.emoji}, hosted by #{event2.user.first_name} created!"
 
-event3 = Event.new(emoji: "🍑",
+event3 = Event.new(emoji: " 🍑",
                    address: "1 rue de Harlay, Paris",
                    date_time: DateTime.now + 5.hours,
                    description: "...?",

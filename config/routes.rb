@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, 
-    controllers: { registrations: 'registrations' },
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+devise_scope :user do
   root to: 'pages#home'
+end
+
   get :components, to: 'pages#components'
   get 'dashboard', to: 'pages#dashboard'
   get 'users_list', to: 'pages#users_list'

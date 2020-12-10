@@ -65,14 +65,14 @@ magali.save!
 
 puts "#{magali.first_name} created!"
 
-# Benjamin
-benjamin = User.new(first_name: 'Benjamin', last_name: 'Barbier', email: "benjamin@gmail.com", password: "123456")
+# Tristan
+tristan = User.new(first_name: 'Tristan', last_name: 'Simon', email: "tristan@gmail.com", password: "123456")
 
-file = URI.open("https://avatars1.githubusercontent.com/u/67894778?v=4.jpg")
+file = URI.open("https://avatars1.githubusercontent.com/u/67312400?v=4.jpg")
 benjamin.avatar.attach(io: file, filename: "avatar", content_type: "image/jpg")
-benjamin.save!
+tristan.save!
 
-puts "#{benjamin.first_name} created!"
+puts "#{tristan.first_name} created!"
 
 # Joanna
 joanna = User.new(first_name: 'Joanna', last_name: 'Chaillou', email: "joanna@gmail.com", password: "123456")

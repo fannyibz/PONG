@@ -11,26 +11,57 @@
     font-family: 'Comfortaa', cursive;
     letter-spacing: 0.15rem;
   }
-  #new_user {
-    margin-top: 30px;
-    position: relative;
-  }
   label {
     color: white;
   }
-  .user_remember_me {
-    margin-top: 30px;
-    label {
-      color: #ababab;
-    }
+}
+
+#new_user {
+  margin-top: 60px;
+  position: relative;
+  a {
+    color: #ababab;
+    font-size: 13px;
   }
+}
+
+.user_password {
+  margin: 0;
+}
+
+.user_remember_me {
+  margin-top: 30px;
+  label {
+    color: #ababab;
+  }
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 5px;
   p {
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    text-align: center;
     color: #c1c1c1;
     font-size: 14px;
-    margin-bottom: 5px;
+  }
+}
+
+.toolbox-sign-in {
+  margin-top: 30px;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+  a {
+    text-decoration: underline;
+    margin-left: 5px;
   }
 }

@@ -1,4 +1,4 @@
-<div class="login-container-page content-container" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= image_path 'login.jpg' %>')">
+<div class="login-container-page content-container" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path 'login.jpg' %>')">
   <h1>PONG</h1>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -12,6 +12,9 @@
                   required: false,
                   placeholder: "••••••••",
                   input_html: { autocomplete: "current-password" } %>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <% end %>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
@@ -20,9 +23,11 @@
     </div>
   <% end %>
 
-  <div class="text-center">
+  <div class="toolbox-sign-in">
     <%= render "devise/shared/links" %>
   </div>
 
-  <p>© 2021 PONG, Inc. All rights reserved</p>
+  <div class="copyright">
+    <p>© 2021 PONG, Inc. All rights reserved</p>
+  </div>
 </div>

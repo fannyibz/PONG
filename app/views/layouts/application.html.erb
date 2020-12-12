@@ -44,7 +44,7 @@
     <div class="page-container">
       <%= yield %>
     </div>
-    <% unless controller_name == "events" && ( action_name == "edit_what" || action_name == "edit_address" || action_name == "edit_when" || action_name == "edit_friends" || action_name == "edit") %>
+    <% unless !user_signed_in? || controller_name == "events" && ( action_name == "edit_what" || action_name == "edit_address" || action_name == "edit_when" || action_name == "edit_friends" || action_name == "edit") %>
       <%= render 'shared/navbar' %>
     <% end %>
   </body>

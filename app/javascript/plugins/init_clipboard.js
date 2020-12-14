@@ -1,34 +1,29 @@
 const initClipboard = () => {
   const buttonShareLink = document.getElementById("share-link");
-  const markerAvatar = document.querySelector(".marker");
-  const buttonShareLinkModal = document.getElementById("share-link-modal");
-
+  
   if (buttonShareLink) {
-    buttonShareLink.addEventListener("click", (event) => {
-      event.preventDefault();
-
+    buttonShareLink.addEventListener("click", () => {
       const url = document.querySelector("meta[property='og:url']").getAttribute("content");
       navigator.clipboard.writeText(url);
     });
   }
-
-  // if (markerAvatar) {
-  //   markerAvatar.addEventListener("click", () => {
-  //     buttonShareLinkModal.addEventListener("click", () => {
-  //       console.log("test");
-  //       console.log("salut je m'appelle Maaaaaag");
-  //       const idShowModal = document.getElementById("event-show-title");
-  //       console.log(idShowModal);
-  //     });
-  //   });
-  // }
   
+  const markerAvatar = document.querySelector(".marker");
   
-  // buttonShareLinkModal.addEventListener("click", (event) => {
-    // const url = document.querySelector("meta[property='og:url']").getAttribute("content");
-    // navigator.clipboard.writeText(url);
-    // });
-  };
+  if (markerAvatar) {
+    markerAvatar.addEventListener("click", () => {
+      setTimeout(function () {
+        const idShowModal = document.getElementById("url-show-hidden").innerText;
+        console.log(idShowModal);
+        const buttonShareLinkModal = document.getElementById("share-link-modal");
   
-  export { initClipboard };
+        buttonShareLinkModal.addEventListener("click", () => {
+          const url = `${document.querySelector("meta[property='og:url']").getAttribute("content")}events/${idShowModal}`;
+          navigator.clipboard.writeText(url);
+          });
+      }, 100);
+    });
+  }
+};
   
+export { initClipboard };

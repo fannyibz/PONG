@@ -39,6 +39,8 @@
     </div>
   </div>
 
+  <div id="url-show-hidden" class="d-none"><%= event.id %></div>
+
   <%# DISPLAY FRIENDS FOR WHO THEY'RE JOINING THE EVENT %>
 
   <%# IF CURRENT_USER IS THE EVENT HOST %>
@@ -55,7 +57,7 @@
           <%= link_to "Invitations 📨", edit_friends_event_path(event), class: "button-next mb-2" if policy(event).edit_friends? %>
       </div>
       <div class="show-buttons-share-delete show-buttons-share-delete-modal">
-          <%= link_to "🔗", root_path, class: "" %>
+          <p id="share-link-modal">🔗</p>
           <%= link_to "🗑", event_path(event), method: :delete, data: { confirm: "Are you sure to delete your event?" }, class: "" %>
       </div>
         <% end %>

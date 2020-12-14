@@ -41,10 +41,12 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <div class="page-container">
+    <% unless !user_signed_in? %>
+      <div class="page-container">
+    <% end %>
       <%= yield %>
     </div>
-    <% unless controller_name == "events" && ( action_name == "edit_what" || action_name == "edit_address" || action_name == "edit_when" || action_name == "edit_friends" || action_name == "edit") %>
+    <% unless !user_signed_in? || controller_name == "events" && ( action_name == "edit_what" || action_name == "edit_address" || action_name == "edit_when" || action_name == "edit_friends" || action_name == "edit") %>
       <%= render 'shared/navbar' %>
     <% end %>
   </body>

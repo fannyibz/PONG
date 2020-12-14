@@ -188,3 +188,18 @@
   background: $bg-dark;
   font-size: 18px;
 }
+
+.btn-login {
+  background: linear-gradient(to top, #DF540B, #F9C01D);
+  width: 80px;
+  margin-top: 30px;
+  border: 1px solid black;
+  border-radius: 3px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  input {
+    color: black;
+  }
+}

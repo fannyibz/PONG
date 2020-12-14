@@ -1,0 +1,67 @@
+.login-container-page {
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  h1 {
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(to top, #DF540B, #F9C01D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Comfortaa', cursive;
+    letter-spacing: 0.15rem;
+  }
+  label {
+    color: white;
+  }
+}
+
+#new_user {
+  margin-top: 60px;
+  position: relative;
+  a {
+    color: #ababab;
+    font-size: 13px;
+  }
+}
+
+.user_password {
+  margin: 0;
+}
+
+.user_remember_me {
+  margin-top: 20px;
+  label {
+    color: #ababab;
+  }
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 5px;
+  p {
+    color: #c1c1c1;
+    font-size: 14px;
+  }
+}
+
+.toolbox-sign-in {
+  margin-top: 60px;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  a {
+    text-decoration: underline;
+    margin-left: 5px;
+  }
+}

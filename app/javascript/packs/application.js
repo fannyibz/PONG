@@ -50,6 +50,7 @@ import { initMapboxEventCreation } from '../plugins/init_mapbox_event_creation';
 import { getUserLocation } from '../components/get_user_location';
 import { initSweetAlert } from '../plugins/sweet_alert';
 import "controllers"
+import { initClipboard } from '../plugins/init_clipboard';
 // getUserLocation();
 
 document.addEventListener('turbolinks:load', () => {
@@ -61,6 +62,7 @@ document.addEventListener('turbolinks:load', () => {
   toggleButtonNext();
   togglePongTitle();
   getOpenStatus();
+  initClipboard();
   toggleButtonSharePlan();
   initSweetAlert('#share-my-plan', {
     title: "Congratulations!",

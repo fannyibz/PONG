@@ -23,12 +23,21 @@
     <%= render 'shared/ios_pwa_links' %>
 
     <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="<%= meta_title %>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:image" content="<%= meta_image %>" />
-    <meta property="og:description" content="<%= meta_description %>" />
-    <meta property="og:site_name" content="<%= meta_title %>" />
+    <% if controller_name == "events" && action_name == "show" %>
+      <meta property="og:title" content="<%= @event.emoji %>" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="<%= request.original_url %>" />
+      <meta property="og:image" content="<%= meta_image %>" />
+      <meta property="og:description" content="<%= @event.description %>" />
+      <meta property="og:site_name" content="<%= meta_title %>" />
+    <% else %>
+      <meta property="og:title" content="<%= meta_title %>" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="<%= request.original_url %>" />
+      <meta property="og:image" content="<%= meta_image %>" />
+      <meta property="og:description" content="<%= meta_description %>" />
+      <meta property="og:site_name" content="<%= meta_title %>" />
+    <% end %>
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">

@@ -53,7 +53,7 @@
           <%= link_to "Invitations 📨", edit_friends_event_path(@event), class: "button-next mb-2" if policy(@event).edit_friends? %>
       </div>
       <div class="show-buttons-share-delete">
-          <%= link_to "🔗", root_path, class: "" %>
+          <p id="share-link">🔗</p>
           <%= link_to "🗑", event_path(@event), method: :delete, data: { confirm: "Are you sure to delete your event?" }, class: "" %>
       </div>
         <% end %>
@@ -73,9 +73,11 @@
       <%= link_to "Join 👊", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2 mt-5" %>
       <%= link_to "Plouf 💦", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next btn-plouf mb-4" %>
 
-    <% else %>
+    <% elsif current_user && @event.event_users.find_by(user: current_user).status == "decline" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
       <%= link_to "Change my mind", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next mb-4 mt-5" %>
+    <% else %>
+       <%= link_to "Sign up to answer", new_user_session_path, class: "button-next mb-4 mt-5" %>
     <% end %>
   <% end  %>
 </div>

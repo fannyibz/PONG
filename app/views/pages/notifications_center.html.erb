@@ -1,0 +1,18 @@
+  <% @users.each do |user| %>
+    <% if current_user.get_friendship(user)&.status == 'pending' %>
+      <div  class="container_notif" id="container<%=user.id%>">
+      <p class="mt-4"><%= user.first_name %></p><%= user.id %>
+      <% if user.avatar.attached? %>
+        <%= cl_image_tag user.avatar.key, class: 'avatar-profile' %>
+      <% end %>
+
+      <% if current_user.get_friendship(user).friend == current_user %>
+        <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post, remote: true, class: "button-medium" %>
+      <% else %>
+        <div class= "btn-delete-grey">
+          <p>pending</p>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  <%end%>

@@ -25,3 +25,32 @@
 .mapboxgl-ctrl-geocoder {
   width: 395px !important;
 }
+
+.notifications_center {
+  margin-top: 1vh;
+  margin-left: 1vh;
+  position: absolute;
+  z-index: 5;
+  width: 15%;
+  height: 7.5%;
+  background-image: url(https://res.cloudinary.com/dtadudbob/image/upload/v1607959328/logo_copy_h7xc6b.png);
+  background-size: cover;
+  #link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .notifications_icon_display {
+    position: absolute;
+    margin-left: 35px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #b91c1c linear-gradient(180deg, #610d0d 0%, rgba(0, 0, 0, 0) 25%);
+    div {
+      text-align: center;
+      color: white;
+      font-size: 10px;
+    }
+  }
+}

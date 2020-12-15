@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :components
-
+  before_action :users, only: [:home, :users_list, :notifications_center]
+  before_action :events_all, only: [:home, :users_list, :notifications_center]
+  before_action :pending_friends, only: [:home, :notifications_center]
+  before_action :pending_events, only: [:home, :notifications_center]
+  before_action :notifications_counter, only: [:home, :notifications_center]
+  
+  
   def components
     authorize(:page, :components?)
   end
@@ -56,10 +62,50 @@ class PagesController < ApplicationController
 
   def users_list
     authorize(:page, :users_list?)
+  end
+
+  def notifications_center
+    authorize(:page, :notifications_center?)
+    @events = Event.all
+  end
+
+  private
+
+  def users
     @users = User.all.except{ |user| user == current_user }
   end
-end
 
-# 'cl_image_tag event.user.avatar.key'
-# participant: event. nb de participants
-# event_user.status = joining
+  def events_all
+    if current_user
+      @events_user = Event.joins(:event_users)
+                              .where(event_users: {user_id: current_user.id})
+                              .where(event_users: {status: ["pending", "confirmed"]})
+    end
+  end
+
+  def pending_friends
+    @pending_friendships = @users.select do |user|
+      if current_user
+        current_user.get_friendship(user)&.status == 'pending'
+      end 
+    end
+  end
+  
+  def pending_events
+    if current_user
+      @events_user = Event.joins(:event_users)
+                              .where(event_users: {user_id: current_user.id})
+                              .where(event_users: {status: ["pending"]})
+    end
+  end
+
+  def notifications_counter
+    if current_user
+      @notifications_counter = @pending_friendships.count + @events_user.count
+      respond_to do |format|
+        format.html
+        format.json { render json: { notifications_counter: @notifications_counter } }
+      end
+    end
+  end
+end

@@ -20,14 +20,14 @@ const initMapbox = () => {
           enableHighAccuracy: true
         },
         trackUserLocation: true,
-        fitBoundsOptions: {maxZoom: 20},
-        showAccuracyCircle: false
+        // fitBoundsOptions: {maxZoom: 20},
+        // showAccuracyCircle: false
       })
       map.addControl(geolocate);
 
-      // map.on("load", function(e) {
-      //   geolocate.trigger();
-      // })
+      map.on("load", function(e) {
+        geolocate.trigger();
+      })
 
       geolocate.on("geolocate", function(e) {
         map.flyTo({

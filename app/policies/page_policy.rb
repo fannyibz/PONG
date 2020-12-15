@@ -21,4 +21,8 @@ class PagePolicy < ApplicationPolicy
   def dashboard?
     true
   end
+
+  def notifications_center?
+    true
+  end
 end

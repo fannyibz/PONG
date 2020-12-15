@@ -31,7 +31,15 @@ const initClipboard = () => {
           buttonShareLinkModal.addEventListener("click", () => {
             const url = `${document.querySelector("meta[property='og:url']").getAttribute("content")}events/${idShowModal}`;
             navigator.clipboard.writeText(url);
+            swal ({
+              title: "Link copied !",
+              // text: "Your link has been copied",
+              icon: "success",
+              button: false,
+              className: "copy-link-swal",
+              timer: 1500,
             });
+          });
         }, 100);
       });
     });

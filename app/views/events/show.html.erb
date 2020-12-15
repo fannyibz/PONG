@@ -73,9 +73,11 @@
       <%= link_to "Join 👊", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next btn-join mb-2 mt-5" %>
       <%= link_to "Plouf 💦", decline_event_user_path(@event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" }, class: "button-next btn-plouf mb-4" %>
 
-    <% else %>
+    <% elsif current_user && @event.event_users.find_by(user: current_user).status == "decline" %>
       <%= render "events/event_users_list.html.erb", event_users: @event.event_users.order_by_status %>
       <%= link_to "Change my mind", confirm_event_user_path(@event.event_users.find_by(user: current_user)), class: "button-next mb-4 mt-5" %>
+    <% else %>
+       <%= link_to "Sign up to answer", new_user_session_path, class: "button-next mb-4 mt-5" %>
     <% end %>
   <% end  %>
 </div>

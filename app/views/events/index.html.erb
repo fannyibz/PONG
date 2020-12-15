@@ -9,18 +9,18 @@
       </div>
 
       <div class="box-title">
-        <h1>My events</h1>
+        <h1>My plans</h1>
       </div>
 
       <div class="empty-box-title"></div>
     </div>
 
-    <p>Your ongoing events, your upcoming and even those passed.</p>
+    <p>All the moments you're about to share with your kind ones.</p>
   </div>
 
   <% unless @ongoing_events.empty? %>
     <div class="content-guest">
-      <h2 class="text-white-title border-bottom">Ongoing</h2>
+      <h2 class="text-white-title border-bottom">Ongoing now</h2>
       <% @ongoing_events.each do |event| %>
         <%= render 'events/card', event: event %>
       <% end %>
@@ -29,8 +29,17 @@
 
   <% unless @upcoming_events.empty? %>
     <div class="content-guest mt-3">
-      <h2 class="text-white-title border-bottom">Upcoming</h2>
+      <h2 class="text-white-title border-bottom">Upcoming today</h2>
       <% @upcoming_events.each do |event| %>
+        <%= render 'events/card', event: event %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% unless @later_events.empty? %>
+    <div class="content-guest mt-3">
+      <h2 class="text-white-title border-bottom">Later this week</h2>
+      <% @later_events.each do |event| %>
         <%= render 'events/card', event: event %>
       <% end %>
     </div>

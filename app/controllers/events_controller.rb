@@ -11,10 +11,18 @@ class EventsController < ApplicationController
                    .or(Event.joins(:event_users)
                             .where(event_users: {user_id: current_user.id})
                    ).distinct.order(:date_time)
+
     @past_events = @events.where("date_time < ?", DateTime.now.beginning_of_day)
+
     @ongoing_events = @events.where("date_time >= ?", DateTime.now.beginning_of_day)
                              .where("date_time < ?", DateTime.now)
+
     @upcoming_events = @events.where("date_time >= ?", DateTime.now.beginning_of_day)
+                             .where("date_time >= ?", DateTime.now) &&
+                       @events.where("date_time < ?", DateTime.now.end_of_day)
+                             .where("date_time >= ?", DateTime.now)
+
+    @later_events = @events.where("date_time >= ?", DateTime.now.end_of_day)
                              .where("date_time >= ?", DateTime.now)
     # @today_events = policy_scope()
   end

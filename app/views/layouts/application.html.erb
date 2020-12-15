@@ -24,7 +24,7 @@
 
     <!-- Facebook Open Graph data -->
     <% if controller_name == "events" && action_name == "show" %>
-      <meta property="og:title" content="<%= meta_title %>" />
+      <meta property="og:title" content="<%= @event.emoji %>" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="<%= request.original_url %>" />
       <meta property="og:image" content="<%= meta_image %>" />

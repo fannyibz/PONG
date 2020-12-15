@@ -1,11 +1,16 @@
 <div class="map-container position-relative">
-
   <div class="background-shadow position-absolute"></div>
-
   <div id="pong-title" class="position-absolute">
     <h1>PONG</h1>
   </div>
-
+  <div class="notifications_center">
+    <%= link_to "" , notifications_center_path, id: "link"%>
+  <% if @pending_friendships != nil %>
+    <div class=notifications_icon_display>
+     <div data-controller="counter"><span data-counter-target="count"><%= @notifications_counter %></span ></div>
+    </div>
+  <% end %>
+  </div>
   <div class="position-absolute button-wrapper">
     <div class="gradient-box">
       <%= link_to "Share my plan" , events_path, method: :post, class: "text-button" %>
@@ -18,3 +23,4 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
+

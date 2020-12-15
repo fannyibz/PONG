@@ -9,6 +9,7 @@ end
   get :components, to: 'pages#components'
   get 'dashboard', to: 'pages#dashboard'
   get 'users_list', to: 'pages#users_list'
+  get 'notifications_center', to: 'pages#notifications_center'
 
   resources :event_users, only: [] do
     member do

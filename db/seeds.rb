@@ -175,7 +175,7 @@ friendship2.save!
 friendship3 = Friendship.new(user: hadrien, friend: magali, status: "approved")
 friendship3.save!
 
-friendship13 = Friendship.new(user: hadrien, friend: tristan, status: "approved")
+friendship13 = Friendship.new(user: hadrien, friend: tristan, status: "pending")
 friendship13.save!
 
 friendship14 = Friendship.new(user: hadrien, friend: joanna, status: "approved")
@@ -222,7 +222,7 @@ friendship5.save!
 friendship6 = Friendship.new(user: fanny, friend: magali, status: "approved")
 friendship6.save!
 
-friendship16 = Friendship.new(user: fanny, friend: tristan, status: "approved")
+friendship16 = Friendship.new(user: fanny, friend: tristan, status: "pending")
 friendship16.save!
 
 friendship17 = Friendship.new(user: fanny, friend: joanna, status: "approved")
@@ -269,7 +269,7 @@ friendship8.save!
 friendship9 = Friendship.new(user: raphael, friend: magali, status: "approved")
 friendship9.save!
 
-friendship19 = Friendship.new(user: raphael, friend: tristan, status: "approved")
+friendship19 = Friendship.new(user: raphael, friend: tristan, status: "pending")
 friendship19.save!
 
 friendship20 = Friendship.new(user: raphael, friend: joanna, status: "approved")
@@ -316,7 +316,7 @@ friendship11.save!
 friendship12 = Friendship.new(user: magali, friend: raphael, status: "approved")
 friendship12.save!
 
-friendship22 = Friendship.new(user: magali, friend: tristan, status: "approved")
+friendship22 = Friendship.new(user: magali, friend: tristan, status: "pending")
 friendship22.save!
 
 friendship23 = Friendship.new(user: magali, friend: joanna, status: "approved")
@@ -350,42 +350,6 @@ friendship89 = Friendship.new(user: magali, friend: gael)
 friendship89.save!
 
 puts "#{magali.first_name} is friend with #{hadrien.first_name} etc!"
-
-friendship_g10 = Friendship.new(user: tristan, friend: skeasy, status: "approved")
-friendship_g10.save!
-
-friendship25 = Friendship.new(user: tristan, friend: fanny, status: "approved")
-friendship25.save!
-
-friendship26 = Friendship.new(user: tristan, friend: raphael, status: "approved")
-friendship26.save!
-
-friendship27 = Friendship.new(user: tristan, friend: magali, status: "approved")
-friendship27.save!
-
-friendship28 = Friendship.new(user: tristan, friend: hadrien, status: "approved")
-friendship28.save!
-
-friendship29 = Friendship.new(user: tristan, friend: joanna, status: "approved")
-friendship29.save!
-
-friendship30 = Friendship.new(user: tristan, friend: florence, status: "approved")
-friendship30.save!
-
-friendship50 = Friendship.new(user: tristan, friend: dimitri, status: "approved")
-friendship50.save!
-
-friendship51 = Friendship.new(user: tristan, friend: julien, status: "approved")
-friendship51.save!
-
-friendship52 = Friendship.new(user: tristan, friend: thomas, status: "approved")
-friendship52.save!
-
-friendship62 = Friendship.new(user: tristan, friend: maximin, status: "approved")
-friendship62.save!
-
-puts "#{tristan.first_name} is friend with #{fanny.first_name} etc!"
-
 
 puts "> Creating events..."
 

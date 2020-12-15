@@ -12,8 +12,7 @@ class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_one_attached :avatar
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, presence: true
 
   def friends
     User.where(id: self.friendships.pluck(:friend_id))

@@ -24,7 +24,7 @@
 
     <!-- Facebook Open Graph data -->
     <% if controller_name == "events" && action_name == "show" %>
-      <meta property="og:title" content="<%= cl_image_tag @event.user.avatar.key, class: 'avatar-small'} %> <%= "invites you to #{Event::EMOJI.find { |k, v| v == @event.emoji }.first} #{@event.emoji}" %>" />
+      <meta property="og:title" content="<%= "#{@event.user.first_name} #{@event.user.last_name} invites you to #{Event::EMOJI.find { |k, v| v == @event.emoji }.first} #{@event.emoji}" %>" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="<%= request.original_url %>" />
       <meta property="og:image" content="<%= meta_image %>" />

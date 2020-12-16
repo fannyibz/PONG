@@ -13,9 +13,9 @@
           <div class= text-timer-small>
             <p>
               <% if event.date_time >= DateTime.now.beginning_of_day && event.date_time < DateTime.now %>
-                <%= "started #{event.time_left}min ago" %>
+                <%= "started #{event.time_left} min ago" %>
               <% elsif event.date_time >= DateTime.now.beginning_of_day && event.date_time >= DateTime.now %>
-                <%= "Starts in #{event.time_left}" %>
+                <%= "starts at #{event.time_left}" %>
               <% else %>
                 <%= "#{((Time.now - event.date_time)/86400).to_i}days ago" %>
               <% end %>

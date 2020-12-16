@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  attr_accessor :friends
+  attr_accessor :friends, :current_latitude, :current_longitude
 
   belongs_to :user
   has_many :event_users, dependent: :destroy
@@ -15,9 +15,9 @@ class Event < ApplicationRecord
   before_validation :set_attributes
 
   enum status: [:incompleted, :completed, :past]
-
+  
   EMOJI = { anything: '🤷‍♂️', drink: '🍺', movies: '🍿', sip: '🍷', eat: '🍔', coffee: '☕️', sushis: '🍣', gym: '🏋️‍♂️', yoga: '🧘‍♀️', shop: '🛍', Rrrrr: ' 🍑', fruit: '🍌', dance: '💃', party: '🎉', basket: '🏀', surf: '🏄', run: '🏃‍♂️', football: '⚽️', code: '🤓', work: '👩‍💻', geek: '🎮', play: '🎰', bowling: '🎳', camp: '⛺️', fire: '🔥', catchup: '🥤', ski: '🎿' }
-  attr_accessor :current_latitude, :current_longitude
+
   # Geocoding
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -40,7 +40,7 @@ class Event < ApplicationRecord
   def set_attributes
     # self.emoji = "🍺" if self.emoji.blank?
     # self.address = "75017, Paris" if self.address.blank?
-    self.description = "Communicate through the chat about the event" if self.status.blank?
+    self.description = "No description yet" if self.status.blank?
     self.date_time = DateTime.now if self.date_time.blank?
     self.status = "incompleted" if self.status.blank?
   end

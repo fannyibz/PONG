@@ -25,9 +25,13 @@ const initMapbox = () => {
       })
       map.addControl(geolocate);
 
-      map.on("load", function(e) {
-        geolocate.trigger();
-      })
+      // Les 3 lignes ci-dessous gèrent le clic automatique sur l'icône de géoloc
+
+      // map.on("load", function(e) {
+      //   geolocate.trigger();
+      // })
+
+      // Les 6 lignes ci-dessous gèrent le fly-to current user location
 
       geolocate.on("geolocate", function(e) {
         map.flyTo({

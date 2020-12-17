@@ -35,12 +35,14 @@
         <h4>
           <%= " #{((@event.date_time - Time.now) / 84600).round} day(s) before the beginning of the event" %>
         </h4>
-
       <%# L'event commence dans moins de 24h %>
       <% elsif Time.now < @event.date_time %>
-        <h3 class="timer">
-          <%= @event.time_left %>
-        </h3>
+        <h3 class="timer"></h3>
+        <%# Time.now - @event.date_time %>
+
+        <%# <h3 class="timer"> %>
+          <%#= @event.time_left %>
+        <%# </h3> %>
 
       <%# L'event est terminé (8h après son début) %>
       <% else %>

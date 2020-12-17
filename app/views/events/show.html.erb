@@ -29,9 +29,13 @@
           <%= @event.time_left %>
         </h3>
         <p>⚡️ before the beginning of the event ⚡️</p>
-      <% else %>
+      <% elsif Time.now > @event.date_time && %>
         <h4>
           <%= "The event is ongoing, enjoy it folks!" %>
+        </h4>
+      <% else %>
+        <h4>
+          <%= "The event is now finished..." %>
         </h4>
       <% end %>
     </div>
@@ -81,6 +85,7 @@
     <% end %>
   <% end  %>
 </div>
+
 
 <%
 =begin %>
@@ -155,5 +160,3 @@
 
 <%
 =end %>
-
-

@@ -13,7 +13,7 @@
           <%= "#{@event.emoji} Let's #{Event::EMOJI.find { |k, v| v == @event.emoji }.first }!" %>
         </h1>
       </div>
-
+      
       <div class="empty-box-title"></div>
     </div>
 
@@ -29,7 +29,7 @@
           <%= @event.time_left %>
         </h3>
         <p>⚡️ before the beginning of the event ⚡️</p>
-      <% elsif Time.now > @event.date_time && %>
+      <% elsif Time.now > @event.date_time && Time.now < @event.date_time + (8 * 3600) %>
         <h4>
           <%= "The event is ongoing, enjoy it folks!" %>
         </h4>

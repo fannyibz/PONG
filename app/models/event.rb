@@ -24,15 +24,19 @@ class Event < ApplicationRecord
 
   def time_left
     seconds_diff = (Time.now - date_time).to_i.abs
-    # Calculate the hours lefts
+
+    # Calculate the hours left
     hours = seconds_diff / 3600
     seconds_diff -= hours * 3600
 
-    # Calculate the minutes lefts
+    # Calculate the minutes left
     minutes = seconds_diff / 60
 
+    # Calculate the seconds left
+    seconds = seconds_diff % 60
+
     # Return a nice string that display time left format: hh:mm
-    "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}"
+    "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
   end
 
   private

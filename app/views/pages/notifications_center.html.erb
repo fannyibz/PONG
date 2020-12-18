@@ -1,18 +1,19 @@
-  <% @users.each do |user| %>
-    <% if current_user.get_friendship(user)&.status == 'pending' %>
-      <div  class="container_notif" id="container<%=user.id%>">
-      <p class="mt-4"><%= user.first_name %></p><%= user.id %>
-      <% if user.avatar.attached? %>
+<% @pending_friendships.each do |user| %>
+  <div  class="container_notif">
+    <p class="mt-4"><%= user.first_name %></p><%= user.id %>
+    <% if user.avatar.attached? %>
         <%= cl_image_tag user.avatar.key, class: 'avatar-profile' %>
-      <% end %>
-
-      <% if current_user.get_friendship(user).friend == current_user %>
-        <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post, remote: true, class: "button-medium" %>
-      <% else %>
-        <div class= "btn-delete-grey">
-          <p>pending</p>
-        </div>
-      <% end %>
     <% end %>
-    </div>
-  <%end%>
+    <%= link_to 'Accept', friendship_acceptances_path(invitor_id: user.id), method: :post, class: "button-medium" %>
+  </div>
+<%end%>
+
+<% @pending_events.each do |event| %>
+  <div  class="container_notif">
+    <%= cl_image_tag event.user.avatar.key, class: 'avatar-small' %>
+    <%= event.user.first_name %>
+    <%= event.emoji %>
+    <%= link_to "Join 👊", confirm_event_user_path(event.event_users.find_by(user: current_user)) %>
+    <%= link_to "Plouf 💦", decline_event_user_path(event.event_users.find_by(user: current_user)), data: { confirm: "Are you sure to decline the event?" } %>
+  </div>
+<%end%>

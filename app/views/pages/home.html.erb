@@ -5,11 +5,11 @@
   </div>
   <div class="notifications_center">
     <%= link_to "" , notifications_center_path, id: "link"%>
-  <% if @pending_friendships != nil %>
-    <div class=notifications_icon_display>
-     <div data-controller="counter"><span data-counter-target="count"><%= @notifications_counter %></span ></div>
-    </div>
-  <% end %>
+      <div class="notifications_icon display" 
+      data-controller="counter" 
+      data-counter-url-value="/"  data-counter-refresh-interval-value="2000" style="visibility: hidden">
+          <%= @notifications_counter %>
+      </div>
   </div>
   <div class="position-absolute button-wrapper">
     <div class="gradient-box">
@@ -23,4 +23,3 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-

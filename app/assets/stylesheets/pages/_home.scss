@@ -40,17 +40,27 @@
     width: 100%;
     height: 100%;
   }
-  .notifications_icon_display {
+  .display {
     position: absolute;
     margin-left: 35px;
     border-radius: 50%;
     width: 15px;
     height: 15px;
     background: #b91c1c linear-gradient(180deg, #610d0d 0%, rgba(0, 0, 0, 0) 25%);
-    div {
-      text-align: center;
-      color: white;
-      font-size: 10px;
-    }
+    text-align: center;
+    color: white;
+    font-size: 10px;
+  }
+  .notif_effect {
+    animation: bounce 0.5s ;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
   }
 }
+  
+@keyframes bounce{
+ 0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+

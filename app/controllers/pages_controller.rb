@@ -72,7 +72,7 @@ class PagesController < ApplicationController
   private
 
   def users
-    @users = User.all.except{ |user| user == current_user }
+    @users = User.all.select { |user| user != current_user }
   end
 
   def events_all
@@ -84,16 +84,19 @@ class PagesController < ApplicationController
   end
 
   def pending_friends
-    @pending_friendships = @users.select do |user|
+    @friendships_users = @users.select do |user|
       if current_user
-        current_user.get_friendship(user)&.status == 'pending'
-      end 
+          current_user.get_friendship(user)&.status == 'pending' 
+      end
+    end
+    @pending_friendships = @friendships_users.select do |user|
+      current_user.get_friendship(user).friend == current_user
     end
   end
   
   def pending_events
     if current_user
-      @events_user = Event.joins(:event_users)
+      @pending_events = Event.joins(:event_users)
                               .where(event_users: {user_id: current_user.id})
                               .where(event_users: {status: ["pending"]})
     end
@@ -101,7 +104,7 @@ class PagesController < ApplicationController
 
   def notifications_counter
     if current_user
-      @notifications_counter = @pending_friendships.count + @events_user.count
+      @notifications_counter = @pending_friendships.count + @pending_events.count
       respond_to do |format|
         format.html
         format.json { render json: { notifications_counter: @notifications_counter } }

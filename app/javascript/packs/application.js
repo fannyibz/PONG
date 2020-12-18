@@ -48,6 +48,7 @@ flatpickr(".datepicker", {
 import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxEventCreation } from '../plugins/init_mapbox_event_creation';
 import { getUserLocation } from '../components/get_user_location';
+import { dynamicCountdown } from '../components/dynamic_countdown';
 import { initSweetAlert } from '../plugins/sweet_alert';
 import "controllers"
 import { initClipboard } from '../plugins/init_clipboard';
@@ -62,6 +63,7 @@ document.addEventListener('turbolinks:load', () => {
   toggleButtonNext();
   togglePongTitle();
   getOpenStatus();
+  dynamicCountdown();
   initClipboard();
   toggleButtonSharePlan();
   initSweetAlert('#share-my-plan', {

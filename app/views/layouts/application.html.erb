@@ -27,7 +27,8 @@
       <meta property="og:title" content="<%= "#{@event.user.first_name} #{@event.user.last_name} invites you to #{Event::EMOJI.find { |k, v| v == @event.emoji }.first} #{@event.emoji}" %>" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="<%= request.original_url %>" />
-      <meta property="og:image" content="<%= "#{@event.emoji}.jpg" %>" />
+      <meta property="og:image" content="<%= meta_image %>" />
+      <%# <meta property="og:image" content="= image_path "#{@event.emoji}.jpg"" /> %>
       <meta property="og:description" content="<%= @event.description %>" />
       <meta property="og:site_name" content="<%= meta_title %>" />
     <% else %>

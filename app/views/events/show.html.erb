@@ -38,8 +38,7 @@
 
       <%# L'event commence dans moins de 24h %>
       <% elsif Time.now < @event.date_time %>
-        <h3 class="timer">
-          <%= @event.time_left %>
+        <h3 class="timer" data-event-date='<%= @event.date_time %>'>
         </h3>
 
       <%# L'event est terminé (8h après son début) %>

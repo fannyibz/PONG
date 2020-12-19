@@ -26,14 +26,27 @@
 
   <div class="event-show-timer event-show-timer-modal">
     <div>
-      <% if Time.now < event.date_time %>
-        <h3 class="timer">
-          <%= event.time_left %>
-        </h3>
-        <p>⚡️ before the beginning of the event ⚡️</p>
-      <% else %>
+      <%# L'event est en cours et ça fait moins de 8h qu'il a débuté %>
+      <% if Time.now > event.date_time && Time.now < event.date_time + (8 * 3600) %>
         <h4>
           <%= "The event is ongoing, enjoy it folks!" %>
+        </h4>
+
+      <%# L'event commence dans 1 jour ou plus  %>
+      <% elsif Time.now + 86400 < event.date_time %>
+        <h4>
+          <%= " #{((event.date_time - Time.now) / 84600).round} day(s) before the beginning of the event" %>
+        </h4>
+
+      <%# L'event commence dans moins de 24h %>
+      <% elsif Time.now < event.date_time %>
+        <h3 class="timer" data-event-date='<%= event.date_time %>'>
+        </h3>
+
+      <%# L'event est terminé (8h après son début) %>
+      <% else %>
+        <h4>
+          <%= "The event is now finished..." %>
         </h4>
       <% end %>
     </div>

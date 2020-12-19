@@ -25,22 +25,23 @@ const initClipboard = () => {
       marker.addEventListener("click", () => {
         setTimeout(function () {
           const idShowModal = document.getElementById("url-show-hidden").innerText;
-          console.log(idShowModal);
           const buttonShareLinkModal = document.getElementById("share-link-modal");
 
-          buttonShareLinkModal.addEventListener("click", () => {
-            const url = `${document.querySelector("meta[property='og:url']").getAttribute("content")}events/${idShowModal}`;
-            navigator.clipboard.writeText(url);
-            swal ({
-              title: "Link copied !",
-              // text: "Your link has been copied",
-              icon: "success",
-              button: false,
-              className: "copy-link-swal",
-              timer: 1500,
+          if (buttonShareLinkModal) {
+            buttonShareLinkModal.addEventListener("click", () => {
+              const url = `${document.querySelector("meta[property='og:url']").getAttribute("content")}events/${idShowModal}`;
+              navigator.clipboard.writeText(url);
+              swal ({
+                title: "Link copied !",
+                // text: "Your link has been copied",
+                icon: "success",
+                button: false,
+                className: "copy-link-swal",
+                timer: 1500,
+              });
             });
-          });
-        }, 100);
+          }
+        }, 1000);
       });
     });
   }

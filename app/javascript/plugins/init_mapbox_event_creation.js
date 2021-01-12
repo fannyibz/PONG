@@ -7,7 +7,7 @@ const initMapboxEventCreation = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
     container: 'mapEventCreation',
-    style: 'mapbox://styles/hahahadrien/ckhvtwp2f083919p5pg8jfyxa'
+    style: 'mapbox://styles/fannyibz/ckjtvswmr0qkc19ncx03wrp2z'
   });
 
   const locationControl = (map) => {
@@ -20,16 +20,18 @@ const initMapboxEventCreation = () => {
     map.addControl(geolocate);
     map.on("load", function(e) {
       geolocate.trigger();
+      console.log("hello");
     })
     geolocate.on("geolocate", function(e) {
       map.flyTo({
         zoom: 12,
         center: [e.coords.longitude, e.coords.latitude]
       });
-    // const currentLatitudeInput = document.getElementById('event_current_latitude')
-    // const currentLongitudeInput = document.getElementById('event_current_longitude')
-    // currentLatitudeInput.value = e.coords.latitude;
-    // currentLongitudeInput.value = e.coords.longitude;
+      console.log("hello");
+      // const currentLatitudeInput = document.getElementById('event_current_latitude')
+      // const currentLongitudeInput = document.getElementById('event_current_longitude')
+      // currentLatitudeInput.value = e.coords.latitude;
+      // currentLongitudeInput.value = e.coords.longitude;
     })
   };
 
